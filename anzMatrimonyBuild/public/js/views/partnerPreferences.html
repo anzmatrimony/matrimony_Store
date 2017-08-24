@@ -1,0 +1,608 @@
+<div class="oj-panel row stylebody">
+     
+         <h1 class="heading" align="center"> Partner Preferences</h1>
+        
+</div>    
+<div id="navlistdemo">
+        <div class="oj-flex oj-panel stylebody">
+          
+        <div class="oj-flex-item oj-ms-12 oj-md-2 styleforpartner">
+            <div style="max-width:150px">
+                <div  aria-label="Choose a navigation item" data-bind="ojComponent:{
+                        component: 'ojNavigationList',
+                        drillMode: 'none',
+                        selection: selectedItem,
+                        data: dataSource,
+                        item: { template: 'note_template' }
+                                                         }">
+                </div>
+            </div>
+        </div>  
+        <div class="oj-flex-item oj-md-10">
+          
+   <div id="invitations" style="display: initial" data-bind="visible: show">           
+     <div id="form-container" class="oj-panel stylebody">   
+    <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >
+<!--        <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+        </div>-->
+       
+        <div class="oj-flex-item">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline">
+            <h4 class="heading">Basic</h4>
+
+    <!-- Age Start-->
+    <div class="oj-flex">
+         
+        <div class="oj-flex-item">
+            <label for="ageinputfrom1" style="padding-right: 50px;">Age:</label>
+        </div>
+        <div class="oj-flex-item">
+            
+            <select id="ageinputfrom1" data-bind="foreach: Ageselectdata,value: selectedFromAge"  style="width: 114px;height: 30px;">
+                <option data-bind="value: id, text: age"></option>
+            </select>
+        <label for="ageinputto">To</label>
+        <select id="ageinputto" data-bind="foreach: Ageselectdata,value: selectedToAge"  style="width: 114px;height: 30px;">
+            <option data-bind="value: age, text: age"></option>
+        </select>
+            </div>
+    </div>
+           
+    <!-- Age End-->
+   
+    <!-- Height Start-->
+        
+    <div class="oj-flex">
+         
+        <div class="oj-flex-item">
+            <label for="heightinputfrom" style="padding-right: 50px;">Height:</label>
+        </div>
+        <div class="oj-flex-item">
+            <select id="heightinputfrom" data-bind="foreach: HeightData,value: selectedFromHeight"  style="width: 114px;height: 30px;">
+                <option data-bind="value: height, text: height"></option>
+            </select>
+            
+        <label for="heightinputto">To</label>
+        <select id="heightinputto" data-bind="foreach: HeightData,value: selectedToHeight"  style="width: 114px;height: 30px;">
+            <option data-bind="value: height, text: height"></option>
+        </select>
+<!--        <input id="heightinputto" list="HeightData"
+            data-bind="ojComponent: {component: 'ojSelect',value: selectedToHeight,placeholder:'- To -',rootAttributes: {
+                                         style:'max-width:1%'}}">
+        <datalist id="HeightData" data-bind="foreach: HeightData">
+            <option data-bind="value:height, text:height"></option>
+        </datalist>-->
+            </div>
+    </div>
+            
+            <!-- Height End-->
+            <!--Martial status start-->
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="Maritalinput" style="padding-right: 20px;">Marital status:</label>
+            </div>
+                <div class="oj-flex-item">
+<!--                    <select id="Maritalinput" data-bind="foreach: maritalData,value: selectedMaritalStatus"  style="width: 250px;height: 30px;">
+                        <option data-bind="value: id, text: mstatus"></option>
+                    </select>-->
+                    <select class="form-control" id="Maritalinput" style="width: 250px;height: 30px;">
+                            <option value="">Select Marital Status</option>
+                        </select>
+                </div>
+        </div>
+            <!--Martial status end -->
+              <!--Religion start-->
+        <div class="oj-flex"> 
+        <div class="oj-flex-item">
+            <label for="Religioninput" style="padding-right: 40px;">Religion:</label>
+        </div>
+        <div class="oj-flex-item">
+            <select id="Religioninput" data-bind="foreach: religionselect,value: selectedReligion"  style="width: 250px;height: 30px;">
+                <option data-bind="value: religion, text: religion"></option>
+            </select>
+        </div>
+      </div>
+            <!--Religion End-->
+            <!--Community start -->
+                <div class="oj-flex"> 
+        <div class="oj-flex-item">
+            <label for="Communityinput" style="padding-right: 40px;">Community:</label>
+        </div>
+        <div class="oj-flex-item">
+            <select id="Communityinput" data-bind="foreach: communitysel,value: selectedCommunity"  style="width: 250px;height: 30px;">
+                <option data-bind="value: community, text: community"></option>
+            </select>
+        </div>
+      </div>        
+             <!--Community End -->
+             <!-- Sub Community start -->
+             
+        <div class="oj-flex" > 
+            <div class="oj-flex-item">
+                <label for="inputsub" style="padding-right: 50px;">Sub Community : </label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="inputsub" data-bind="value: enteredSubCommunity,"  style="width: 246px;height: 25px;">
+           
+<!--                <input id="inputsub"                      
+                      data-bind="ojComponent: {
+                        component: 'ojInputText', 
+                        value: enteredSubCommunity,
+                        placeholder: 'Enter Sub Community',
+                        validators: [{
+                        type: 'regExp', 
+                        options: {
+                        pattern: '[a-zA-Z ]*', 
+                        messageDetail: 'Enter your subcommunity'}}]}">-->
+            </div>
+      </div>
+             <!-- Sub Community End -->
+               <!--Mother Tongue Start-->
+             
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="MotherTongueinput" style="padding-right: 30px;">Mother Tongue:</label>
+             </div>
+        <div class="oj-flex-item">
+            <select id="MotherTongueinput"data-bind="foreach: laguageData,value: selectedMotherTongue"  style="width: 250px;height: 30px;">
+               
+                <option data-bind="value: language, text: language"></option>
+            </select>
+<!--            <select id="MotherTongueinput"
+          data-bind="ojComponent: {component: 'ojSelect',
+                                   options: laguageData,
+                                   value: selectedMotherTongue
+                                  }"></select>-->
+            
+        </div>
+      </div>
+             <!--Mother Tongue End-->
+        </div>
+    </div>
+        <div class="oj-flex-item oj-flex">  
+            <div class="oj-flex-item"> 
+                <button  id="toLocation" type="button"  
+                        data-bind="click: nextStep2,
+                        ojComponent: {
+                          component: 'ojButton',                          
+                          label: 'Save&Continue',
+                          icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                </button>
+            </div>
+            <div class="oj-flex-item"> 
+                <button  type="button"  
+                    data-bind="click: saveAndCloseData,
+                      ojComponent: {
+                        component: 'ojButton',                          
+                        label: 'Save&Close',
+                        icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                </button>
+            </div>
+            <div class="oj-flex-item"> 
+               <button style="vertical-align: top" type="button"  
+                    data-bind="click: CancelData,
+                      ojComponent: {
+                        component: 'ojButton',                          
+                        label: 'Cancel',
+                        icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+          </button>
+       </div>
+    </div>        
+    </div>
+        
+        </div>
+        
+    </div>
+                    
+    <div class="oj-flex" id="accepeted" style="display: none" data-bind="visible: show1">
+       <div id="form-container-2" class="oj-panel stylebody">   
+    <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >
+<!--        <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+        </div>-->
+        <div class="oj-flex-item">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline"> 
+            <h4 class="heading">Location</h4>
+        <!-- Country Living In Start -->
+                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="Countryinput" style="padding-right: 50px;">Country Living In:</label>
+            </div>
+        <div class="oj-flex-item">
+          <select id="Countryinput" data-bind="foreach: countryData,value: selectedCountryLivingIn"  style="width: 250px;height: 30px;">
+                <option data-bind="value: country, text: country"></option>
+            </select>            
+        </div>
+      </div>
+                
+        <!--- Country Living In End -->
+                
+        <!-- State Living In Start -->
+                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="Stateinput" style="padding-right: 50px;">State Living In:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="Stateinput" data-bind="foreach: stateData,value: selectedStateLivingIn"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: state, text: state"></option>
+                </select>
+            </div>
+        </div>
+    
+        <!-- State Living In End -->
+        <!-- Native Place  Start-->
+                
+       <div class="oj-flex">       
+           <div class="oj-flex-item">
+                <label for="Stateinput" id="name" style="padding-right: 50px;">NativePlace:</label>
+            </div>
+            <div class="oj-flex-item">
+                <textarea id="nativePlace" 
+                 type="text"  rows="3" 
+                 data-bind="ojComponent: {component: 'ojInputText',
+                          placeholder: 'enter your native place',
+                               value: entredNativePlace, 
+                               validators: [{
+                                 type: 'regExp', 
+                                 options: {
+                                   pattern: '[a-zA-Z0-9 ]*', 
+                                   messageDetail: 'Incorrect Value'}}],
+                           rootAttributes:{style:'max-width:18em'}}"></textarea>
+    </div>
+        </div>
+    
+        <!-- Native Place  End -->
+        <!-- Origin Country  In Start -->
+                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="originCountry" style="padding-right: 50px;">Origin Country:</label>
+            </div>
+        <div class="oj-flex-item">
+          <select id="originCountry" placeholder="select Origin Country"data-bind="foreach: countryData,value: OriginCountryIn"  style="width: 250px;height: 30px;">
+                <option data-bind="value: country, text: country"></option>
+            </select>            
+        </div>
+      </div>
+                
+        <!---Origin Country In End 
+        
+        <!-- Origin State  In Start -->
+                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="originState" style="padding-right: 50px;">Origin State:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="originState" place data-bind="foreach: ostateData,value: OriginStateIn"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: state, text: state"></option>
+                </select>
+            </div>
+        </div>
+    
+        <!-- Origin State In End -->
+                <!--  city/District Start -->
+                
+<!--        <div class="oj-flex"> 
+            <div id="Districtinput" class="oj-flex-item">
+                <label for="Districtinput" style="padding-right: 50px;">City/ District:</label>
+            </div>
+            <div class="oj-flex-item">
+              <select id="Districtinput" 
+                      placeholder="select City/ District"
+                      data-bind="ojComponent: {
+                        component: 'ojSelect',                      
+                        multiple: false, 
+                        value: selectedCity,
+                        placeholder: 'select your city'}">
+                                
+
+                        <option value="" label="Doesn't Matter">Doesn't Matter</option>
+                        <optgroup id="nearest_city-optgroup-India-Andhra-Pradesh" label="India-Andhra Pradesh">
+                        <option value="India:Andhra Pradesh:Anantapur" label="Anantapur">Anantapur</option>
+                        <option value="India:Andhra Pradesh:Chittoor" label="Chittoor">Chittoor</option>
+                        <option value="India:Andhra Pradesh:Cuddapah / Kadapa" label="Cuddapah / Kadapa">Cuddapah / Kadapa</option>
+                        <option value="India:Andhra Pradesh:Godavari" label="Godavari">Godavari</option>
+                        <option value="India:Andhra Pradesh:Guntur" label="Guntur">Guntur</option>
+                        <option value="Hyderabad" label="Hyderabad">Hyderabad</option>
+                        <option value="India:Andhra Pradesh:Krishna" label="Krishna">Krishna</option>
+                        <option value="India:Andhra Pradesh:Kurnool" label="Kurnool">Kurnool</option>
+                        <option value="India:Andhra Pradesh:Nellore" label="Nellore">Nellore</option>
+                        <option value="India:Andhra Pradesh:Prakasam" label="Prakasam">Prakasam</option>
+                        <option value="India:Andhra Pradesh:Srikakulam" label="Srikakulam">Srikakulam</option>
+                        <option value="India:Andhra Pradesh:Visakhapatnam" label="Visakhapatnam">Visakhapatnam</option>
+                        <option value="India:Andhra Pradesh:Vizianagaram" label="Vizianagaram">Vizianagaram</option>
+                        </optgroup>
+              </select>
+        </div>
+      </div>-->
+                <!-- City/District End -->
+            
+        </div>
+        </div>
+        <div class="oj-flex-item oj-flex">  
+                     <div class="oj-flex-item"> 
+                         <button  id="toEducation" type="button"  
+                       data-bind="click: nextStep3,
+                         ojComponent: {
+                           component: 'ojButton',
+                           label: 'Save&Continue',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                 </div>
+                <div class="oj-flex-item"> 
+                    <button  type="button"  
+                       data-bind="click: saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Save&Close',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>  
+                </div>
+                <div class="oj-flex-item"> 
+                    <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>     
+                </div>  
+            </div>
+    </div>
+        </div>
+    </div>
+                   
+           
+    <div class="container" id="sent" style="display: none" data-bind="visible: show2">
+       <div id="form-container-3" class="oj-panel stylebody">   
+    <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >
+<!--        <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+        </div>-->
+        <div class="oj-flex-item">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline"> 
+            <h4 class="heading">Education & Profession</h4>
+             <!-- Education And Profession Details Start -->
+            
+           <!-- Education Start -->
+                    
+        <div  class="oj-flex" > 
+            <div class="oj-flex-item">
+                <label for="Educationinput" style="padding-right: 50px;">Education:</label>
+            </div>
+            <div class="oj-flex-item">                
+                <select id="Educationinput" placeholder="Enter your Education" data-bind="foreach: educationData,value: selectedEducation"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: education, text: education"></option>
+                </select>
+                <div data-bind="visible: educationinputOther">
+                    <input id="inputEdu" placeholder="Enter your Education" data-bind="value: enteredEducation,"  style="width: 246px;height: 25px;">
+                    
+                </div>
+            </div>
+      </div>
+                
+                <!-- Education End -->
+                
+                <!-- Working With Start -->
+                
+                    <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="Workinginput" style="padding-right: 50px;">Working with:</label>
+            </div>
+            <div  class="oj-flex-item">
+                <select id="Workinginput" data-bind="foreach: worktypeData,value: selectedWorkingWith"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: working_type, text: working_type"></option>
+                </select>
+                 <div data-bind="visible: workinginputOther">
+                    <input id="inputWork" placeholder="Enter Working with" data-bind="value: enteredWork,"  style="width: 246px;height: 25px;">
+                </div>
+        </div>
+      </div>
+                
+                <!-- Working with End -->
+                
+                <!-- Profession Area start -->
+                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="Professioninput" style="padding-right: 50px;">Profession Area:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="Professioninput" data-bind="foreach: professionData,value: selectedProfessionArea"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: profession, text: profession"></option>
+                </select>
+                <div data-bind="visible: professioninputOther">
+                    <input  placeholder="Enter Porfession" data-bind="value: enteredPorfession,"  style="width: 246px;height: 25px;">
+                </div>
+        </div>
+      </div>
+                
+                <!-- Profession Area End -->
+                
+                <!-- Annual Income Start -->
+                
+       <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="Incomeinput" style="padding-right: 67px;">Annual Income:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="Incomeinput" data-bind="foreach: incomeData,value: selectedProfessionArea"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: id, text: annual_income"></option>
+                </select>
+            </div>
+        </div>
+        
+                
+                <!-- Annual Income End -->
+            
+            <!-- Education And Profession Details End -->
+        </div>
+        </div>
+            <div class="oj-flex-item oj-flex">  
+                     <div class="oj-flex-item"> 
+                         <button  id="toOthers" type="button"  
+                       data-bind="click: nextStep4,
+                         ojComponent: {
+                           component: 'ojButton',
+                           label: 'Save&Continue',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                 </div>
+                     <div class="oj-flex-item"> 
+
+                         <button  type="button"  
+                       data-bind="click: saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Save&Close',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                   </div>
+                      <div class="oj-flex-item"> 
+
+
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                
+                
+            </div>
+    </div>
+           
+        </div>
+    </div>
+    <div class="container" id="rejected" style="display: none" data-bind="visible: show3">
+        <div id="form-containe-4" class="oj-panel stylebody">   
+    <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >
+<!--        <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+        </div>-->
+        <div class="oj-flex-item">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline">  
+            <h4 class="heading">Other Details</h4>
+              <!--  Other Details Start  -->
+    
+                <!-- Profile Created By Start -->
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="profileinput" style="padding-right: 50px;">Profile Created By:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="profileinput" data-bind="foreach: createdData,value: selectedProfileCreatedBy"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: profileCreatedBy, text: profileCreatedBy"></option>
+                </select>
+            </div>
+        </div>
+
+                <!-- Profile Created By End -->
+                
+                
+                  <!-- Skin Type Start -->
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="skiniput" style="padding-right: 50px;">Skin Type:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="skiniput" data-bind="foreach: skintoneData,value: selectedSkinType"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: skintone, text: skintone"></option>
+                </select>
+            </div>
+        </div>
+                  <!-- Skin Type Start -->
+                
+                <!-- Diet Start -->
+                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="dietinput" style="padding-right: 50px;">Diet:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="dietinput" data-bind="foreach: dietData,value: selectedDiet"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: diet, text: diet"></option>
+                </select>
+            </div>
+        </div>
+                 <!-- Diet End -->
+                  <!-- Drink start -->                
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="drinkinput" style="padding-right: 50px;">Drink:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="drinkinput" data-bind="foreach: drinkData,value: selectedDrink"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: drink, text: drink"></option>
+                </select>
+
+            </div>
+      </div>
+                <!-- Drink End -->
+                
+                  <!-- Smoke start -->
+               
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="smokeinput" style="padding-right: 50px;">Smoke:</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="smokeinput" data-bind="foreach: smokeData,value: selectedsmoke"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: smoke, text: smoke"></option>
+                </select>
+            </div>
+        </div>
+
+               
+                
+                <!-- Smoke end -->
+
+        </div>
+        </div>
+            <div class="oj-flex-item oj-flex">  
+                     <div class="oj-flex-item"> 
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Submit',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                 </div>        
+                 <div class="oj-flex-item"> 
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>                              
+                 </div>
+            </div>
+        </div>
+        </div>        
+    </div>
+
+            </div>
+        </div>
+    </div>
+<script type="text/html" id="note_template">
+    <li data-bind="attr:{ id : $data['id']}, css:{'oj-disabled' : $data['disabled']=='true'}">
+        <a href="#" data-bind="text: $data['name']"></a>
+    </li>
+</script>

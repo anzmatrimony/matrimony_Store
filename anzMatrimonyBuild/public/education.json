@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "education": "Doctorate"
+    },
+    {
+        "id": 2,
+        "education": "Masters"
+    },
+    {
+        "id": 3,
+        "education": "Bachelors / Undergraduate"
+    },
+    {
+        "id": 4,
+        "education": "Associate Degree / Diploma"
+    },
+    {
+        "id": 5,
+        "education": "High School and below"
+    }
+]

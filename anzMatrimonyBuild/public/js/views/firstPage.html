@@ -1,0 +1,1358 @@
+    <div class="noneclass" id="tabs-2" style="display: none">
+
+                    <!-----large------->
+                    <div class="oj-flex">
+                        <div class="oj-flex-item oj-md-4"></div>
+                        <div class="oj-flex-item oj-md-4">
+                            <div class="user_success" id="cont3">
+                                Your request successfully sent...!
+
+                            </div>
+                        </div>
+                        <div class="oj-flex-item oj-md-4">
+
+                        </div>
+                    </div>
+                    <div id="largediv" class="oj-flex"  data-bind="visible: largeScreen">
+
+
+                        <div class="oj-flex-item oj-md-12 oj-lg-12">
+                            <div id="personaldetails" class="oj-flex oj-flex-items-pad" >
+                                <div class="oj-flex-item oj-sm-4 oj-md-4 oj-lg-1 profilepic">
+                                    <img class="person-detail"  src="css/images/116.png" alt="photo of Guy Himuro">
+                                </div>
+
+                                <div class="oj-flex-item oj-flex-item oj-sm-8 oj-md-8 oj-lg-4 ">
+
+                                    <div id="fullid" class="firstname" data-bind="text: fullName">
+                                    </div>
+                                    <div class="workingorg" ><span data-bind="text: workingasopt">working as</span></div>
+                                    <div class="workingorg" data-bind="text: workingwithopt"><span> working with</span></div>
+
+                                </div>
+                                <div id="contactInfo" class="oj-flex-items-pad  oj-sm-10 oj-md-3 oj-lg-3" style="margin-top: 0px;">
+                                    <div id="iconicitems" class="oj-flex-items">
+                                        <div class="oj-flex">
+                                            <div class="contact-icon phone-icon"></div>
+                                            <div class="contact-label phone-label">
+
+
+                                                <a href="#" id="btnhomephone1" data-bind="text: homephonept,visible: homeaccepted"></a>
+                                                <span id="homerequest" data-bind="visible:homephonereq">homephone request sent</span> 
+
+
+
+
+                                            </div>
+                                        </div>
+                                        <div class="oj-flex oj-flex-items-pad ">
+                                            <div class="contact-icon mobile-icon"></div>
+                                            <div class="contact-label mobile-label">
+                                                <a href="#" id="btnmobile1" data-bind="text: mobileopt,visible: mobileaccepted"></a>
+                                                <span id="mobilerequest" data-bind="visible:mobilereq">mobile request sent</span>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="oj-flex oj-flex-items-pad ">
+                                            <div class="contact-icon email-icon"></div>
+                                            <div class="contact-label demail-label">
+
+                                                <a data-bind="text: emailopt"></a>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="iconsopt" class="oj-flex-items-pad oj-sm-12 oj-md-3 oj-lg-3" style="margin-top: 0px;">
+                                    <div id="iconicitems" class="oj-flex-items">
+                                        <div class="oj-flex">
+                                            <div class="contact-icon twitter-icon"></div>
+                                            <div class="contact-label" >
+
+                                                <a href="#" id="btntwitter1" data-bind="text: twitteropt, visible:twitteraccepted "></a>
+                                                <span id="twitterrequest" data-bind="visible:twitterreq">twitter request sent</span>
+
+
+                                            </div>
+                                        </div>
+                                        <div class="oj-flex oj-flex-items-pad">
+                                            <div class="contact-icon facebook-icon"></div>
+                                            <div class="contact-label" >
+                                                <a href="#" id="btnfb1" data-bind="text: fbopt,visible:fbaccepted"></a>
+                                                <span id="fbrequest" data-bind="visible:fbrequest">fb request sent</span>    
+
+                                            </div>
+                                        </div>
+                                        <div class="oj-flex oj-flex-items-pad">
+                                            <div class="contact-icon linkedin-icon"></div>
+                                            <div class="contact-label" >
+                                                <a href="#" id="btnlinkedin1" data-bind="text: linkedinopt, visible:linkedinaccepted"></a>
+                                                <span id="linkedinrequest" data-bind="visible:linkedinreq">linkedin request sent</span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="oj-flex-item oj-sm-8 oj-md-1 oj-lg-1 ">
+                                    <div >    <button 
+                                            data-bind="click:back,
+                    ojComponent: {
+                      component: 'ojButton', 
+                     
+                      display: 'icons', 
+                      
+                      label: 'Back'}"></button></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div id="infoCategories" class="oj-flex oj-flex-item oj-sm-12 oj-lg-12">
+
+
+                        <div class="oj-flex-item oj-sm-12 oj-lg-3"  data-bind="click: basicinfo" >
+
+                            <div class="oj-flex-item oj-sm-12 oj-lg-12">
+                                <div class="titleAnchor" >
+                                    <div class="altaspace" >
+                                        <div class="oj-panel">
+                                            <a href="#" aria-controls="categoryDetailsArea">
+                                                <h2 class="textt">BASIC</h2>
+                                            </a>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" data-bind="text: ageopt"></div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" data-bind="text:heightopt"></div>
+                                            </div>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6">Age</div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6">Height</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="borderArrow">
+                                            <span class="oj-fwk-icon-arrow-s oj-fwk-icon arrowfwk"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+
+
+
+
+
+
+
+
+
+
+                        <div id="lifeid"  class="oj-flex-item oj-sm-12 oj-lg-3" data-bind="click: lifestyle" >
+                            <div class="oj-flex-item oj-sm-12 oj-lg-12">
+                                <div class="titleAnchor" >
+                                    <div class="altaspace">
+                                        <div class="oj-panel" >
+                                            <a  href="#" aria-controls="categoryDetailsArea" >
+                                                <h2 class="textt" >LIFESTYLE</h2>
+                                            </a>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo" style="margin-bottom: 3px;">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 " >
+                                                    <div id="notvisibledrink" class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue " data-bind="visible:drinknotvisible" >NA</div>
+                                                    <div data-bind="visible:drinkvisible" id="drinkimage">
+                                                        <img id ="imagedrink" alt="profile image"  class="imfood"  data-bind="attr: {src: 'css/images/notdrink.png'}"/>
+
+                                                        <img id ="imagedrink2" alt="profile image"  class="imfood"   data-bind="attr: {src: 'css/images/notavailable.png'}"/>
+
+                                                    </div>
+                                                    <div data-bind="visible:drinkvisible" id="nondrinkimage">
+                                                        <img id ="imagedrink2" alt="profile image"  class="imfood"   data-bind="attr: {src: 'css/images/notavailable.png'}"/>
+
+                                                        <img id ="nonimagedrink" alt="profile image"  class="imfood"   data-bind="attr: {src: 'css/images/drink.png'}"/>
+                                                    </div>
+
+                                                </div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 " >
+
+                                                    <div id =foodveg data-bind="visible:foodvisible">
+
+                                                        <img id="vegimage" alt="profile image"  class="imdrink"  data-bind="attr: {src: 'css/images/vegimage.png'}"/>
+                                                        <img id ="imagedrink3" alt="profile image"  class="imfood"   data-bind="attr: {src: 'css/images/notavailable.png'}"/>
+                                                    </div>
+                                                    <div id="foodnonveg" data-bind="visible:foodvisible">
+                                                        <img id ="imagedrink3" alt="profile image"    data-bind="attr: {src: 'css/images/notavailable.png'}"/>
+                                                        <img id="nonvegimage" alt="profile image"  class="imdrink1" data-bind=" attr: {src: 'css/images/nonveg.png'}"/>
+                                                    </div>
+                                                    <div id="notvisiblefood" class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" data-bind="visible:foodnotvisible" >NA</div>
+
+
+
+                                                </div>
+                                            </div>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6" >
+
+                                                    <div class="" data-bind="text: drinkopt,visible:drinkvisible" >
+
+
+                                                    </div>
+                                                    <div class=" " data-bind="visible:drinknotvisible" >
+
+                                                        Drink 
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6" >
+                                                    <div class=""  data-bind="text: foodopt,visible:foodvisible">
+
+                                                    </div>
+
+                                                    <div class=""  data-bind="visible:foodnotvisible" >Diet
+
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="borderArrow">
+                                            <span class="oj-fwk-icon-arrow-s oj-fwk-icon arrowfwk"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+
+                        <div class="oj-flex-item oj-sm-12 oj-lg-3 mgn" data-bind="click: religious" >
+                            <div class="oj-flex-item oj-sm-12 oj-lg-12">
+                                <div class="titleAnchor">
+                                    <div class="altaspace selected">
+                                        <div class="oj-panel">
+                                            <a href="#" aria-controls="categoryDetailsArea">
+                                                <h2 class="textt" >RELIGIOUS</h2>
+                                            </a>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" data-bind="text: letter" >
+
+
+
+                                                </div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue">
+
+                                                    <div  class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue"  data-bind="text: comletter"></div>
+
+
+                                                </div>
+                                            </div>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6">
+                                                    <div class="" data-bind="text: religionopt" ></div>
+
+
+                                                </div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6">
+                                                    <div id="coml" class="" data-bind="text: communityopt" ></div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="borderArrow">
+                                            <span class="oj-fwk-icon-arrow-s oj-fwk-icon arrowfwk"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+
+
+                        <div class="oj-flex-item oj-sm-12 oj-lg-3 " data-bind="click: matches">
+                            <div class="oj-flex-item oj-sm-12 oj-lg-12">
+                                <div class="titleAnchor">
+                                    <div class="altaspace selected">
+                                        <div class="oj-panel">
+                                            <a href="#" aria-controls="categoryDetailsArea">
+                                                <h2 class="textt" >MATCH</h2>
+                                            </a>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" >
+                                                    <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" style="padding-left: 25px; " data-bind="text: matchPercent,visible: totalmatch">
+
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue">
+
+                                                    <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6 tileValue" data-bind="text: total,visible: totalvisible">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="oj-flex oj-flex-items-pad tileInfo">
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6" >match Percentage
+
+
+
+                                                </div>
+                                                <div class="oj-flex-item oj-lg-6 oj-md-6 oj-sm-6">match fields</div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="borderArrow">
+                                            <span class="oj-fwk-icon-arrow-s oj-fwk-icon arrowfwk"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></div>
+
+
+                    </div>
+
+
+
+
+                    <div class="oj-flex ">
+
+
+                        <div id="paneldesign" class="oj-flex-item oj-panel oj-md-12">
+
+                            <div id="categoryDetailsArea" class="oj-flex-item oj-sm-9 oj-lg-12">
+                                <div class="oj-flex-item oj-sm-12">
+
+                                    <div>
+
+
+
+
+                                        <div class="oj-hybrid-padding">
+                                            <div id="form-container">
+
+                                                <span class="demo-screen-range"></span>
+                                                <div class="oj-form-layout">
+                                                    <!--     <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline">  -->
+                                                    <div class="oj-flex "> 
+
+                                                        <div id="basic" style="display: none" class="oj-flex-item oj-panel" data-bind="visible: basicinfo">
+                                                            <h2 id="profilematch" class="tiletitle">basic info</h2>
+
+                                                            <div class="oj-flex">
+                                                                <div class="oj-flex-item oj-md-3 oj-lg-4"></div>
+                                                                <div class="oj-flex-item">
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >gender :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: genderopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >date of birth:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: dobopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >marital status:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: maritalopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >age:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: ageopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >height:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: heightopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >working with :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: workingwithopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >working as :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: workingasopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >annual income :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: annualopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >working type :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: workingtypeopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >highest Education :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: educatonopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >college:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: collegeopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >address:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: nativeopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >city:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: cityopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >state:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: stateopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >country :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: countryopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >working location :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: workinglocationopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                </div>
+                                                                <div class="oj-flex-item oj-sm-1 oj-md-3 oj-lg-3"></div>
+
+                                                            </div> 
+
+
+
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="oj-flex"> 
+
+                                                        <div id="lifestyleinfo" class="oj-flex-item oj-panel" style="display: none">
+                                                            <h2 id="profilematch"  class="tiletitle">life style</h2>
+
+
+                                                            <div class="oj-flex">
+                                                                <div class="oj-flex-item oj-md-3 oj-lg-4"></div>
+                                                                <div class="oj-flex-item oj-md-6 oj-lg-4">
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >body type  :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: bodyopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >skin type:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: skinopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >body weight:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: weightopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >smoke:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: smokeopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >hobbies:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: hobbiesopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >favourite Books :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid" data-bind="text: booksopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >favourite Movies :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: movieopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >favourite Sports :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: sportsopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >favourite Music:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: musicopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >interests:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: interestsopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                </div>
+                                                                <div class="oj-flex-item oj-md-3 oj-lg-3"></div>
+
+                                                            </div>
+
+
+
+
+
+                                                        </div>
+                                                    </div>
+
+
+
+                                                    <div class="oj-flex"> 
+
+                                                        <div id="religionid" class="oj-flex-item oj-panel" style="display: none">
+                                                            <h2 id="profilematch" class="tiletitle">Religious & Familydetails</h2>
+
+
+                                                            <div class="oj-flex">
+                                                                <div class="oj-flex-item oj-md-3 oj-lg-4"></div>
+                                                                <div class="oj-flex-item oj-md-6 oj-lg-4">
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >religion :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: religionopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >community:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text:communityopt,visible:communitydisplay"  class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >community:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="visible:communitynotdisply" class="demo-screen-range">NA</span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >gothra:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: gothraopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >zodiac sign:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: zodiacopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >mother tongue :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid" data-bind="text: mothertongueopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >father status :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"   data-bind="text: fatheropt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >mother status :
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"  data-bind="text: motheropt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+                                                                    <br>
+                                                                    <div class="oj-flex">
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <p id="parapanelid" >siblings:
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="oj-flex-item oj-sm-6"> 
+                                                                            <span id="spanpanelid"   data-bind="text: sblingsopt" class="demo-screen-range"></span> 
+                                                                        </div>
+                                                                    </div>
+
+
+
+
+                                                                </div>
+                                                                <div class="oj-flex-item oj-md-3 oj-lg-3"></div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+
+
+                                                    <!----large screen---->
+                                                    <div  id="profileid" class="oj-panel ">
+
+                                                        <div class="oj-flex oj-sm-12 ">
+
+                                                            <div class="oj-flex-item oj-sm-12 oj-md-12 oj-lg-12"> 
+                                                                <h2 id="profilematch"  class="tiletitle">Profile Match</h2>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12">
+
+                                                            <div class="oj-flex-item oj-sm-6" style="text-align: center;" > 
+                                                                <span><img class="person-detail"  src="css/images/116.png" alt="photo of Guy Himuro"></span>
+
+                                                                <h3 id="namesize"  >Name: <span id="namesize"  data-bind="text:fullName"></span></h3>
+
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-6" style="text-align: center;">
+                                                                <span><img class="person-detail"  src="css/images/116.png" alt="photo of Guy Himuro"></span>
+                                                                <h3 id="namesize" >Name: <span id="namesize"  data-bind="text: loginUserName"></span></h3>
+
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="oj-flex oj-sm-12">
+
+                                                            <div class="oj-flex-item oj-sm-6" style="text-align: center;"> 
+                                                                <p  id="fielsmatch"> Fields Matched: <span id="fielsmatch"  data-bind="text:total,visible: totalvisible" class="demo-screen-range"></span></p> 
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-6" style="text-align: center;">
+
+                                                                <p id="fielsmatch" > Profile Match: <span id="fielsmatch"  data-bind="text: matchPercent,visible: totalmatch" class="demo-screen-range"></span></p> 
+
+                                                            </div>
+                                                        </div>
+
+
+
+                                                        <br><br>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p id="usermatchid" > Movies: <span id="userspanmatch"  data-bind="text: movieopt" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"><span  id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                   class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:moviestatus"></span>
+
+                                                                <span id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                      class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:movieerror"></span>
+
+                                                            </div>
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid" > Movies: <span id="userspanmatch"  data-bind="text: U1movies" ></span></p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12 oj-md-12 oj-lg-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p id="usermatchid" > Interests: <span id="userspanmatch" data-bind="text: interestsopt" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"> <span  id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                    class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:intreststatus"></span>
+
+                                                                <span  id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                       class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:intresterror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid"> Interests: <span id="userspanmatch" data-bind="text:U1intrests" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p  id="usermatchid">  Food: <span id="userspanmatch" data-bind="text: foodopt" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"><span  id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                   class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:foodstatus"></span>
+
+                                                                <span  id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                       class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:fooderror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid" >  Food: <span  id="userspanmatch" data-bind="text: U1diet" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p id="usermatchid" > Drink : <span data-bind="text:drinkopt" id="userspanmatch" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"> <span  id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                    class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:drinkstatus"></span>
+
+                                                                <span  id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                       class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:drinkerror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid" > Drink : <span data-bind="text:U1drink" id="userspanmatch" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p id="usermatchid" > Smoke : <span data-bind="text:smokeopt" id="userspanmatch" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"> <span   id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                     class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:smokestatus"></span>
+
+                                                                <span   id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                        class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:smokeerror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid" > Smoke : <span data-bind="text: U1smoke" id="userspanmatch" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p id="usermatchid" > Religion: <span data-bind="text:religionopt" id="userspanmatch" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4">  <span   id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                      class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:religionstatus"></span>
+
+                                                                <span  id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                       class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:religionerror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid" > Religion: <span data-bind="text:U1religion" id="userspanmatch" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p  id="usermatchid" >  Books: <span data-bind="text:booksopt" id="userspanmatch" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"> <span   id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                     class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:bookstatus"></span>
+
+                                                                <span   id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                        class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible: bookerror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid">  Books: <span data-bind="text:U1favBook" id="userspanmatch" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p  id="usermatchid" > Sports : <span data-bind="text:sportsopt" id="userspanmatch" ></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"><span   id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                    class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:sportsstatus"></span>
+
+                                                                <span   id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                        class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible: sportserror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item  oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid" > Sports : <span data-bind="text:U1favSports" id="userspanmatch" ></span></p>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item  oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> 
+                                                                <p id="usermatchid"> Music : <span  data-bind="text:musicopt" id="userspanmatch"></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"> <span   id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                     class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible:Musicstatus"></span>
+                                                                <span   id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                        class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:Musicerror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item  oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5">
+                                                                <p id="usermatchid"> Music : <span  data-bind="text:U1favMusic" id="userspanmatch" ></span></p>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="oj-flex oj-sm-12" style="text-align: center;">
+                                                            <div class="oj-flex-item  oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"> <p id="usermatchid"> Hobbies : <span id="userspanmatch" data-bind="text:hobbiesopt" class="demo-screen-range"></span></p>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-2 oj-lg-2 oj-panel-alt4"><span  id="usermatchstatus" title=".oj-fwk-icon-status-confirmation" role="img"
+                                                                                                                                   class="oj-fwk-icon-status-confirmation oj-fwk-icon" data-bind="visible: hobbiesStatus" ></span>
+                                                                <span  id="usermatchstatus" title=".oj-fwk-icon-status-error" role="img"
+                                                                       class="oj-fwk-icon-status-error oj-fwk-icon" data-bind="visible:hobbieserror"></span>
+                                                            </div>
+
+                                                            <div class="oj-flex-item oj-sm-4 oj-md-5 oj-lg-5 oj-panel-alt5"><p id="usermatchid"> Hobbies : <span id="userspanmatch" data-bind="text:U1hobbies" class="demo-screen-range"></span></p></div>
+                                                        </div>
+
+
+                                                    </div>
+
+
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+<div id="hide" class="listfirstBody">
+    <div class="oj-flex oj-sm-12">
+        <div class="oj-flex-item oj-sm-12 oj-md-4 oj-lg-2" id="listFirstPage">
+            <div id="navlistcontainer">
+                <div aria-label="Choose a navigation item" data-bind="ojComponent:{
+                            component: 'ojNavigationList',
+                            drillMode: 'none',
+                            selection: 'home5'
+                            }">
+                    <ul>
+                        <li id="home5" data-bind="click:home5">
+                            <a href="#">
+                                Invitations
+                            </a>
+                        </li>
+                        <li id="gettingstarted5" data-bind="click:gettingstarted5">
+                            <a href="#">
+                                Accepted
+                            </a>
+                        </li>
+                        <li id="cookbook5" data-bind="click: cookbook5">
+                            <a href="#">
+                                Sent
+                            </a>
+                        </li>
+
+                        <li id="library5" data-bind="click: library5">
+                            <a href="#">
+                                Rejected
+                            </a>
+                        </li>
+                        <li id="library6" data-bind="click: library6">
+                            <a href="#">
+                                Likes
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="oj-flex-item oj-md-10 oj-sm-12">
+            <div id="tabsn-1" data-bind="visible: invitaionDisplay">
+
+                <!--                  Invitations tab               -->
+
+                <div class="invitation">
+                    <h4 style="text-align: center"><b>Pending Invitations</b></h4>
+                    <div id="listviewContainer2" class="demo-container">
+
+                        <div id="page2" class="demo-page">
+
+                            <ul id="listview" aria-label="drill down list" data-bind="ojComponent: {component: 'ojListView', data: dataSource1, item: {template: 'note_template1'},selectionMode:'single'}">
+
+
+                            </ul>
+                        </div>
+                        <div  class="oj-panel " id="d1" style="display:none; text-align: center">No items to display</div>
+
+                    </div>
+                    <script type="text/html" id="note_template1">
+                        <li class="check" class data-bind="attr: {id: $data['id']}">
+                            <div class="oj-flex-item oj-flex">
+                                <div class="oj-flex-item oj-sm-5 oj-md-2 ">
+                                    <img alt="profile image" id="pic" class="demo-circular demo-profile-photo" data-bind="attr: {src: 'css/images/106.png'}" /></div>
+
+                                <div class="oj-flex-item oj-sm-4 oj-md-6">
+                                    <a href="#" data-bind="click: $parent.addData1">
+                                        <div style="font-weight: bold" data-bind="text: notificationFor"></div>
+                                    </a>
+                                    <div>
+
+
+
+                                        <div style="font-weight: bold" data-bind="text: notificationData"></div>
+
+                                        <div>
+
+                                            <button class="oj-button-confirm" id="aa" data-bind="click: $parent.addData , ojComponent: { component: 'ojButton', label: 'Accept'}">
+                                            </button>
+                                            <button class="oj-button-primary" href="#" id="aa" data-bind="click:  $parent.removeData , ojComponent: { component: 'ojButton', label: 'Reject'}">
+                                            </button>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <div class="oj-flex-item oj-sm-3 oj-md-4">
+                                    <div style="font-weight: bold" data-bind="text: requestedOn"></div>
+                                </div>
+
+
+                            </div>
+
+                    </div>
+                    <div class="oj-flex-bar-end oj-sm-align-items-center">
+                        <div role="presentation" class="oj-flex-item oj-fwk-icon "></div>
+                    </div>
+                </div>
+                </li>
+                </script>
+            </div>
+
+        </div>
+        <div id="tabsn-2" data-bind="visible: acceptedDisplay">
+
+            <!--                  Accepted tab               -->
+
+            <div class="">
+                <h4 style="text-align: center">
+                    <font color="green"><b>Accepted Invitations</b></font>
+                </h4>
+                <div id="listviewContainer2" class="demo-container">
+
+                    <div id="page3" class="demo-page">
+                        <ul id="listview" aria-label="drill down list" data-bind="ojComponent: {component: 'ojListView', data: dataSource2, item: {template: 'note_template2'},selectionMode:'single'}">
+                        </ul>
+                    </div>
+                    <div  class="oj-panel" id="d2" style="display:none; text-align: center">No items to display</div>
+
+                </div>
+                <script type="text/html" id="note_template2">
+                     <li class="check" class data-bind="attr: {id: $data['id']}">
+                <div class="oj-flex-item oj-flex">
+                    <div class="oj-flex-item oj-sm-5 oj-md-2 ">
+                        <img alt="profile image" id="pic" class="demo-circular demo-profile-photo" data-bind="attr: {src: 'css/images/106.png'}" /></div>
+
+                    <div class="oj-flex-item oj-sm-4 oj-md-6">
+                        <a href="#" data-bind="click: $parent.addData1">
+                            <div style="font-weight: bold" data-bind="text: notificationFor"></div>
+                        </a>
+                        <div>
+
+
+
+                            <div style="font-weight: bold" data-bind="text: notificationData"></div>
+
+                            <div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="oj-flex-item oj-sm-3 oj-md-4">
+                        <div style="font-weight: bold" data-bind="text: requestedOn"></div>
+                    </div>
+
+
+                </div>
+
+        </div>
+        <div class="oj-flex-bar-end oj-sm-align-items-center">
+            <div role="presentation" class="oj-flex-item oj-fwk-icon "></div>
+        </div>
+    </div>
+</li>
+    </script>
+</div>
+
+</div>
+<div id="tabsn-3" data-bind="visible: sentDisplay">
+
+    <!--                    sent tab                     -->
+
+    <div class="invitation">
+        <h4 style="text-align: center">
+            <font color="blue"><b>sent Invitations</b></font>
+        </h4>
+        <div id="listviewContainer2" class="demo-container">
+
+            <div id="page4" class="demo-page">
+                <ul id="listview" aria-label="drill down list" data-bind="ojComponent: {component: 'ojListView', data: dataSource3, item: {template: 'note_template3'},selectionMode:'single'}">
+                </ul>
+            </div>
+        </div>
+        <div  class="oj-panel" id="d3" style="display:none; text-align: center">No items to display</div>
+
+        <script type="text/html" id="note_template3">
+            <li class="check" class data-bind="attr: {id: $data['id']}">
+                <div class="oj-flex-item oj-flex">
+                    <div class="oj-flex-item oj-sm-5 oj-md-2 ">
+                        <img alt="profile image" id="pic" class="demo-circular demo-profile-photo" data-bind="attr: {src: 'css/images/106.png'}" /></div>
+
+                    <div class="oj-flex-item oj-sm-4 oj-md-6">
+                        <a href="#" data-bind="click: $parent.addData1">
+                            <div style="font-weight: bold" data-bind="text: notificationFor"></div>
+                        </a>
+                        <div>
+
+
+
+                            <div style="font-weight: bold" data-bind="text: notificationData"></div>
+
+                            <div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="oj-flex-item oj-sm-3 oj-md-4">
+                        <div style="font-weight: bold" data-bind="text: requestedOn"></div>
+                    </div>
+
+
+                </div>
+
+        </div>
+        <div class="oj-flex-bar-end oj-sm-align-items-center">
+            <div role="presentation" class="oj-flex-item oj-fwk-icon "></div>
+        </div>
+    </div>
+</li>
+</script>
+</div>
+
+</div>
+
+
+<div id="tabsn-4" data-bind="visible: rejectedDisplay">
+
+    <!--                rejected tab         -->
+
+
+    <div class="">
+        <h4 style="text-align: center">
+            <font color="red"><b>Rejected Invitations</b></font>
+        </h4>
+        <div id="listviewContainer2" class="demo-container">
+
+            <div id="page5" class="demo-page">
+                <ul id="listview" aria-label="drill down list" data-bind="ojComponent: {component: 'ojListView', data: dataSource4, item: {template: 'note_template4'},selectionMode:'single'}">
+                </ul>
+
+            </div>
+            <div  class="oj-panel" id="d4" style="display:none; text-align: center">No items to display</div>
+
+        </div>
+        <script type="text/html" id="note_template4">
+            <li class="check" class data-bind="attr: {id: $data['id']}">
+                <div class="oj-flex-item oj-flex">
+                    <div class="oj-flex-item oj-sm-5 oj-md-2 ">
+                        <img alt="profile image" id="pic" class="demo-circular demo-profile-photo" data-bind="attr: {src: 'css/images/106.png'}" /></div>
+
+                    <div class="oj-flex-item oj-sm-4 oj-md-6">
+                        <a href="#" data-bind="click: $parent.addData1">
+                            <div style="font-weight: bold" data-bind="text: notificationFor"></div>
+                        </a>
+                        <div>
+
+
+
+                            <div style="font-weight: bold" data-bind="text: notificationData"></div>
+
+                            <div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="oj-flex-item oj-sm-3 oj-md-4">
+                        <div style="font-weight: bold" data-bind="text: requestedOn"></div>
+                    </div>
+
+
+                </div>
+
+        </div>
+        <div class="oj-flex-bar-end oj-sm-align-items-center">
+            <div role="presentation" class="oj-flex-item oj-fwk-icon "></div>
+        </div>
+    </div>
+</li>
+</script>
+</div>
+
+
+</div>
+<div id="tabsn-5" data-bind="visible: likeDisplay">
+
+    <div class="">
+        <h4 style="text-align: center">
+            <font color="green"><b>People who likes your Profile </b></font>
+        </h4>
+
+        <div id="listviewContainer2" class="demo-container">
+
+            <div id="page6" class="demo-page">
+                <ul id="listview" aria-label="drill down list" data-bind="ojComponent: {component: 'ojListView', data: dataSource5, item: {template: 'note_template5'},selectionMode:'single'}">
+                </ul>
+
+
+
+            </div>
+            <div  class="oj-panel" id="d5" style="display:none; text-align: center">No items to display</div>
+
+        </div>
+        <script type="text/html" id="note_template5">
+            <li class="check" data-bind="attr: {id: $data['userRef']}">
+
+                <div class="oj-flex-item oj-flex">
+                    <div class="oj-flex-item oj-sm-5 oj-md-2 ">
+                        <img alt="profile image" id="pic" class="demo-circular demo-profile-photo" data-bind="attr: {src: 'css/images/106.png'}" /></div>
+
+                    <div class="oj-flex-item oj-sm-4 oj-md-6">
+                        <a href="#" data-bind="click: $parent.addData1">
+                            <div style="font-weight: bold" data-bind="text: firstName +' '+ lastName "></div>
+                        </a>
+                        <div>
+
+
+
+                            <div style="font-weight: bold" data-bind="text: 'likes your profile'"></div>
+
+                            <div>
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <div class="oj-flex-item oj-sm-3 oj-md-4">
+                        <div style="font-weight: bold" data-bind="text: DateAndTime"></div>
+                    </div>
+
+
+                </div>
+
+        </div>
+        <div class="oj-flex-bar-end oj-sm-align-items-center">
+            <div role="presentation" class="oj-flex-item oj-fwk-icon "></div>
+        </div>
+    </div>
+                                </li>
+                                </script>
+
+                                </div>
+
+                                </div>
+
+
+                                </div>
+
+                                </div>
+                                </div>

@@ -1,0 +1,40 @@
+{ 
+     
+    "tokenUri":"http://49.207.0.196:8280/token",
+      "getEmail": "http://49.207.0.196:8280/anzRegistration/1.0/getEmail",
+    "basicRegistrations":"http://49.207.0.196:8280/anzRegistration/1.0/basicRegistrations",
+   "accountDetails":"http://49.207.0.196:8280/anz_userAccountDetails/1.0/accountDetails",
+    "getDetails":"http://49.207.0.196:8280/anz_edit_operations/1.0/getDetails",
+    "postEditDetails":"http://49.207.0.196:8280/anz_edit_operations/1.0/postEditDetails",
+   "getRegistration":"http://49.207.0.196:8280/anzRegistration/1.0/getRegistration",
+    "completeRegistration":"http://49.207.0.196:8280/anzRegistration/1.0/completeRegistration",
+  
+ "getPendingNotifications":"http://49.207.0.196:8280/anz_user_notification/1.0/getPendingNotifications",
+    "getSentNotifications":"http://49.207.0.196:8280/anz_user_notification/1.0/getSentNotifications",
+    "getRejectedNotifications":"http://49.207.0.196:8280/anz_user_notification/1.0/getRejectedNotifications",
+    "getAcceptedNotificatons":"http://49.207.0.196:8280/anz_user_notification/1.0/getAcceptedNotificatons",
+    "approvingNotification":"http://49.207.0.196:8280/anz_user_notification/1.0/approvingNotification",
+    "createnotification":"http://49.207.0.196:8280/anz_user_notification/1.0/createnotification",
+   
+    
+ 
+ "getprivacyDetails":"http://49.207.0.196:8280/anz_privacyoption/1.0/getprivacyDetails",
+    "privacysettings":"http://49.207.0.196:8280/anz_privacyoption/1.0/privacysettings",
+
+    
+"forgotPassword" :"http://49.207.0.196:8280/forgetpasword/1.0/forgotPassword",
+ 
+ "RecommendedFilters":"http://49.207.0.196:8280/anz_RecommendedFilters_operations/1.0/RecommendedFilters",
+"searchData":"http://49.207.0.196:8280/anz_searchData_operations/1.0/searchData",
+ 
+ "likemeprofiles":"http://49.207.0.196:8280/anz_likes_operations/1.0/likemeprofiles",
+ "likesSearchDetails":"http://49.207.0.196:8280/anz_likesProfiles_operations/1.0/likesSearchDetails",
+   "getprivacyinfo":"http://49.207.0.196:8280/privacydetailsop/1.0/getprivacyinfo",
+    "FeedFilters":"http://49.207.0.196:8280/anz_FeedFilters_operations/1.0/FeedFilters",
+     "UserFeedSearch":"http://49.207.0.196:8280/anz_UserFeed_operations/1.0/UserFeedSearch",
+    "PartnerSearch":"http://49.207.0.196:8280/anz_PartnerPreferences_operations/1.0/PartnerSearch",
+    "PartnerSearchDetails":"http://49.207.0.196:8280/anz_PartnerPreferences_operations/1.0/PartnerSearchDetails",
+    "RecommendProfilesSearch":"http://49.207.0.196:8280/search/1.0/RecommendProfilesSearch",
+   "visitorsSearchDetails": "http://49.207.0.196:8280/anz_visitorsProfiles_operations/1.0/visitorsSearchDetails",
+    "viewedSearchDetails":"http://49.207.0.196:8280/anz_viewedProfiles_operations/1.0/viewedSearchDetails"
+}

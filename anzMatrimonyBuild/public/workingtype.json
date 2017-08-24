@@ -1,0 +1,22 @@
+[
+	{
+		"id" : 1,
+		"working_type" : "Private Company"
+	},
+	{
+		"id" : 2,
+		"working_type" : "Government / Public Sector"
+	},
+	{
+		"id" : 3,
+		"working_type" : "Defense / Civil Services"
+	},
+	{
+		"id" : 4,
+		"working_type" : "Business / Self Employed"
+	},
+	{
+		"id" : 5,
+		"working_type" : "Others"
+	}
+]

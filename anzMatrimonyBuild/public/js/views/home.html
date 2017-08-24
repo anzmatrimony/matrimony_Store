@@ -1,0 +1,89 @@
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="oj-flex ">
+    <div class="oj-flex-item oj-panel oj-md-4 albumView1">
+        <div class="oj-flex">
+            <div class="oj-md-6  oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            <div class="oj-md-6 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            </div>
+            <div class="oj-flex">
+            <div class="oj-md-6  oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            <div class="oj-md-6 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            </div>
+            <div class="oj-flex">
+            <div class="oj-md-6  oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            <div class="oj-md-6 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+    </div>
+        <div class="oj-flex">
+            <div class="oj-md-6  oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            <div class="oj-md-6 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+    </div>
+    </div>
+    <div class="oj-flex-item oj-md-8 ">
+        <div class="oj-flex ">
+            <div  id="aboutMeHomeDiv" class="oj-flex-item oj-panel oj-md-4 oj-sm-12 homeAbout " data-bind="click: AboutMe">
+                <h4>About Me</h4>
+ 
+    <img alt="profile image" onerror="this.onerror=null;this.src='css/images/106.png'" id="aboutMeHome" class="imfood oj-sm-12"   data-bind="attr:{src: require.toUrl('/getimages/' +  sessionStorage.getItem('userRef') + '.jpg')}"/>
+
+
+                 
+            </div>
+            <div class="oj-flex-item oj-panel oj-md-4 homeNotification oj-sm-12" data-bind="click: Notifications">
+                <h4>Notifications</h4>
+                <hr>
+                <h4>Requests <span data-bind="text: RequestedData"></span></h4>
+                  <hr>
+                <h4>Sent <span data-bind="text: sentData"></span></h4>
+                  <hr>
+                <h4>Accepted <span data-bind="text: acceptedData"></span></h4>
+            </div>
+            <div class="oj-flex-item oj-panel oj-md-4 oj-sm-12 privacyIconDisplay" data-bind="click: privacyNote">
+                <h3>Privacy Options</h3>
+                <img alt="privacy icon"  class="imfood "   data-bind="attr: { src: 'css/images/Maintaining-privacy-icon.png'}"/>
+
+            </div>
+        </div>
+        <div class="oj-flex  " id="textDemo">
+           
+            <div id="visitedDemo" class="oj-flex-item oj-panel oj-md-4 oj-sm-12" data-bind="click:VisitedNav">
+                
+                <p>Visited</p>
+                <h3 id="sizeCount" data-bind="text: countViewed"></h3>
+            </div>
+            
+            <div id="viewedDemo" class="oj-flex-item oj-panel oj-md-4 oj-sm-12" data-bind="click:ViewedNav">
+                 <p>Viewed</p>
+                 <h3 id="sizeCount" data-bind="text: count"></h3>
+            </div>
+            <div id="mypreferencesDemo" class="oj-flex-item oj-panel oj-md-4 oj-sm-12" data-bind="click:   preferences">
+                <h3>My preferences</h3>
+                  <img id="preview" alt="preference icon"  class="imfood"   data-bind="attr: { src: 'css/images/preview.png'}"/>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+

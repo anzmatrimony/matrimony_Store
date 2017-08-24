@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "bodytype": "Average"
+    },
+    {
+        "id": 2,
+        "bodytype": "Slim"
+    },
+    {
+        "id": 3,
+        "bodytype": "Authletic"
+    },
+    {
+        "id": 4,
+        "bodytype": "Heavy"
+    },
+    {
+        "id": 5,
+        "bodytype": "Fit"
+    }
+]

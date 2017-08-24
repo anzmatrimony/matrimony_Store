@@ -1,0 +1,1446 @@
+{
+    "Hindu": [
+        
+	{
+		"id" : 24,
+		"community" : "Adi Andhra",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 25,
+		"community" : "Adi Dravida",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 26,
+		"community" : "Adi Karnataka",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 27,
+		"community" : "Agarwal",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 28,
+		"community" : "Agnikula Kshatriya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 29,
+		"community" : "Arekatica",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 30,
+		"community" : "Arora",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 31,
+		"community" : "Arunthathiyar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 32,
+		"community" : "Aryasamaj",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 33,
+		"community" : "Arya Vysya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 34,
+		"community" : "Ayyaraka",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 35,
+		"community" : "Badaga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 36,
+		"community" : "Baishya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 37,
+		"community" : "Bajantri",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 38,
+		"community" : "Balija",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 39,
+		"community" : "Balija - Naidu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 40,
+		"community" : "Baniya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 41,
+		"community" : "Bengali",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 42,
+		"community" : "Besta",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 43,
+		"community" : "Bhandari",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 44,
+		"community" : "Bhatraju",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 45,
+		"community" : "Bhavsar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 46,
+		"community" : "Bhovi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 47,
+		"community" : "Billava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 48,
+		"community" : "Boya/Nayak/Naik",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 49,
+		"community" : "Boyer",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 50,
+		"community" : "Brahmin",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 51,
+		"community" : "Brahmin - Anavil",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 52,
+		"community" : "Brahmin - Audichya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 53,
+		"community" : "Brahmin - Bhatt",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 54,
+		"community" : "Brahmin - Brahmbhatt",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 55,
+		"community" : "Brahmin - Daivadnya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 56,
+		"community" : "Brahmin - Dravida",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 57,
+		"community" : "Brahmin - Gowd Saraswat",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 58,
+		"community" : "Brahmin - Iyengar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 59,
+		"community" : "Brahmin - Iyer",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 60,
+		"community" : "Brahmin - Kumaoni",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 61,
+		"community" : "Brahmin - Madhwa",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 62,
+		"community" : "Balija - Naidu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 63,
+		"community" : "Brahmin - Niyogi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 64,
+		"community" : "Brahmin - Niyogi Nandavariki",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 65,
+		"community" : "Brahmin - Other",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 66,
+		"community" : "Brahmin - Panda",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 67,
+		"community" : "Brahmin - Rudraj",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 68,
+		"community" : "Brahmin - Sanadya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 69,
+		"community" : "Brahmin - Saraswat",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 70,
+		"community" : "Brahmin - Saryuparin",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 71,
+		"community" : "Brahmin - Smartha",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 72,
+		"community" : "Brahmin - Sri Vaishnava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 73,
+		"community" : "Brahmin - Vaidiki",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 74,
+		"community" : "Brahmin - Vaikhanasa",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 75,
+		"community" : "Brahmin - Velanadu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 76,
+		"community" : "Brahmin - Viswabrahmin",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 77,
+		"community" : "Brahmin - Vyas",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 78,
+		"community" : "Buddar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 79,
+		"community" : "Bunt (Shetty)",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 80,
+		"community" : "Chattada Sri Vaishnava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 81,
+		"community" : "Chaudary",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 82,
+		"community" : "Chekkala - Nair",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 83,
+		"community" : "Cheramar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 84,
+		"community" : "Chettiar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 85,
+		"community" : "Chhetri",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 86,
+		"community" : "Chippolu/Mera",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 87,
+		"community" : "Devanga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 88,
+		"community" : "Devar/Thevar/Mukkulathor",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 89,
+		"community" : "Dhangar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 90,
+		"community" : "Dheevara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 91,
+		"community" : "Dhiman",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 92,
+		"community" : "Dhoba",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 93,
+		"community" : "Dommala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 94,
+		"community" : "Ediga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 95,
+		"community" : "Ezhava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 96,
+		"community" : "Gandla",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 97,
+		"community" : "Ganiga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 98,
+		"community" : "Gavara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 99,
+		"community" : "Goala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 100,
+		"community" : "Goud",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 101,
+		"community" : "Gounder",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 102,
+		"community" : "Gowda",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 103,
+		"community" : "Gujarati",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 104,
+		"community" : "Gupta",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 105,
+		"community" : "Intercaste",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 106,
+		"community" : "Jaalari",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 107,
+		"community" : "Jaiswal",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 108,
+		"community" : "Jandra",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 109,
+		"community" : "Jangam",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 110,
+		"community" : "Jetty Malla",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 111,
+		"community" : "Kachara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 112,
+		"community" : "Kalar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 113,
+		"community" : "Kalinga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 114,
+		"community" : "Kalinga Vysya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 115,
+		"community" : "Kalwar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 116,
+		"community" : "Kamma",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 117,
+		"community" : "Kammala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 118,
+		"community" : "Kansari",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 119,
+		"community" : "Kapu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 120,
+		"community" : "Kapu Naidu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 121,
+		"community" : "Karana",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 122,
+		"community" : "Karuneegar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 123,
+		"community" : "Kashyap",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 124,
+		"community" : "Kayastha",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 125,
+		"community" : "Khatik",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 126,
+		"community" : "Koli",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 127,
+		"community" : "Korama",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 128,
+		"community" : "Kori",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 129,
+		"community" : "Koshti",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 130,
+		"community" : "Kshatriya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 131,
+		"community" : "Kshatriya - Bhavasar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 132,
+		"community" : "Kshatriya/Raju/Varma",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 133,
+		"community" : "Kulal",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 134,
+		"community" : "Kulalar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 135,
+		"community" : "Kumbara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 136,
+		"community" : "Kumbhakar/Kumbhar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 137,
+		"community" : "Kumhar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 138,
+		"community" : "Kummari",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 139,
+		"community" : "Kurava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 140,
+		"community" : "Kurmi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 141,
+		"community" : "Kuruba",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 142,
+		"community" : "Kuruhina Shetty",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 143,
+		"community" : "Kutchi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 144,
+		"community" : "Lambadi/Banjara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 145,
+		"community" : "Lambani",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 146,
+		"community" : "Lingayath",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 147,
+		"community" : "Lohar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 148,
+		"community" : "Lubana",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 149,
+		"community" : "Madiga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 150,
+		"community" : "Mahajan",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 151,
+		"community" : "Mahar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 152,
+		"community" : "Maharashtrian",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 153,
+		"community" : "Mahendra",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 154,
+		"community" : "Mahindra",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 155,
+		"community" : "Mala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 156,
+		"community" : "Malayalee Variar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 157,
+		"community" : "Mali",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 158,
+		"community" : "Mangalorean",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 159,
+		"community" : "Maratha",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 160,
+		"community" : "Marwari",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 161,
+		"community" : "Meda",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 162,
+		"community" : "Medara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 163,
+		"community" : "Meenavar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 164,
+		"community" : "Mehra",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 165,
+		"community" : "Meru Darji",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 166,
+		"community" : "Monchi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 167,
+		"community" : "Mudaliar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 168,
+		"community" : "Mudaliar - Arcot",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 169,
+		"community" : "Mudaliar - Senguntha",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 170,
+		"community" : "Mudiraj",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 171,
+		"community" : "Munnuru Kapu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 172,
+		"community" : "Muthuraja",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 173,
+		"community" : "Naagavamsam",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 174,
+		"community" : "Nadar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 175,
+		"community" : "Nagaralu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 176,
+		"community" : "Nai",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 177,
+		"community" : "Naicker",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 178,
+		"community" : "Naidu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 179,
+		"community" : "Naik",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 180,
+		"community" : "Nair",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 181,
+		"community" : "Nayak",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 182,
+		"community" : "Nayaka",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 183,
+		"community" : "Neeli",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 184,
+		"community" : "Nhavi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 185,
+		"community" : "OBC - Barber/Naayee",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 186,
+		"community" : "Otari",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 187,
+		"community" : "Other",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 188,
+		"community" : "Padmasali",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 189,
+		"community" : "Panchal",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 190,
+		"community" : "Pandaram",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 191,
+		"community" : "Panicker",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 192,
+		"community" : "Paravan",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 193,
+		"community" : "Parit",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 194,
+		"community" : "Patel",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 195,
+		"community" : "Patnaick",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 196,
+		"community" : "Patra",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 197,
+		"community" : "Perika",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 198,
+		"community" : "Pillai",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 199,
+		"community" : "Poosala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 200,
+		"community" : "Prajapati",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 201,
+		"community" : "Punjabi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 202,
+		"community" : "Rajaka",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 203,
+		"community" : "Rajaka/Chakali/Dhobi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 204,
+		"community" : "Rajbhar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 205,
+		"community" : "Rajput",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 206,
+		"community" : "Reddiar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 207,
+		"community" : "Reddy",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 208,
+		"community" : "Relli",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 209,
+		"community" : "Sagara - Uppara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 210,
+		"community" : "Saiva Vellala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 211,
+		"community" : "Saliya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 212,
+		"community" : "Savji",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 213,
+		"community" : "Scheduled Caste (SC)",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 214,
+		"community" : "Scheduled Tribe (ST)",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 215,
+		"community" : "Sepahia",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 216,
+		"community" : "Setti Balija",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 217,
+		"community" : "Shimpi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 218,
+		"community" : "Sindhi - Hyderabadi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 219,
+		"community" : "Sindhi - Sehwani",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 220,
+		"community" : "Somvanshi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 221,
+		"community" : "Sonar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 222,
+		"community" : "Srisayana",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 223,
+		"community" : "Sri Vaishnava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 224,
+		"community" : "SSK",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 225,
+		"community" : "Sugali (Naika)",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 226,
+		"community" : "Sundhi",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 227,
+		"community" : "Surya Balija",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 228,
+		"community" : "Swarnakar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 229,
+		"community" : "Tamil Yadava",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 230,
+		"community" : "Tanti",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 231,
+		"community" : "Telaga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 232,
+		"community" : "Teli",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 233,
+		"community" : "Telugu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 234,
+		"community" : "Thakur",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 235,
+		"community" : "Thigala",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 236,
+		"community" : "Togata",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 237,
+		"community" : "Turupu Kapu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 238,
+		"community" : "Udayar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 239,
+		"community" : "Urs",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 240,
+		"community" : "Vada Balija",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 241,
+		"community" : "Vaddera",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 242,
+		"community" : "Vaduka",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 243,
+		"community" : "Vaish",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 244,
+		"community" : "Vaishnav",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 245,
+		"community" : "Vaishya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 246,
+		"community" : "Valmiki",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 247,
+		"community" : "Vanjara",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 248,
+		"community" : "Vannan",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 249,
+		"community" : "Vannar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 250,
+		"community" : "Vanniyakullak Kshatriya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 251,
+		"community" : "Vanniyar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 252,
+		"community" : "Varshney",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 253,
+		"community" : "Veera Saivam",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 254,
+		"community" : "Veerashaiva",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 255,
+		"community" : "Velama",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 256,
+		"community" : "Vellalar",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 257,
+		"community" : "Vishwakarma",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 258,
+		"community" : "Viswabrahmin",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 259,
+		"community" : "Vokkaliga",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 260,
+		"community" : "Vysya",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 261,
+		"community" : "Waada Balija",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 262,
+		"community" : "Yadav",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : 263,
+		"community" : "Yellapu",
+		"religion" : "Hindu"
+	}
+	
+
+
+    ],
+
+    "Muslim": [
+        {
+            "community": "Mapila"
+        },
+        {
+            "community": "Memon"
+        },
+        {
+            "community": "Rajput"
+        },
+        {
+            "community": "Rowther"
+        },
+        {
+            "community": "Shafi"
+        },
+        {
+            "community": "Shia"
+        },
+        {
+            "community": "Shia Bohra"
+        },
+        {
+            "community": "Shia Imami Ismaili"
+        },
+        {
+            "community": "Shia Ithna ashariyyah"
+        },
+        {
+            "community": "Shia Zaidi"
+        },
+        {
+            "community": "Sunni"
+        },
+        {
+            "community": "Sunni Ehle-Hadith"
+        },
+        {
+            "community": "Sunni Hanafi"
+        },
+        {
+            "community": "Sunni Hunbali"
+        },
+        {
+            "community": "Sunni Maliki"
+        },
+        {
+            "community": "Sunni Shafi"
+        },
+        {
+            "community": "Dawoodi Bohra"
+        },
+        {
+            "community": "Khoja"
+        }
+    ],
+    "Christian": [
+        {
+            "community": "Anglo Indian"
+        },
+        {
+            "community": "Basel Mission"
+        },
+        {
+            "community": "Born Again"
+        },
+        {
+            "community": "Bretheren"
+        },
+        {
+            "community": "CMS"
+        },
+        {
+            "community": "Cannonite"
+        },
+        {
+            "community": "Catholic"
+        },
+        {
+            "community": "Catholic Knanya"
+        },
+        {
+            "community": "Chaldean Syrian"
+        },
+        {
+            "community": "Catholic Malankara"
+        },
+        {
+            "community": "Chaldean Syrian"
+        },
+        {
+            "community": "Cheramar"
+        },
+        {
+            "community": "Church of North India (CNI)"
+        },
+
+        {
+            "community": "Church of South India (CSI)"
+        },
+        {
+            "community": "Convert"
+        },
+        {
+            "community": "Evangelical"
+        },
+        {
+            "community": "IPC"
+        },
+        {
+            "community": "Indian Orthodox"
+        },
+        {
+            "community": "Intercaste"
+        },
+        {
+            "community": "Jacobite"
+        },
+        {
+            "community": "Jacobite Knanya"
+        },
+        {
+            "community": "Knanaya"
+        },
+        {
+            "community": "Knanaya Catholic"
+        },
+        {
+            "community": "Knanaya Jacobite"
+        },
+        {
+            "community": "Knanaya Pentecostal"
+        },
+        {
+            "community": "Knanya"
+        },
+
+        {
+            "community": "Latin Catholic"
+        },
+        {
+            "community": "Malankara"
+        },
+        {
+            "community": "Malankara Catholic"
+        },
+        {
+            "community": "Manglorean"
+        },
+        {
+            "community": "Marthoma"
+        },
+        {
+            "community": "Methodist"
+        },
+        {
+            "community": "Mormon"
+        },
+        {
+            "community": "Nadar"
+        },
+        {
+            "community": "Orthodox"
+        },
+        {
+            "community": "Pentecost"
+        }
+
+    ],
+    "Sikh": [
+        {
+            "community": "Saini"
+        },
+        {
+            "community": "Ravidasia"
+        },
+        {
+            "community": "Ramgharia"
+        },
+        {
+            "community": "Ramdasia"
+        },
+        {
+            "community": "Rajput"
+        },
+        {
+            "community": "Ahluwalia"
+        },
+        {
+            "community": "Ramdasia"
+        },
+        {
+            "community": "Rajput"
+        }
+
+    ],
+    "Jain": [
+        {
+            "community": "Vania"
+        },
+        {
+            "community": "Shwetamber"
+        },
+        {
+            "community": "Digambar"
+        }
+    ],
+    "Buddhist": [
+        {
+            "community": "Buddhist"
+        }
+
+    ],
+    "Parsi": [
+        {
+            "community": "Parsi"
+        }
+
+    ],
+    "Jewish": [
+        {
+            "community": "Jewish"
+        }
+
+    ],
+    "Spiritual": [
+        {
+            "community": "Spiritual"
+        }
+
+    ],
+    "Other": [
+        {
+            "community": "Other"
+        }
+
+    ]
+}

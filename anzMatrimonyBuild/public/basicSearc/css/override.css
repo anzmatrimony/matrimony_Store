@@ -1,0 +1,48 @@
+/*
+    Document   : override
+    Created on : <date>
+    Author     : <author>
+    Description:
+        This is where any of your application specific styles should be included
+*/
+
+.pImage {
+    border: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    -webkit-border-radius: 40px;
+}
+.bsearch{
+    padding: 0px 0px 0px 40px;
+}
+#matches-profile-info {
+    font-size: 16px;
+    font-weight: initial;
+    padding-top: 2px;
+    color: #7b637f;
+}
+.profile-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #7b637f;
+    text-transform: capitalize;
+}
+ul#listviewcard li[role="presentation"]{
+   width:100%;
+}
+#headerTHemeColor {
+    background-color: #1d4a6d;
+}
+.oj-navigationlist-app-level.oj-navigationlist-horizontal .oj-navigationlist-item:not(.oj-disabled) a.oj-navigationlist-item-content>.oj-navigationlist-item-label {
+    color: #fafafa;
+}
+.oj-navigationlist-app-level.oj-navigationlist-horizontal:not(.oj-navigationlist-icon-only) .oj-navigationlist-item.oj-selected:not(.oj-hover) .oj-navigationlist-item-icon {
+    color: #fcfdfe;
+}
+.AnzEntireBody{
+    background-color: #c7e4de;
+}
+.panelBody{
+    background-color:beige;
+}

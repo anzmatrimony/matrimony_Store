@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "status": "working"
+    },
+    {
+        "id": 2,
+        "status": "not working"
+    },
+    {
+        "id": 3,
+        "status": "retired"
+    },
+    {
+        "id": 4,
+        "status": "home maker"
+    },
+    {
+        "id": 5,
+        "status": "others"
+    }
+]

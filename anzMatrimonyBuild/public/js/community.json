@@ -1,0 +1,300 @@
+{
+    "Hindu": [
+        {
+            "community": "Adi Andhra"
+        },
+        {
+            "community": "Adi Dravida"
+        },
+        {
+            "community": "Adi Karnataka"
+        },
+        {
+            "community": "Agarwal"
+        },
+        {
+            "community": "Agnikula Kshatriya"
+        },
+        {
+            "community": "Arekatica"
+        },
+        {
+            "community": "Arora"
+        },
+        {
+            "community": "Arunthathiyar"
+        },
+        {
+            "community": "Aryasamaj"
+        },
+        {
+            "community": "Arya Vysya"
+        },
+        {
+            "community": "Ayyaraka"
+        },
+        {
+            "community": "Badaga"
+        },
+        {
+            "community": "Baishya"
+        },
+        {
+            "community": "Bajantri"
+        },
+        {
+            "community": "Balija"
+        },
+        {
+            "community": "Balija - Naidu"
+        },
+        {
+            "community": "Baniya"
+        },
+        {
+            "community": "Bengali"
+        },
+        {
+            "community": "Besta"
+        }
+
+    ],
+
+    "Muslim": [
+        {
+            "community": "Mapila"
+        },
+        {
+            "community": "Memon"
+        },
+        {
+            "community": "Rajput"
+        },
+        {
+            "community": "Rowther"
+        },
+        {
+            "community": "Shafi"
+        },
+        {
+            "community": "Shia"
+        },
+        {
+            "community": "Shia Bohra"
+        },
+        {
+            "community": "Shia Imami Ismaili"
+        },
+        {
+            "community": "Shia Ithna ashariyyah"
+        },
+        {
+            "community": "Shia Zaidi"
+        },
+        {
+            "community": "Sunni"
+        },
+        {
+            "community": "Sunni Ehle-Hadith"
+        },
+        {
+            "community": "Sunni Hanafi"
+        },
+        {
+            "community": "Sunni Hunbali"
+        },
+        {
+            "community": "Sunni Maliki"
+        },
+        {
+            "community": "Sunni Shafi"
+        },
+        {
+            "community": "Dawoodi Bohra"
+        },
+        {
+            "community": "Khoja"
+        }
+    ],
+    "Christian": [
+        {
+            "community": "Anglo Indian"
+        },
+        {
+            "community": "Basel Mission"
+        },
+        {
+            "community": "Born Again"
+        },
+        {
+            "community": "Bretheren"
+        },
+        {
+            "community": "CMS"
+        },
+        {
+            "community": "Cannonite"
+        },
+        {
+            "community": "Catholic"
+        },
+        {
+            "community": "Catholic Knanya"
+        },
+        {
+            "community": "Chaldean Syrian"
+        },
+        {
+            "community": "Catholic Malankara"
+        },
+        {
+            "community": "Chaldean Syrian"
+        },
+        {
+            "community": "Cheramar"
+        },
+        {
+            "community": "Church of North India (CNI)"
+        },
+
+        {
+            "community": "Church of South India (CSI)"
+        },
+        {
+            "community": "Convert"
+        },
+        {
+            "community": "Evangelical"
+        },
+        {
+            "community": "IPC"
+        },
+        {
+            "community": "Indian Orthodox"
+        },
+        {
+            "community": "Intercaste"
+        },
+        {
+            "community": "Jacobite"
+        },
+        {
+            "community": "Jacobite Knanya"
+        },
+        {
+            "community": "Knanaya"
+        },
+        {
+            "community": "Knanaya Catholic"
+        },
+        {
+            "community": "Knanaya Jacobite"
+        },
+        {
+            "community": "Knanaya Pentecostal"
+        },
+        {
+            "community": "Knanya"
+        },
+
+        {
+            "community": "Latin Catholic"
+        },
+        {
+            "community": "Malankara"
+        },
+        {
+            "community": "Malankara Catholic"
+        },
+        {
+            "community": "Manglorean"
+        },
+        {
+            "community": "Marthoma"
+        },
+        {
+            "community": "Methodist"
+        },
+        {
+            "community": "Mormon"
+        },
+        {
+            "community": "Nadar"
+        },
+        {
+            "community": "Orthodox"
+        },
+        {
+            "community": "Pentecost"
+        }
+
+    ],
+    "Sikh": [
+        {
+            "community": "Saini"
+        },
+        {
+            "community": "Ravidasia"
+        },
+        {
+            "community": "Ramgharia"
+        },
+        {
+            "community": "Ramdasia"
+        },
+        {
+            "community": "Rajput"
+        },
+        {
+            "community": "Ahluwalia"
+        },
+        {
+            "community": "Ramdasia"
+        },
+        {
+            "community": "Rajput"
+        }
+
+    ],
+    "Jain": [
+        {
+            "community": "Vania"
+        },
+        {
+            "community": "Shwetamber"
+        },
+        {
+            "community": "Digambar"
+        }
+    ],
+    "Buddhist": [
+        {
+            "community": "Buddhist"
+        }
+
+    ],
+    "Parsi": [
+        {
+            "community": "Parsi"
+        }
+
+    ],
+    "Jewish": [
+        {
+            "community": "Jewish"
+        }
+
+    ],
+    "Spiritual": [
+        {
+            "community": "Spiritual"
+        }
+
+    ],
+    "Other": [
+        {
+            "community": "Other"
+        }
+
+    ]
+}

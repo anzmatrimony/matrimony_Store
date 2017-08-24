@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "fatherstatus": "working"
+    },
+    {
+        "id": 2,
+        "fatherstatus": "not working"
+    },
+    {
+        "id": 3,
+        "fatherstatus": "retired"
+    },
+
+    {
+        "id": 4,
+        "fatherstatus": "others"
+    }
+]

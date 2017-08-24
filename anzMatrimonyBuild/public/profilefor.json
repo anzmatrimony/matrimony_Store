@@ -1,0 +1,30 @@
+[
+    {
+        "profileFor": "Self",
+        "id": 1
+    },
+
+    {
+        "profileFor": "Son",
+        "id": 2
+    },
+    {
+        "profileFor": "Other",
+        "id": 3
+    },
+    {
+        "profileFor": "Daughter",
+        "id": 3
+    },
+    {
+        "profileFor": "Brother",
+        "id": 4
+    },
+    {
+        "profileFor": "Sister",
+        "id": 5
+    },
+    {
+        "profileFor": "Friend",
+        "id": 6
+    }]

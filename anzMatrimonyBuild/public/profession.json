@@ -1,0 +1,91 @@
+[
+   {
+       "id": 1,
+       "profession": "Accounting, Banking & Finance"
+   },
+   {
+       "id": 2,
+       "profession": "Administration & HR"
+   },
+   {
+       "id": 3,
+       "profession": "Advertising, Media & Entertainment"
+   },
+   {
+       "id": 4,
+       "profession": "Agriculture"
+   },
+   {
+       "id": 5,
+       "profession": "Airline & Aviation"
+   },
+   {
+       "id": 6,
+       "profession": "Architecture & Design"
+   },
+   {
+       "id": 7,
+       "profession": "Artists, Animators & Web Designers"
+   },
+   {
+       "id": 8,
+       "profession": "BPO, KPO, & Customer Support"
+   },
+   {
+       "id": 9,
+       "profession": "Beauty, Fashion & Jewellery Designers"
+   },
+   {
+       "id": 10,
+       "profession": "Civil Services / Law Enforcement"
+   },
+   {
+       "id": 11,
+       "profession": "Corporate Professionals"
+   },
+   {
+       "id": 12,
+       "profession": "Defense"
+   },
+   {
+       "id": 13,
+       "profession": "Education & Training"
+   },
+   {
+       "id": 14,
+       "profession": "Engineering"
+   },
+   {
+       "id":15,
+       "profession": "Hotel &  Hospitality"
+   },
+   {
+       "id": 16,
+       "profession": "IT & Software Engineering"
+   },
+   {
+       "id": 17,
+       "profession": "Legal"
+   },
+   {
+       "id": 18,
+       "profession": "Medical & Healthcare"
+   },
+   {
+       "id": 19,
+       "profession": "Merchant Navy"
+   },
+   {
+       "id": 21,
+       "profession": "Others"
+   },
+   {
+       "id": 22,
+       "profession": "Sales & Marketing"
+   },
+   {
+       "id": 23,
+       "profession": "Science"
+   }
+
+]

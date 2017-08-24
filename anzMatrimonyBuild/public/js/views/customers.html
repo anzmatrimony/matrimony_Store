@@ -1,0 +1,238 @@
+<div  data-bind="visible:searchBasic" class="oj-form-layout  oj-panel">
+    <br><br><br><br>
+
+    <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline" >
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="basicSelect" id="lk" >Looking For </label>
+            </div>
+            <div class="oj-flex-item">
+
+                <select id="basicSelect" data-bind="ojComponent: {component: 'ojSelect',
+                                                    value: LOOKval,
+                                                    rootAttributes: {style:'max-width:20em'}}">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+
+                </select>
+
+            </div>
+        </div>
+
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="basicSelect" id="lk">Age </label>
+            </div>
+            <div class="oj-flex-item">
+
+                <select id="basicSelect" data-bind=" ojComponent: {component: 'ojSelect',
+                                                    value: ageval,
+                                                    rootAttributes: {style:'max-width:8em'}}">
+                    <option value="18" label="18">18</option> 
+                    <option value="19" label="19">19</option>
+                    <option value="20" label="20">20</option> 
+                    <option value="30" label="30">21</option> 
+
+                </select>
+                <label for="inputcontrol" id="lk">To</label>
+                <select id="basicSelect" data-bind=" ojComponent: {component: 'ojSelect',
+                                                    value: agevalue,
+                                                    rootAttributes: {style:'max-width:8em'}}">
+                    <option value="18" label="18">18</option> 
+                    <option value="19" label="19">19</option>
+                    <option value="20" label="20">20</option> 
+                    <option value="21" label="21">21</option> 
+                    <option value="22" label="22">22</option> 
+                    <option value="23" label="23">23</option> 
+                    <option value="24" label="24">24</option>
+                    <option value="25" label="25">25</option> 
+                    <option value="26" label="26">26</option> 
+                    <option value="27" label="27">27</option> 
+                    <option value="28" label="28">28</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="basicSelect" id="lk">Religion </label>
+            </div>
+            <div class="oj-flex-item">
+
+                <select id="basicSelect" data-bind="ojComponent: {component: 'ojSelect',
+               value:RELval,
+                                                   
+                                                    rootAttributes: {style:'max-width:20em'}}">
+                    <option value="Hindu" label="Hindu">Hindu</option> 
+                    <option value="Muslim" label="Muslim">Muslim</option> 
+                    <option value="Christian" label="Christian">Christian</option>
+                    <option value="Sikh" label="Sikh">Sikh</option>
+                    <option value="Parsi" label="Parsi">Parsi</option> 
+                    <option value="Jain" label="Jain">Jain</option> 
+                    <option value="Buddhist" label="Buddhist">Buddhist</option> 
+                    <option value="Jewish" label="Jewish">Jewish</option> 
+                    <option value="No Religion" label="No Religion">No Religion</option> 
+                    <option value="Spiritual - not religious" label="Spiritual">Spiritual</option> 
+                    <option value="Other" label="Other">Other</option> 
+                </select>
+
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+            </div>
+
+            <div class="oj-flex-item">
+                <button id= "button"
+                        data-bind="click: buttonClick, 
+                       ojComponent: { component: 'ojButton', label: 'Submit'}">
+                </button>  
+            </div>
+
+
+        </div> 
+        
+    </div>
+</div>
+<div data-bind="visible: basicMatches">
+    <button data-bind="click:back">back</button>
+<div id="people">
+    <div class="justifyCenter" >
+        <div class="oj-flex oj-flex-items-pad">
+            <div class="oj-flex-item oj-sm-12 oj-padding-bottom">
+                <div class="oj-flex oj-flex-items-pad oj-sm-align-items-flex-end">
+                    <div id="pageTitleContainer" class="oj-flex-item oj-sm-2">
+                       
+                    </div>
+                    <div class="oj-flex-item oj-sm-8  oj-flex oj-md-justify-content-center">
+                        <div class="oj-flex-item" style="max-width: 400px; white-space: nowrap">
+                            <input aria-label="search box" placeholder="search" data-bind="value: nameSearch, valueUpdate: 'afterkeydown', ojComponent: {component: 'ojInputText', rootAttributes:{'style':'max-width:100%;'}}"/>
+                            <div id="searchIcon" class="demo-icon-sprite demo-icon-search demo-search-position"></div>
+                        </div>
+                    </div>
+                    <div class="oj-flex-item oj-sm-2">
+                        <div id="layoutSet" class="oj-buttonset-width-auto" aria-label="Choose layout type."  style="float: right" data-bind="ojComponent: {component: 'ojButtonset', checked: peopleLayoutType}">
+                            <label for="cardLayout"></label>
+                            <input id="cardLayout" type="radio" name="layoutGroup" value="peopleCardLayout"
+                                   data-bind="click: cardLayoutHandler,  ojComponent: {
+        component:'ojButton',
+        display:     'icons',
+        icons: {start:'demo-grid-icon-16 demo-icon-font'},
+                                   label: 'Card'
+                                   }"/>
+                            <label for="listLayout"></label>
+                            <input id="listLayout" type="radio" name="layoutGroup" value="peopleListLayout"
+                                   data-bind="click: listLayoutHandler,  ojComponent: {
+                component:'ojButton',
+                display:'icons',
+                icons: {start:'demo-icon-font demo-list-icon-16'},
+                                    label: 'List'
+                                    }"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- there are two different layouts for displaying the people data. The template binding below sets whether it should load the listView template or the cardLayout template -->
+
+        <!-- ko if: ready -->
+        <div id="peoplelistview" >
+            <div class="oj-flex oj-flex-items-pad oj-sm-flex-direction-column" data-bind="template: peopleLayoutType()"></div>
+        </div>
+        <!-- /ko -->
+    </div>
+
+    <!-- this is the cardLayout template. It uses the ojListView component to do the layout and the ojPagingControl component for pagination. -->
+    <script id="peopleCardLayout" type="text/html">
+        <div class="oj-flex oj-flex-items-pad">
+            <ul id="listviewcard"
+                class="oj-flex oj-listview-card-layout"
+                data-bind="ojComponent: {component: 'ojListView',
+                        data: cardViewDataSource,
+                        rootAttributes: {style: 'width:100%'},
+            item: {template: 'peoplecard_template'}}">
+            </ul>
+        </div>
+        <div class="oj-flex oj-flex-items-pad">
+            <div id="paging" data-bind="ojComponent: {component: 'ojPagingControl', mode: 'loadMore', data: cardViewDataSource, pageSize: 15}">
+            </div>
+        </div>
+    </script>
+
+    <!-- this is the content that is loaded by the ojListView component above. It uses standard responsive CSS design and oj-panels for the layout.  -->
+    <script id="peoplecard_template" type="text/html">
+        <li class="oj-flex-item oj-sm-12 oj-md-6 oj-lg-4 oj-xl-3" data-bind="event:{keypress:$parent.onEnter}" style="margin:0;border-style:none">
+            <div class="oj-panel oj-panel-alt1" style="margin: 5px 0px 10px 0px;" data-bind="click: $parent.loadPersonPage">
+                <div class="oj-flex oj-flex-items-pad">
+                    <div class="oj-flex-item oj-sm-4">
+                        <!--<img alt="employee image" class="demo-circular demo-employee-photo" data-bind="attr: {src: $parent.getPhoto($data['empId'])}"/>-->
+                    </div>
+                    <div class="oj-flex-item oj-sm-8">
+                        <h2 class="demo-employee-name" aria-label="employee name" data-bind="text: $data['firstName'] + ' ' + $data['lastName']" tabindex="0"></h2>
+                        <div class="demo-employee-title" data-bind="text: $data['gender']"></div>
+                        <div class="demo-employee-dept" data-bind="text: $data['age']"></div>
+                    </div>
+                </div>
+                <!--                <div class="oj-flex oj-flex-items-pad">
+                                    <div class="oj-flex-item oj-sm-4">
+                                        <div class="demo-employee-tenure" data-bind="text: $parent.getTenure($data)"></div>
+                                        <div class="demo-employee-tenure-label">Tenure</div>
+                                    </div>
+                                    <div class="oj-flex-item oj-sm-4">
+                                        <div class="demo-employee-perf" data-bind="text:$data['rating'], style: {color: $data['rating'] < 3 ? '#e95b54' : '#309fdb'}"></div>
+                                        <div class="demo-employee-perf-label">Rating</div>
+                                    </div>
+                                    <div class="oj-flex-item oj-sm-4">
+                                        <div class="demo-employee-perf" data-bind="text:$data['potential'], style: {color: $data['potential'] < 3 ? '#e95b54' : '#309fdb'}"></div>
+                                        <div class="demo-employee-perf-label">Potential</div>
+                                    </div>
+                                </div>
+                                <div class="oj-flex oj-flex-items-pad" style="float: right;">
+                                    <a tabindex="0" data-bind="attr:{href: function(data, event){$parent.getEmail(data)}" title="email employee" class="demo-employee-email-icon"></a>
+                                    <a tabindex="0" data-bind="click: function(data, event){$parent.getOrg(data, event)}, clickBubble: false"  title="show team members" class="demo-employee-org-icon"></a>
+                                </div>
+                            </div>-->
+        </li>
+    </script>
+
+
+    <script id="peopleListLayout" type="text/html">
+        <ul id="listview"
+            data-bind="ojComponent: {component: 'ojListView',
+                                data: listViewDataSource,
+                                item: {template: 'peoplelist_template'},
+            selectionMode: 'single',
+            currentItem: '205',
+            selection: ['205'],
+            optionChange: changeHandler,
+            rootAttributes: {style: 'width:100%;height:100vh;overflow:auto; margin-top: 5px'},
+            scrollPolicy: 'loadMoreOnScroll',
+            scrollPolicyOptions: {fetchSize: 10}}">
+        </ul>
+    </script>
+
+    <!-- this is the content that is loaded by the ojListView component above -->
+    <script id="peoplelist_template" type="text/html">
+        <li class="oj-flex-item oj-sm-12" data-bind="click: $parent.loadPersonPage">
+            <div>
+                <div class="oj-flex oj-flex-items-pad">
+                    <div class="oj-flex-item oj-lg-4 oj-md-4">
+                        <!--<img alt="employee image" class="demo-circular demo-employee-photo" style="float:left;" data-bind="attr: {src: $parent.getPhoto($data['empId'])}"/>-->
+                        <h2 class="demo-employee-name" data-bind="text: $data['firstName'] + ' ' + $data['lastName']"></h2>
+                        <div class="demo-employee-title" data-bind="text: $data['gender']"></div>
+                        <div class="demo-employee-dept" data-bind="text: $data['age']"></div>
+                    </div>
+                                        <div class="oj-flex-item oj-lg-3 oj-md-3" style="min-width: 195px;">
+                                            <a data-bind="attr:{href: function(data, event){$parent.getFacetime(data)}" title="Facetime employee " class="employee-facetime-24icon"></a>
+                                            <a data-bind="attr:{href: function(data, event){$parent.getChat(data)}" title="IM employee" class="employee-chat-24icon"></a>
+                                            <a data-bind="attr:{href: function(data, event){$parent.getEmail(data)}" title="Email employee" class="employee-email-24icon"></a>
+                                        </div>
+
+                </div>
+            </div>
+        </li>
+    </script>
+</div>
+</div>

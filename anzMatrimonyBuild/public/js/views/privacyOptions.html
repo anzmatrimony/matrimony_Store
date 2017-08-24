@@ -1,0 +1,252 @@
+<div class="oj-flex">
+    <div class="oj-flex-item oj-sm-2">
+        <button data-bind="click: Goback,ojComponent: {component: 'ojButton',label: 'return To Home'}"></button>
+    </div>
+<h2>privacy options</h2>
+    </div>
+     <div class="oj-flex">
+       <div class="oj-flex-item oj-sm-2"></div> 
+       
+   <div class="oj-flex-item oj-flex oj-panel oj-sm-8 bodysmeight" >
+  
+<div class="oj-flex-item oj-flex oj-sm-12" >
+    <div class="oj-flex-item oj-sm-4">
+        <p>mobile</p>
+    </div>
+<div class = "oj-flex-item oj-sm-1"></div>
+    <div class="oj-flex-item" id="cVal" style="display: block">
+       <span id="curr-value" data-bind="text: mobileoptsaved"></span>
+    </div>
+
+        
+    <div class="oj-flex-item" id="mobilehideOpt" style="display: none">
+
+ <div id="radiosetBasicDemoId" aria-labelledby="mainlabelid"
+         data-bind="ojComponent: {
+          component: 'ojRadioset', 
+               
+          value: mobileopt}" >
+        <span class="oj-choice-item oj-sm-10">
+            <input id="mball" type="radio" name="rbb"   value="all">
+            <label for="mball"> all</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="mbnone" type="radio" name="rbb"  value="none">
+            <label for="mbnone"> none</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="mbaccepted" type="radio" name="rbb"  value="accepted">
+            <label for="mbaccepted">accepted</label>
+        </span>
+        
+      
+    </div>
+  
+        <div class="oj-flex-item oj-sm-6" >
+
+            <button data-bind=" click: function(){ save('mobile',event);}">SAVE</button>
+            
+            <button id="rep"  data-bind="click: function(){ cancel('mobile',event);}">CANCEL</button>
+            
+             
+
+        </div></div>
+    <div class="oj-flex-item oj-sm-2" id="mobileEdit" style="display: block">
+        <a id="btnRelgionEdit" data-bind=" click:function(){ edit('mobile',event);}">EDIT</a>
+    </div>
+</div>
+
+        <HR width="100%">
+
+<br><br>
+ 
+
+<div class="oj-flex-item oj-flex oj-sm-12" >
+    <div class="oj-flex-item oj-sm-4">
+        <p>twitter id</p>
+    </div>
+<div class = "oj-flex-item oj-sm-1"></div>
+    <div class="oj-flex-item" id="dVal" style="display: block">
+       <span id="curr-value" data-bind="text: twitteroptsaved"></span>
+    </div>
+
+
+    <div class="oj-flex-item" id="twitterhideOpt" style="display: none">
+
+ <div id="radiosetBasicDemoId" aria-labelledby="mainlabelid"
+         data-bind="ojComponent: {
+          component: 'ojRadioset', 
+          
+          value: twitteropt}" >
+        <span class="oj-choice-item">
+            <input id="twall" type="radio" name="rbb" value="all">
+            <label for="twall"> all</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="twnone" type="radio" name="rbb" value="none">
+            <label for="twnone"> none</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="twaccepted" type="radio" name="rbb" value="accepted">
+            <label for="twaccepted">accepted </label>
+        </span>
+        
+      
+    </div>
+    
+
+        <div class="oj-flex-item oj-sm-6" >
+
+            <button data-bind=" click: function(){ save('twitterid',event);}">SAVE</button>
+            <button data-bind=" click: function(){ cancel('twitterid',event);}">CANCEL</button>
+
+        </div></div>
+    <div class="oj-flex-item oj-sm-2" id="twitteridEdit" style="display: block">
+        <a id="btnRelgionEdit" data-bind=" click:function(){ edit('twitterid',event);}">EDIT</a>
+    </div>
+</div>
+
+
+<br><br>
+
+  <HR width="100%">
+
+<div class="oj-flex-item oj-flex oj-sm-12" >
+    <div class="oj-flex-item oj-sm-4">
+        <p>home No</p>
+    </div>
+<div class = "oj-flex-item oj-sm-1"></div>
+    <div class="oj-flex-item" id="eVal" style="display: block">
+       <span id="curr-value" data-bind="text: homeoptsaved"></span>
+    </div>
+
+
+    <div class="oj-flex-item" id="incomehideOpt" style="display: none">
+
+ <div id="radiosetBasicDemoId" aria-labelledby="mainlabelid"
+         data-bind="ojComponent: {
+          component: 'ojRadioset', 
+          value: homeopt}" >
+        <span class="oj-choice-item">
+            <input id="inall" type="radio" name="rbb" value="all">
+            <label for="inall"> all</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="innone" type="radio" name="rbb" value="none">
+            <label for="innone">none</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="inaccepted" type="radio" name="rbb" value="accepted">
+            <label for="inaccepted">accepted</label>
+        </span>
+        
+      
+    </div>
+   
+        <div class="oj-flex-item oj-sm-6" >
+
+            <button data-bind=" click: function(){ save('homeNo',event);}">SAVE</button>
+            <button data-bind=" click: function(){ cancel('homeNo',event);}">CANCEL</button>
+
+        </div></div>
+    <div class="oj-flex-item oj-sm-2" id="incomeEdit" style="display: block">
+        <a id="btnReEdit" data-bind=" click:function(){ edit('homeNo',event);}">EDIT</a>
+    </div>
+</div>
+
+<br><br>
+
+  <HR width="100%">
+
+<div class="oj-flex-item oj-flex oj-sm-12" >
+    <div class="oj-flex-item oj-sm-4">
+        <p>fb id</p>
+    </div>
+<div class = "oj-flex-item oj-sm-1"></div>
+    <div class="oj-flex-item" id="fVal" style="display: block">
+       <span id="curr-value" data-bind="text: fboptsaved"></span>
+    </div>
+
+
+    <div class="oj-flex-item" id="fbhideOpt" style="display: none">
+
+ <div id="radiosetBasicDemoId" aria-labelledby="mainlabelid"
+         data-bind="ojComponent: {
+          component: 'ojRadioset', 
+          value: fbopt}" >
+        <span class="oj-choice-item">
+            <input id="fball" type="radio" name="rbb" value="all">
+            <label for="fball">all</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="fbnone" type="radio" name="rbb" value="none">
+            <label for="fbnone">none</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="fbaccepted" type="radio" name="rbb" value="accepted">
+            <label for="fbaccepted">accepted</label>
+        </span>
+        
+      
+    </div>
+  
+        <div class="oj-flex-item oj-sm-6" >
+
+            <button data-bind=" click: function(){ save('fbid',event);}">SAVE</button>
+            <button data-bind=" click: function(){ cancel('fbid',event);}">CANCEL</button>
+
+        </div></div>
+    <div class="oj-flex-item oj-sm-2" id="fbidEdit" style="display: block">
+        <a id="btnReEdit1" data-bind=" click:function(){ edit('fbid',event);}">EDIT</a>
+    </div>
+</div>
+
+
+<br><br>
+
+  <HR width="100%">
+
+<div class="oj-flex-item oj-flex oj-sm-12" >
+    <div class="oj-flex-item oj-sm-4">
+        <p>linkedin id</p>
+    </div>
+<div class = "oj-flex-item oj-sm-1"></div>
+    <div class="oj-flex-item" id="hVal" style="display: block">
+       <span id="curr-value" data-bind="text: linkdinoptsaved"></span>
+    </div>
+
+
+    <div class="oj-flex-item" id="linkdinhideOpt" style="display: none">
+
+ <div id="radiosetBasicDemoId" aria-labelledby="mainlabelid"
+         data-bind="ojComponent: {
+          component: 'ojRadioset', 
+          value: linkdinopt}" >
+        <span class="oj-choice-item">
+            <input id="linall" type="radio" name="rbb" value="all">
+            <label for="linall">all</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="linnone" type="radio" name="rbb" value="none">
+            <label for="linnone">none</label>
+        </span>
+        <span class="oj-choice-item">
+            <input id="linaccepted" type="radio" name="rbb" value="accepted">
+            <label for="linaccepted">accepted</label>
+        </span>
+        
+      
+    </div>
+ 
+        <div class="oj-flex-item oj-sm-6" >
+
+            <button data-bind=" click: function(){ save('linkdin',event);}">SAVE</button>
+            <button data-bind=" click: function(){ cancel('linkdin',event);}">CANCEL</button>
+
+        </div></div>
+    <div class="oj-flex-item oj-sm-2" id="linkdinEdit" style="display: block">
+        <a id="btnReEdit2" data-bind=" click:function(){ edit('linkdin',event);}">EDIT</a>
+    </div>
+</div>
+
+<br><br>

@@ -1,0 +1,221 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 1 Jul, 2017, 11:54:41 AM
+    Author     : MY
+*/
+/*button{
+    
+    width: 68px; padding-left: 14px; padding-top: 5px; padding-bottom: 5px;
+    color: white; position: absolute; background-color: green;
+}*/
+/*.tooltip.right .tooltip-inner {
+    background-color: #fafafa;
+    color: black;
+  }*/
+
+
+/*login dailog start */
+
+.Success1 {
+  color: #4F8A10;
+  font-weight:bold;
+  padding-bottom: 5px;
+  
+    text-align: center;
+    font-size: 26px;
+  /*background-color: #DFF2BF;*/
+  visibility: hidden;
+}
+.Success2 {
+  color: #4F8A10;
+  font-weight:bold;
+  padding-bottom: 5px;
+  
+    text-align: center;
+    font-size: 26px;
+  /*background-color: #DFF2BF;*/
+  visibility: hidden;
+}
+#uName{
+    text-align: center;
+    visibility: hidden;
+}
+#uPassword{
+    text-align: center;
+    visibility: hidden;
+}
+.unp{
+    text-align: center;
+    color: #FF0000;
+    font-size: 18px;
+}
+/*.Status{
+    visibility: hidden;
+}*/
+.inputClassCss{ 
+	 width: 25%; 
+	 margin-bottom: 10px; 
+
+	 border: none;
+	 outline: none;
+	 padding: 10px;
+	 font-size: 13px;
+	 /*color: #fff;*/
+	 text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	 border: 1px solid rgba(0,0,0,0.3);
+	 border-radius: 4px;
+	 box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	 -webkit-transition: box-shadow .5s ease;
+	 -moz-transition: box-shadow .5s ease;
+	 -o-transition: box-shadow .5s ease;
+	 -ms-transition: box-shadow .5s ease;
+	 transition: box-shadow .5s ease;
+	}	
+.loginHead{
+   color: #4F8A10;
+   font-family: initial;
+   font-style: initial;
+}
+.textDiv{
+    text-align: center;
+    margin-top: 15px;
+    /*margin-bottom: 30px;*/
+   
+}
+.textDiv button{
+    position: relative;
+}
+.loginName{
+    padding: 5px; 
+    border-radius: 5px 5px;
+}
+.loginPword{
+    padding: 5px; 
+    border-radius: 5px 5px;
+}
+.forgotText{
+    padding: 5px; 
+    border-radius: 5px 5px;
+}
+.homeClass{
+    border-bottom: 1px solid #ffde00;
+}
+/*.bottomHighlight{
+    border-bottom: 1px solid blue;
+}*/
+
+hr.hrClass{
+    border: 1px solid;
+    color: blue;
+
+}
+.login{
+   display: none; 
+   background-color: #aed8fa;
+   padding-bottom: 100px;
+   /*background-image: url('css/images/header-banner5.jpg');*/
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+.loginStatus{
+    color: red; 
+    text-align: center;
+    font-size: 26px;
+}
+.forgot{
+   display: none; 
+   background-color: #aed8fa;
+   padding-bottom: 145px;
+   padding-top: 120px;
+}
+.divFLast{
+    margin-top: 20px;
+    text-align: center;
+}
+.textFDiv{
+    margin-top: -20px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+    /*login dailog End */
+
+
+#btndiv{
+    text-align: center;
+}
+button{
+    padding: 5px 10px;
+    width: 68px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    background-color: green;
+    color: white;
+}
+label{
+    
+    font-size: 14.5px;
+}
+#emailalert{
+    color: red;
+}
+#emailvalid{
+    color: red;
+}
+#validpassword{
+    color: red;
+}
+#passwordvalid{
+    color: red;
+}
+#fieldvalid{
+    color: red;
+    text-align: center;
+}
+#regdiv{
+   padding-bottom: 30px;
+}
+#registrationpage{
+   display: none; 
+   background-color: #aed8fa;
+   padding-bottom: 100px;
+}
+.divspace{
+    padding-bottom: 10px;
+}
+#regsuccess{
+    padding-bottom: 200px;
+    padding-top: 80px;
+    background-color: white;
+    display: none;
+}
+#okicon{
+   
+    border: 2px solid green;
+    border-radius: 100%;
+    color: green;
+  padding: 15px;
+}
+#iconMail{
+    text-align: center;
+}
+#linktext{
+    text-align: center;
+}
+#icondiv{
+    text-align: center;
+}
+.blue {
+   border-bottom:2px solid #007fff;
+}
+select:required:invalid {
+  color: #a699a6;
+}
+option {
+  color: black;
+}

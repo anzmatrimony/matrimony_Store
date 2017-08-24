@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "profileCreatedBy": "Self"
+    },
+    {
+        "id": 2,
+        "profileCreatedBy": "Parent/ Guardian"
+    },
+    {
+        "id": 3,
+        "profileCreatedBy": "Sibling/ Friend/ others"
+    }
+]

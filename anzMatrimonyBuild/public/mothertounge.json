@@ -1,0 +1,90 @@
+[
+    {
+        "id": 1,
+        "language": "Assamese"
+    },
+    {
+        "id": 2,
+        "language": "Bengali"
+    },
+    {
+        "id": 3,
+        "language": "Bodo"
+    },
+    {
+        "id": 4,
+        "language": "Dogri"
+    },
+    {
+        "id": 5,
+        "language": "Gujarati"
+    },
+    {
+        "id": 6,
+        "language": "Hindi"
+    },
+    {
+        "id": 7,
+        "language": "Kannada"
+    },
+    {
+        "id": 8,
+        "language": "Kashmiri"
+    },
+    {
+        "id": 9,
+        "language": "Konkani"
+    },
+    {
+        "id": 10,
+        "language": "Maithili"
+    },
+    {
+        "id": 11,
+        "language": "Malayalam"
+    },
+    {
+        "id": 12,
+        "language": "Manipuri"
+    },
+    {
+        "id": 13,
+        "language": "Marathi"
+    },
+    {
+        "id": 14,
+        "language": "Nepali"
+    },
+    {
+        "id": 15,
+        "language": "Odia"
+    },
+    {
+        "id": 16,
+        "language": "Punjabi"
+    },
+    {
+        "id": 17,
+        "language": "Sanskrit"
+    },
+    {
+        "id": 18,
+        "language": "Santali"
+    },
+    {
+        "id": 19,
+        "language": "Sindhi"
+    },
+    {
+        "id": 20,
+        "language": "Tamil"
+    },
+    {
+        "id": 21,
+        "language": "Telugu"
+    },
+    {
+        "id": 22,
+        "language": "Urdu"
+    }
+]

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/home.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       
+    </head>
+    <body>
+        <div id="confirmok">
+             <span class="glyphicon glyphicon-ok-sign" id="iconokconfirm"></span>
+</div>
+     <h4 id="mail"></h4>
+     <h4 id="confirmok">click here to  <a href="home.html">login</a></h4>
+      <script>
+           var confirmmail=window.location.href ; 
+                 var res = confirmmail.split("?"); 
+                 var confirmlink=res[1];   
+         var User =sessionStorage.getItem("userRef");
+ self.serviceCall = function (uri, method, data) {
+                  var request = {
+                      url: uri,
+                      type: method,
+                      contentType: "application/json",
+                      accepts: "application/json",
+                      cache: false,
+                      dataType: 'json',
+                      crossOrigin: true,
+                      data: JSON.stringify(data),
+
+                      headers: {
+                          'Authorization': 'Bearer 0902ed0f-14c4-3113-a06a-9960c311111e',
+                          Accept: "application/json"
+                      },
+                      beforeSend: function (xhr) {
+                      },
+                      error: function (jqXHR) {
+                      }
+                  };
+                  return $.ajax(request);
+              };
+$(document).ready(function () {
+    
+  self.pdata = {
+
+                     "header":
+             {
+            "guid":"1111",
+            "requestedOn":"11",
+            "requestedFrom" :"111",
+            "geoLocation":"111"
+             },
+              "body":{  
+             "confirmationMail":confirmlink
+       
+                  }
+                };
+                self.tasksURI = "https://192.168.0.116:8243/anzEmailConfirmationoperations/1.0/emailConfirmation";
+                self.serviceCall(self.tasksURI, 'POST', self.pdata).done(function (result) {
+                    console.log(JSON.stringify(result.body.message));
+                    var mailres= JSON.stringify(result.body.message);
+               document.getElementById("mail").innerHTML= mailres;
+                            
+                });
+                
+            });
+            
+            
+                            
+            
+
+   
+            
+            
+            
+          
+            
+            
+            
+            
+            
+            </script>
+    </body>
+
+   
+            </html>

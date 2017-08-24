@@ -1,0 +1,786 @@
+[
+    {
+        "id": 1,
+        "gothra": "Arihant"
+    },
+    {
+        "id": 2,
+        "gothra": "Aamat"
+    },
+    {
+        "id": 3,
+        "gothra": "Aashta"
+    },
+    {
+        "id": 4,
+        "gothra": "Adishya"
+    },
+    {
+        "id": 5,
+        "gothra": "Agastya"
+    },
+    {
+        "id": 6,
+        "gothra": "Agni"
+    },
+    {
+        "id": 7,
+        "gothra": "Ahabhunasa / Abnavana"
+    },
+    {
+        "id": 8,
+        "gothra": "Ainakula"
+    },
+    {
+        "id": 9,
+        "gothra": "Akshinthala"
+    },
+    {
+        "id": 10,
+        "gothra": "Alambain"
+    },
+    {
+        "id": 11,
+        "gothra": "Allimman"
+    },
+    {
+        "id": 12,
+        "gothra": "Anbhanandi"
+    },
+    {
+        "id": 13,
+        "gothra": "Angirasa"
+    },
+    {
+        "id": 14,
+        "gothra": "Arjuna"
+    },
+    {
+        "id": 15,
+        "gothra": "Athvasia"
+    },
+    {
+        "id": 16,
+        "gothra": "Atri"
+    },
+    {
+        "id": 17,
+        "gothra": "Awasthi"
+    },
+    {
+        "id": 18,
+        "gothra": "Audala"
+    },
+    {
+        "id": 19,
+        "gothra": "Bachchas"
+    },
+    {
+        "id": 20,
+        "gothra": "Baghwar"
+    },
+    {
+        "id": 21,
+        "gothra": "Bajju Rajput"
+    },
+    {
+        "id": 22,
+        "gothra": "Basetia Rajput"
+    },
+    {
+        "id": 23,
+        "gothra": "Basistha"
+    },
+    {
+        "id": 24,
+        "gothra": "Bharadwaja"
+    },
+    {
+        "id": 25,
+        "gothra": "Bhargava"
+    },
+    {
+        "id": 26,
+        "gothra": "Bhaskar"
+    },
+    {
+        "id": 27,
+        "gothra": "Bilas"
+    },
+    {
+        "id": 28,
+        "gothra": "Bhrigu"
+    },
+    {
+        "id": 29,
+        "gothra": "Brihadbala"
+    },
+    {
+        "id": 30,
+        "gothra": "Chandratre"
+    },
+    {
+        "id": 31,
+        "gothra": "Chelligara"
+    },
+    {
+        "id": 32,
+        "gothra": "Chikara"
+    },
+    {
+        "id": 33,
+        "gothra": "Cherukunolla"
+    },
+    {
+        "id": 34,
+        "gothra": "Chandeeswara"
+    },
+    {
+        "id": 35,
+        "gothra": "Chandakula "
+    },
+    {
+        "id": 36,
+        "gothra": "Choonbook"
+    },
+    {
+        "id": 37,
+        "gothra": "Depawat"
+    },
+    {
+        "id": 38,
+        "gothra": "Duchania"
+    },
+    {
+        "id": 39,
+        "gothra": "Dadeya"
+    },
+    {
+        "id": 40,
+        "gothra": "Dammiwal"
+    },
+    {
+        "id": 41,
+        "gothra": "Dattatreya"
+    },
+    {
+        "id": 42,
+        "gothra": "Deval"
+    },
+    {
+        "id": 43,
+        "gothra": "Dhananjaya"
+    },
+    {
+        "id": 44,
+        "gothra": "Dhull"
+    },
+    {
+        "id": 45,
+        "gothra": "Dubey"
+    },
+    {
+        "id": 46,
+        "gothra": "Gangsahay"
+    },
+    {
+        "id": 47,
+        "gothra": "Garg Brahmin"
+    },
+    {
+        "id": 48,
+        "gothra": "Gaur"
+    },
+    {
+        "id": 49,
+        "gothra": "Ghakhar"
+    },
+    {
+        "id": 50,
+        "gothra": "Gotama"
+    },
+    {
+        "id": 51,
+        "gothra": "Gohel"
+    },
+    {
+        "id": 52,
+        "gothra": "Gothwal"
+    },
+    {
+        "id": 53,
+        "gothra": "Guntur"
+    },
+    {
+        "id": 54,
+        "gothra": "Kirtan"
+    },
+    {
+        "id": 55,
+        "gothra": "Harita"
+    },
+    {
+        "id": 56,
+        "gothra": "Jadaun"
+    },
+    {
+        "id": 57,
+        "gothra": "Jamadagni"
+    },
+    {
+        "id": 58,
+        "gothra": "Jaskasya"
+    },
+    {
+        "id": 59,
+        "gothra": "Jatukarna"
+    },
+    {
+        "id": 60,
+        "gothra": "Janakula"
+    },
+    {
+        "id": 61,
+        "gothra": "Jayalwal"
+    },
+    {
+        "id": 62,
+        "gothra": "Jayant"
+    },
+    {
+        "id": 63,
+        "gothra": "Jhankal"
+    },
+    {
+        "id": 64,
+        "gothra": "Jhajoria"
+    },
+    {
+        "id": 65,
+        "gothra": "Jilakara"
+    },
+    {
+        "id": 66,
+        "gothra": "Kadam Pandit"
+    },
+    {
+        "id": 67,
+        "gothra": "Kadian"
+    },
+    {
+        "id": 68,
+        "gothra": "Kadiyan"
+    },
+    {
+        "id": 69,
+        "gothra": "Kaim"
+    },
+    {
+        "id": 70,
+        "gothra": "Kalhansh"
+    },
+    {
+        "id": 71,
+        "gothra": "Kaplaksh"
+    },
+    {
+        "id": 72,
+        "gothra": "Kapisa"
+    },
+    {
+        "id": 73,
+        "gothra": "Kashav"
+    },
+    {
+        "id": 74,
+        "gothra": "Kashyapa"
+    },
+    {
+        "id": 75,
+        "gothra": "Kukeeyan"
+    },
+    {
+        "id": 76,
+        "gothra": "Kamtariya"
+    },
+    {
+        "id": 77,
+        "gothra": "Katyayan"
+    },
+    {
+        "id": 78,
+        "gothra": "kaunsh"
+    },
+    {
+        "id": 79,
+        "gothra": "Kaundinya"
+    },
+    {
+        "id": 80,
+        "gothra": "Kaushal"
+    },
+    {
+        "id": 81,
+        "gothra": "Kaushik"
+    },
+    {
+        "id": 82,
+        "gothra": "Kaushish/Koshish/Koushish"
+    },
+    {
+        "id": 83,
+        "gothra": "Khanagalu"
+    },
+    {
+        "id": 84,
+        "gothra": "Khilaivar"
+    },
+    {
+        "id": 85,
+        "gothra": "Kini"
+    },
+    {
+        "id": 86,
+        "gothra": "Kottanolla"
+    },
+    {
+        "id": 87,
+        "gothra": "Krishnatrey"
+    },
+    {
+        "id": 88,
+        "gothra": "Kundal"
+    },
+    {
+        "id": 89,
+        "gothra": "Kutsas"
+    },
+    {
+        "id": 90,
+        "gothra": "Lohithyasa"
+    },
+    {
+        "id": 91,
+        "gothra": "Madhukalya"
+    },
+    {
+        "id": 92,
+        "gothra": "Maghugallya"
+    },
+    {
+        "id": 93,
+        "gothra": "Manu"
+    },
+    {
+        "id": 94,
+        "gothra": "Marichi"
+    },
+    {
+        "id": 95,
+        "gothra": "Markandeya"
+    },
+    {
+        "id": 96,
+        "gothra": "Maurya"
+    },
+    {
+        "id": 97,
+        "gothra": "Miharasa"
+    },
+    {
+        "id": 98,
+        "gothra": "Mithunakula"
+    },
+    {
+        "id": 99,
+        "gothra": "Mittal"
+    },
+    {
+        "id": 100,
+        "gothra": "Mohil"
+    },
+    {
+        "id": 101,
+        "gothra": "Mouna Bhargava"
+    },
+    {
+        "id": 102,
+        "gothra": "Mudgal"
+    },
+    {
+        "id": 103,
+        "gothra": "Mundoliya"
+    },
+    {
+        "id": 104,
+        "gothra": "Munukolukula"
+    },
+    {
+        "id": 105,
+        "gothra": "Murav"
+    },
+    {
+        "id": 106,
+        "gothra": "Mungeesa"
+    },
+    {
+        "id": 107,
+        "gothra": "Nageswar"
+    },
+    {
+        "id": 108,
+        "gothra": "Nagasya"
+    },
+    {
+        "id": 109,
+        "gothra": "Nagesh"
+    },
+    {
+        "id": 110,
+        "gothra": "Naglaksh"
+    },
+    {
+        "id": 111,
+        "gothra": "Nanda"
+    },
+    {
+        "id": 112,
+        "gothra": "Narnolia"
+    },
+    {
+        "id": 113,
+        "gothra": "Narsingh"
+    },
+    {
+        "id": 114,
+        "gothra": "Neem"
+    },
+    {
+        "id": 115,
+        "gothra": "Nedungal"
+    },
+    {
+        "id": 116,
+        "gothra": "Pachori"
+    },
+    {
+        "id": 117,
+        "gothra": "Palavelli"
+    },
+    {
+        "id": 118,
+        "gothra": "Palendra"
+    },
+    {
+        "id": 119,
+        "gothra": "Pamidipalla"
+    },
+    {
+        "id": 120,
+        "gothra": "Parashar"
+    },
+    {
+        "id": 121,
+        "gothra": "Pasupula"
+    },
+    {
+        "id": 122,
+        "gothra": "Phalswal"
+    },
+    {
+        "id": 123,
+        "gothra": "Pikhur"
+    },
+    {
+        "id": 124,
+        "gothra": "Polisthya"
+    },
+    {
+        "id": 125,
+        "gothra": "Pourugutsa"
+    },
+    {
+        "id": 126,
+        "gothra": "Raghukula gotra"
+    },
+    {
+        "id": 127,
+        "gothra": "Ratti Brahman"
+    },
+    {
+        "id": 128,
+        "gothra": "Raghav"
+    },
+    {
+        "id": 129,
+        "gothra": "Reddi"
+    },
+    {
+        "id": 130,
+        "gothra": "Rushipala Kapu caste"
+    },
+    {
+        "id": 131,
+        "gothra": "Sabarniya"
+    },
+    {
+        "id": 132,
+        "gothra": "Sabarna"
+    },
+    {
+        "id": 133,
+        "gothra": "Sankarisan"
+    },
+    {
+        "id": 134,
+        "gothra": "Sanakula"
+    },
+    {
+        "id": 135,
+        "gothra": "Saliya Maharishi"
+    },
+    {
+        "id": 136,
+        "gothra": "Sambu Maharishi"
+    },
+    {
+        "id": 137,
+        "gothra": "Sanatana"
+    },
+    {
+        "id": 138,
+        "gothra": "Sanap"
+    },
+    {
+        "id": 139,
+        "gothra": "Sandilya"
+    },
+    {
+        "id": 140,
+        "gothra": "Sankhyayana"
+    },
+    {
+        "id": 141,
+        "gothra": "Sankritya"
+    },
+    {
+        "id": 142,
+        "gothra": "Saraswat"
+    },
+    {
+        "id": 143,
+        "gothra": "Sarikala"
+    },
+    {
+        "id": 144,
+        "gothra": "Sarwar"
+    },
+    {
+        "id": 145,
+        "gothra": "Saroha"
+    },
+    {
+        "id": 146,
+        "gothra": "Sinduryan"
+    },
+    {
+        "id": 147,
+        "gothra": "Shakti"
+    },
+    {
+        "id": 148,
+        "gothra": "Shatamarshana"
+    },
+    {
+        "id": 149,
+        "gothra": "Sheoran"
+    },
+    {
+        "id": 150,
+        "gothra": "Shiv-adi"
+    },
+    {
+        "id": 151,
+        "gothra": "Shringi"
+    },
+    {
+        "id": 152,
+        "gothra": "Singhal"
+    },
+    {
+        "id": 153,
+        "gothra": "Siwal"
+    },
+    {
+        "id": 154,
+        "gothra": "Sotiya"
+    },
+    {
+        "id": 155,
+        "gothra": "Soukalin"
+    },
+    {
+        "id": 156,
+        "gothra": "Srivatsa"
+    },
+    {
+        "id": 157,
+        "gothra": "sullaniya/sulaniya"
+    },
+    {
+        "id": 158,
+        "gothra": "Suparnasa"
+    },
+    {
+        "id": 159,
+        "gothra": "Tarkia"
+    },
+    {
+        "id": 160,
+        "gothra": "Tatran"
+    },
+    {
+        "id": 161,
+        "gothra": "Tayal"
+    },
+    {
+        "id": 162,
+        "gothra": "Thakran"
+    },
+    {
+        "id": 163,
+        "gothra": "Thalluru"
+    },
+    {
+        "id": 164,
+        "gothra": "Toppo"
+    },
+    {
+        "id": 165,
+        "gothra": "Udayagiri"
+    },
+    {
+        "id": 166,
+        "gothra": "Udityagautama"
+    },
+    {
+        "id": 167,
+        "gothra": "Upamanyu"
+    },
+    {
+        "id": 168,
+        "gothra": "Upreti"
+    },
+    {
+        "id": 169,
+        "gothra": "Uttam"
+    },
+    {
+        "id": 170,
+        "gothra": "Vadhula"
+    },
+    {
+        "id": 171,
+        "gothra": "Vaid"
+    },
+    {
+        "id": 172,
+        "gothra": "Vainya"
+    },
+    {
+        "id": 173,
+        "gothra": "Vanapala"
+    },
+    {
+        "id": 174,
+        "gothra": "vardulasa"
+    },
+    {
+        "id": 175,
+        "gothra": "Varadeshwasa"
+    },
+    {
+        "id": 176,
+        "gothra": "Vashista"
+    },
+    {
+        "id": 177,
+        "gothra": "Vats"
+    },
+    {
+        "id": 178,
+        "gothra": "Vaksh"
+    },
+    {
+        "id": 179,
+        "gothra": "Vidyangsha"
+    },
+    {
+        "id": 180,
+        "gothra": "Vikrama"
+    },
+    {
+        "id": 181,
+        "gothra": "Vishnu"
+    },
+    {
+        "id": 182,
+        "gothra": "Vishrava"
+    },
+    {
+        "id": 183,
+        "gothra": "Vishvamitra"
+    },
+    {
+        "id": 184,
+        "gothra": "Vithahavya"
+    },
+    {
+        "id": 185,
+        "gothra": "Vyaghrapada"
+    },
+    {
+        "id": 186,
+        "gothra": "Yadav"
+    },
+    {
+        "id": 187,
+        "gothra": "Bala"
+    },
+    {
+        "id": 188,
+        "gothra": "Skandha"
+    },
+    {
+        "id": 189,
+        "gothra": "Balisetla"
+    },
+    {
+        "id": 190,
+        "gothra": "Navanandhana"
+    },
+    {
+        "id": 191,
+        "gothra": "Viswamitra"
+    },
+    {
+        "id": 192,
+        "gothra": "Pasupu"
+    },
+    {
+        "id": 193,
+        "gothra": "Pasupunuri"
+    },
+    {
+        "id": 194,
+        "gothra": "Bhrdhavaja"
+    },
+    {
+        "id": 195,
+        "gothra": "Kamandalam"
+    },
+    {
+        "id": 196,
+        "gothra": "Others"
+    }
+]

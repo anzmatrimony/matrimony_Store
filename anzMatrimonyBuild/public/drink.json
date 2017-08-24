@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "drink": "Yes"
+    },
+    {
+        "id": 2,
+        "drink": "No"
+    },
+    {
+        "id": 3,
+        "drink": "Occasionally"
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "mstatus": "NeverMarried"
+    },
+    {
+        "id": 2,
+        "mstatus": "Annualled"
+    },
+    {
+        "id": 3,
+        "mstatus": "Divorced"
+    },
+    {
+        "id": 4,
+        "mstatus": "Widowed"
+    }
+]

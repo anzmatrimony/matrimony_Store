@@ -1,0 +1,42 @@
+[
+	{
+		"id" : "Hindu",
+		"religion" : "Hindu"
+	},
+	{
+		"id" : "Christian",
+		"religion" : "Christian"
+	},
+	{
+		"id" : "Buddhist",
+		"religion" : "Buddhist"
+	},
+	{
+		"id" : "Muslim",
+		"religion" : "Muslim"
+	},
+	{
+		"id" :"Jain",
+		"religion" : "Jain"
+	},
+	{
+		"id" : "Sikh",
+		"religion" : "Sikh"
+	},
+	{
+		"id" : "Parsi",
+		"religion" : "Parsi"
+	},
+	{
+		"id" : "Jewish",
+		"religion" : "Jewish"
+	},
+	{
+		"id" : "Spiritual",
+		"religion" : "Spiritual"
+	},
+	{
+		"id" : "Other",
+		"religion" : "Other"
+	}
+]

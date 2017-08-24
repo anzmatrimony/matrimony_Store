@@ -1,0 +1,48 @@
+[{
+"id" : 1,
+"zsign" : "Aries - Mesha"
+},
+{
+"id" : 2,
+"zsign" : "Taurus - Vrishabha"
+},
+{
+"id" : 3,
+"zsign" : "Gemini - Mithuna"
+},
+{
+"id" : 4,
+"zsign" : "Cancer - Karkataka"
+},
+{
+"id" : 5,
+"zsign" : "Leo - Simha"
+},
+{
+"id" : 6,
+"zsign" : "Virgo - Kanya"
+},
+{
+"id" : 7,
+"zsign" : "Libra - Tula"
+},
+{
+"id" : 8,
+"zsign" : "Scorpio - Vrishchika"
+},
+{
+"id" : 9,
+"zsign" : "Sagittarius - Dhanu"
+},
+{
+"id" : 10,
+"zsign" : "Capricorn - Makara"
+},
+{
+"id" : 11,
+"zsign" : "Aquarius - Kumbha"
+},
+{
+"id" : 12,
+"zsign" : "Pisces - Meena"
+}]

@@ -1,0 +1,18 @@
+[
+	{
+		"id" : 1,
+		"skintone" : "VeryFair"
+	},
+	{
+		"id" : 2,
+		"skintone" : "Fair"
+	},
+	{
+		"id" : 3,
+		"skintone" : "Dark"
+	},
+	{
+		"id" : 4,
+		"skintone" : "wheatish"
+	}
+]

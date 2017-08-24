@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>ANZ Matrimony</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+     
+        <!--<link rel="stylesheet" href="css/demo-alta-site-min.css" type="text/css"/>-->
+
+        <!-- This is where you would add any app specific styling -->
+        <link rel="stylesheet" href="css/override.css" type="text/css"/>
+        <link rel="stylesheet" href="css/base.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.bootcss.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!--<link rel="stylesheet" href="path/bootstrap.min.css">-->
+        <style type="text/css">
+            @font-face {
+                font-family: 'Glyphicons Halflings';
+                /*src: url('css/fonts/glyphicons-halflings-regular.eot');*/
+                /*src: url('css/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'),  url('fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');*/
+            }
+        </style>
+        <style>
+            /* Hide the carousel text when the screen is less than 600 pixels wide */
+            @media (max-width: 600px) {
+                .carousel-caption {display: none;}
+            }
+        </style>
+        <style id="homeStyle">
+            .homeClass{
+                border-bottom: 1px solid #ffde00;
+            }
+            .bottomHighlight{
+                border-bottom: 1px solid blue;
+            }
+        </style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand logo" href="#"><img src="css/images/Logo.png" alt="ANZ Matrimony" title="ANZ Matrimony"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="homeClass"><a href="home.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+                        <li><a id="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="myCarousel" class="container carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="css/images/header-banner1.jpg" alt="Image">
+                    <div class="carousel-caption">
+                        <h3></h3>
+                     
+                    </div>      
+                </div>
+
+                <div class="item">
+                    <img src="css/images/header-banner2.jpg" alt="Image">
+                    <div class="carousel-caption">
+                        <h3></h3>
+                       
+                    </div>      
+                </div>
+
+                <div class="item">
+                    <img src="css/images/header-banner3.jpg" alt="Image">
+                    <div class="carousel-caption">
+                    </div>      
+                </div>
+
+                <div class="item">
+                    <img src="css/images/header-banner4.jpg" alt="Image">
+                    <div class="carousel-caption">
+                    </div>      
+                </div>
+
+                <div class="item">
+                    <img src="css/images/header-banner5.jpg" alt="Image">
+                    <div class="carousel-caption">
+                    </div>      
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        
+        <!-- Login Start-->
+        
+       <div class="container login" id="globalBody">
+        <script type="text/javascript">
+           if(sessionStorage.authenticated){
+               
+           } 
+        </script>
+        <h3 class="loginHead">Login to ANZ Matrimony</h3>
+        <div class="loginStatus">
+           <span class="Status" id="status"></span>
+        </div>
+        <div class="forgotSuccess">
+           <span class="Success" id="forgotSuccess">
+               Please check your mail for temporary password!
+           </span>
+        </div>
+           
+           
+           <div class="textDiv">
+           
+               <input type="text" class="loginName" style="padding: 5px; border-radius: 5px 5px;" name="u" id="userName" placeholder="Username" required="required"  data-bind="value: uname"/>
+               <br>
+           </div>
+           <div class="textDiv">
+             
+               <input type="password" id="userPword" class="loginPword" style="padding: 5px; border-radius: 5px 5px;" name="p" placeholder="Password" required="required" data-bind="value: pwd"/>                
+           </div>
+           <div class="textDiv">
+               <button type="submit" id="userLogin" class="btn btn-primary">Login</button>
+               <button id="cancel" class="btn btn-primary">Cancel </button>               
+           </div>
+            <div class="textDiv">
+                <span style="color:red">or</span>
+                <a id="forgot" href="#">Forgot Password?</a>
+           </div>
+           <div class="textDiv">
+                <!--<button id="cancel" class="btn btn-primary">Cancel </button>-->
+<!--                 <hr class="hrClass">-->
+                <div id="signUp">
+                <p>Don't have an account? <a href="" id="lsignUp">Sign up</a></p>
+                </div>
+           </div>
+           
+       
+            
+     </div>
+   
+       <div id="forgotDialog" class="container forgot" style="display: none">
+      
+               <div class="textFDiv">
+                   <p><b>Please Enter Your E-mail to get temporary password</b></p>
+</div>
+               <div class="textDiv">
+                   <input type="text" id="femail" class="forgotText" placeholder="Enter E-mail"/>
+</div>
+               <div class="textDiv">
+                   <button id="fsubmit" class="btn btn-primary">Submit </button>
+                   <!--<button id="fcancel" class="btn btn-primary">Cancel </button>-->
+                   
+</div>
+           <div class="divFLast">
+                <!--<button id="cancel" class="btn btn-primary">Cancel </button>-->
+                <!--<hr class="hrClass">-->    
+                <div>
+                    <span style="color:red">or
+                <a id="fLogin">Login</a></span>
+                </div>
+           </div>
+
+      
+</div>
+
+       <!-- Login End-->
+
+        <div class="container" id="registrationpage" >
+            <div class="col-md-4 col-md-offset-4">
+            <div class="text-center" id="regdiv"><img src="css/images/ribbonname.PNG"  class="img-responsive" alt=""/></div>
+            </div>
+            <p id="fieldvalid"></p>
+            <div class="col-sm-6 col-md-5 col-md-offset-1">
+                <div class="divspace col-sm-12 col-md-12">
+                    <label for="profile" class="col-sm-5 col-md-5 col-form-label" id="profilelabel">Create Profile For</label>
+                    <div class="col-sm-7 col-md-7">
+                        <select class="form-control" id="profile" required>
+                            <option value="" disabled selected class="holder">Select Profile For</option>
+                        </select>        
+                    </div></div>
+
+                <div class="divspace col-sm-12 col-md-12">    
+
+                    <label for="fname" class="col-sm-5 col-md-5 col-form-label" id="fnamelabel">First Name</label>
+                    <div class="col-sm-7 col-md-7">
+                        <input class="form-control" id="fname" aria-label="text" placeholder="Enter FirstName"  pattern="[^0-9]*" autocomplete="off" required>
+                    </div>
+                </div>
+                <div class="divspace col-sm-12">    
+
+                    <label for="lname" class="col-sm-5 col-md-5 col-form-label" id="lnamelabel" >Last Name</label>
+                    <div class="col-sm-7 col-md-7">
+                        <input  class="form-control" id="lname" aria-label="text" placeholder="Enter LastName" pattern="[^0-9]*" autocomplete="off" required >
+                    </div>
+                </div>
+
+
+                <div class="divspace col-sm-12">
+                    <label for="passwordinput" class="col-sm-5 col-md-5 col-form-label" id="passlabel">Password</label>
+                    <div class="col-sm-7 col-md-7">
+                        <input class="form-control" id="passwordinput" type="password"  placeholder="Enter Password" name="psw" autocomplete="off" required data-toggle="tooltip" data-placement="top" title="password must contain atleast one digit,one letter,one number and special character">
+                        <span id="passwordvalid"></span>   </div>
+                </div> 
+
+
+                <div class="divspace col-sm-12">
+                    <label for="cpasswordinput" class="col-sm-5 col-md-5 col-form-label" id="cpasslabel">Confirm Password</label>
+                    <div class="col-sm-7 col-md-7">
+                        <input class="form-control" id="cpasswordinput" type="password" placeholder="Confirm Password" name="psw-repeat" autocomplete="off" required onChange="checkPasswordMatch();">
+                        <span id="validpassword"></span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col-sm-6  col-md-6">
+
+                <div class="divspace col-sm-12 col-md-12">
+                    <label for="emailinput" class="col-sm-4 col-md-3 col-form-label" id="emaillabel">Email</label>
+                    <div class="col-sm-8 col-md-6">
+                        <input class="form-control" id="emailinput"   type="email" placeholder="Enter Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required  data-toggle="tooltip" data-placement="top" title="enter a valid email " autocomplete="off" >
+                        <div><span id="emailalert"></span>
+                            <span id="emailvalid"></span></div>
+                    </div>
+
+                </div>
+
+                <div class="divspace col-sm-12 col-md-12"> 
+
+                    <label for="gend" class="col-sm-4 col-md-3 col-form-label" id="gendlabel">Gender</label>
+                    <div class="col-sm-8 col-md-6"> 
+                        <select class="form-control" id="gend"  required>
+                            <option value="" disabled selected>Select Gender</option>
+                        </select> 
+                    </div>
+
+                </div>  
+                <div class="divspace col-sm-12 col-md-12"> 
+
+                    <label for="ageinput" class="col-sm-4 col-md-3 col-form-label" id="agelabel">Age</label>
+                    <div class="col-sm-8 col-md-6"> 
+                        <select class="form-control" id="ageinput" required>
+                            <option value="" disabled selected>Select Age</option>
+                        </select> </div>
+
+
+                </div>  
+                <div class="divspace col-sm-12 col-md-12"> 
+
+                    <label for="religioninput" class="col-sm-4 col-md-3 col-form-label" id="rellabel">Religion</label>
+                    <div class="col-sm-8 col-md-6"> 
+                        <select class="form-control" id="religioninput" required>
+                            <option value="" disabled selected>Select Religion</option>
+                        </select> 
+                    </div>
+                </div> 
+                <div class="col-md-12" id="btndiv">
+
+                    <button  id= "validate"  value="validates">
+                        submit </button>
+                </div>   
+            </div>
+
+
+        </div>
+        <div class="container"  id="regsuccess">
+            <div id="icondiv"><span id="okicon" class="glyphicon glyphicon-ok fa-4x"></span> </div>
+            <div><h4>Registered successfully confirmation mail has been sent to you mail</h4></div>
+            <div id="linktext">Please click here to <a href="" id="rLogin">login</a></div>
+        </div>
+
+
+        <div class="container text-center darkblue">    
+            <!--h3>What We Do</h3><br-->
+            <div class="row iconborder">
+                                      <div class="col-sm-3" id="searchicon">
+
+                    <div class="callout animated bounce">
+                        <ul>
+                            <!--li><a href="#" class="glyphicon" title="Search"><i class="glyphicon glyphicon-search"></i></a></li-->
+                            <li class="search">
+                                <a href="/basicSearc/" title="Search">
+                                    <img src="css/images/transparent.png" class="img-responsive transparent circle" alt="Partner Search">
+                                    <img src="css/images/search.png" class="img-responsive icon" alt="Partner Search">
+                                </a>
+                            </li>
+                        </ul>		
+                        <h4>Search</h4>
+                    </div>
+                </div>
+   <div class="col-sm-3"> 
+                    <div class="callout animated bounce" id="regicon">
+
+                        <ul>
+                            <li class="registration">
+                                <a href="#" title="Registration">
+                                    <img src="css/images/transparent.png" class="img-responsive transparent circle" alt="Partner Search">
+                                    <img src="css/images/registration.png" class="img-responsive icon" alt="Registration">
+                                </a>
+
+                            </li>   
+                        </ul>		
+                        <h4>Registration</h4>
+                    </div>
+                </div>
+       
+                <div class="col-sm-3" id="tipsicon">
+                    <div class="callout animated bounce">
+                        <ul>
+                            <li class="tips">
+                                <a href="#" title="tips">
+                                    <img src="css/images/transparent.png" class="img-responsive transparent circle" alt="Tips">
+                                    <img src="css/images/tips.png" class="img-responsive icon" alt="Partner Search">
+                                </a>
+                            </li>
+                        </ul>		
+                        <h4>Tips</h4>
+                    </div>
+                </div>
+                <div class="col-sm-3" id="contacticon"> 
+                    <div class="callout animated bounce">
+                        <ul>			
+                            <li class="contact">
+                                <a href="#" title="contact">
+                                    <img src="css/images/transparent.png" class="img-responsive transparent circle" alt="Contact">
+                                    <img src="css/images/contact.png" class="img-responsive icon" alt="Partner Search">
+                                </a>
+                            </li>
+                        </ul>		
+                        <h4>Contact Us</h4>
+                    </div>   
+                </div>    
+            </div>
+        </div>
+
+        <footer class="container">
+            <!--div class="container"-->  
+            <div class="col-sm-4 text-align-lft">
+                <p>© Copyrights 2017, All rights reserved. </p>
+            </div>	
+            <div class="col-sm-8">
+                <ul class="social-network"><li><b>Follow us on:</b></li>
+                    <li><a href="#" class="iconFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="iconYouTube" title="YouTube"><i class="fa fa-youtube"></i></a></li>
+                    <li><a href="#" class="iconTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="iconGoogle" title="Google +"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="#" class="iconLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                </ul>
+            </div>		
+            <!--/div-->
+        </footer>
+
+        <script  src="home.js"></script>
+        <script type="text/javascript" src="login.js"></script>
+        <link rel="stylesheet" href="css/home.css">
+
+    </body>
+</html>

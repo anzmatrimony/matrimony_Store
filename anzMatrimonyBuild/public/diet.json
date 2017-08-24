@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "diet": "Vegetarian"
+    },
+    {
+        "id": 2,
+        "diet": "Non-Vegetarian"
+    },
+    {
+        "id": 3,
+        "diet": "Occasionally Non-Veg"
+    },
+    {
+        "id": 4,
+        "diet": "Eggtarian"
+    },
+    {
+        "id": 5,
+        "diet": "Jain"
+    },
+    {
+        "id": 6,
+        "diet": "Vegan"
+    }
+]

@@ -1,0 +1,1293 @@
+<div id="pageloadMy" class="oj-panel"> 
+<div class="oj-panel Ovpage" data-bind="visible: MyProfileView">  
+<div class="oj-flex">  
+    <div class="oj-flex-item oj-md-7 oj-lg-7 oj-sm-12 ">
+        
+        <div class="oj-flex oj-panel photo">
+           
+<!--<img alt="profile image"  class="imfood profileimage"   data-bind="attr: {src: 'css/images/avatar_24px_2x.png'}" width="122px" height="122px"/>-->
+
+<img alt="profile image"  onerror="this.onerror=null;this.src='css/images/106.png'" class="imfood profileimage" data-bind="attr:{src: require.toUrl('/getimages/' +  sessionStorage.getItem('userRef') + '.jpg')}" width="122px" height="122px" />
+           
+        </div>
+        <div class="oj-flex oj-panel">
+            
+            <div class="oj-flex-item profiledesc">
+                <h3 data-bind="text: firstname" id="AnzMyProfilefullname"></h3>
+                <h5 data-bind="text: Job"></h5>
+                <h5 data-bind="text:workingWith"></h5>
+                <h5 data-bind='text: locality'></h5>
+             </div>
+            
+            
+          
+        </div>
+        <div class="oj-flex oj-panel profiledesc1">
+            <div class="oj-flex-item oj-panel photo1">
+               <div class="oj-flex-item ">
+             <p>Gender</p>
+                <p id="viewdCount" data-bind="text:Gender"></p>
+             </div>
+                
+            </div>
+            
+            <div class="oj-flex-item oj-panel photo1">
+               <div class="oj-flex-item">
+                   <p><i class="oj-fwk-icon oj-fwk" aria-hidden="true"></i> Age</</p>
+                <p id="viewdCount" data-bind="text:Age"></p>
+             </div>
+            </div>
+            
+            <div class="oj-flex-item oj-panel photo1">
+              <div class="oj-flex-item">
+             <p>Religion</p>
+                <p id="viewdCount" data-bind="text:Religion"></p>
+             </div>
+            </div>
+            
+        </div>
+        <div class="oj-flex oj-panel statusCss">
+          
+            <p>Profile complete Status</p>&nbsp;&nbsp;
+            <p data-bind="text: progressValue" dir="rtl"></p>%
+                <div id="progressbar" style="width:100%" 
+                  data-bind="ojComponent:{
+                        component: 'ojProgressbar', 
+                        value: progressValue}">
+                </div>
+          
+            
+            
+        </div>
+         <div class="oj-flex ">
+            
+            
+             <div class="oj-flex-item oj-panel photo1 contactDetails  ">
+                 <div class="AnzMyProfileContact">
+                 <h3>Contact Details</h3><hr>
+                 </div>
+               <div class="oj-flex-item">
+                   <div class="oj-flex">mobileNumber -&nbsp;<p data-bind="text: mobileNumber"></p></div><hr>
+                   <div class="oj-flex ">facebookId-&nbsp;<p data-bind="text: facebookId"></p></div><hr>
+                    <div class='oj-flex'>linkedinId-&nbsp;-<p data-bind="text: linkedinId"></p></div><hr>  
+                    <div class='oj-flex'>twitterId-&nbsp;-<p data-bind="text: twitterId"></p></div><hr> 
+                    <div class='oj-flex'>googleplusId-&nbsp;-<p data-bind="text: googleplusId"></p></div><hr>   
+                 </div>    
+            </div>
+            
+            <div class="oj-flex-item oj-panel photo1 FamilyDetails">
+                <div class="AnzMyProfileFamily">
+                 <h3>Family Details</h3><hr>
+                </div>
+              <div class="oj-flex-item">
+                  <div class="oj-flex">FatherStatus -&nbsp;<p data-bind="text:fatherStatus"></p></div><hr>
+                   <div class="oj-flex ">MotherStatus -&nbsp;<p data-bind="text:motherStatus"></p></div><hr>
+                    <div class='oj-flex'>siblings -&nbsp;<p data-bind="text:siblings"></p></div><hr>    
+                   <div class='oj-flex'>nativeplace- &nbsp;<p data-bind="text:locality"></p></div><hr>
+                
+             </div>
+            </div>
+            
+            
+            
+            <div class="oj-flex-item oj-panel photo1 interestDetails">
+                <div class="AnzMyProfileHobbiesANdInterests">
+                 <h3>Hobbies & Interest</h3><hr>
+                </div>
+               <div class="oj-flex-item">
+                  <div class="oj-flex">interests -&nbsp;<p data-bind="text: interests"></p></div><hr>
+                   <div class="oj-flex ">favouriteMusic-&nbsp;<p data-bind="text: favouriteMusic"></p></div><hr>
+                    <div class='oj-flex'>favouriteMovies-&nbsp;<p data-bind="text: favouriteMovies"></p></div><hr>  
+                    <div class='oj-flex'>favouriteBooks-&nbsp;<p data-bind="text: favouriteBooks"></p></div><hr> 
+                    <div class='oj-flex'>favouriteSports-&nbsp;<p data-bind="text: favouriteSports"></p></div><hr> 
+               
+             </div>
+            </div>
+            
+                 
+        </div>
+    </div>
+    
+    <div class="oj-flex-item oj-md-5 oj-lg-5 oj-sm-12 rightview ">
+        <div class="oj-flex" id="one">
+              <button class="oj-button-confirm editProfileButton"
+                  data-bind="visible: buttonVisibleMd,click: Editfunction,ojComponent: {
+                      component:'ojButton', label: '&nbsp; &nbsp;  Edit Your Profile &nbsp;&nbsp;',
+                      icons: {start:'demo-edit-icon-24 demo-icon-font-24'},
+                       chroming: 'full'
+                  }">
+          </button>
+<!--             <button data-bind="click: Editfunction,ojComponent: {component: 'ojButton',label: '&nbsp; &nbsp; TO EDIT PROFILE &nbsp;&nbsp;'}"></button>-->
+        </div>
+        <div class="oj-flex oj-panel viewedProfile">
+            <div class="oj-flex-item">
+                <p>Viewed Profiles</p>
+                <p id="viewdCount" data-bind="text:count"></p>
+              </div>
+        </div>
+         <div class="oj-flex oj-panel">
+             <div class="oj-flex-item">
+            <p>People Who Visited Your Profile</p>
+                <p id="viewdCount" data-bind="text:countViewed"></p>
+             </div>
+             
+        </div>
+        <div class="oj-flex oj-panel albumView">
+            <div class="oj-flex">
+            <div class="oj-md-6 oj-sm-12 oj-flex-item">
+                <a href="../../css/images/106.png">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+                </a>
+            </div>
+            <div class="oj-md-6 oj-sm-12 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            </div>
+            <div class="oj-flex">
+            <div class="oj-md-6 oj-sm-12 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            <div class="oj-md-6  oj-sm-12 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            </div>
+            <div class="oj-flex">
+            <div class="oj-md-6 oj-sm-12 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            <div class="oj-md-6 oj-sm-12 oj-flex-item">
+                <img alt="profile image"  class="imfood "   data-bind="attr: {src: 'css/images/106.png'}"/>
+            </div>
+            </div>
+        </div>
+        
+        <div class="oj-flex oj-md-12 oj-sm-12 uploadProfileImg">
+             <!--<img width="150px" height="150px" data-bind="attr:{src: imagePath}" style="padding-bottom: 5px;" />-->
+                    </br></br></br>
+            <!--<label for="filePicker">Change Image:</label><br>-->
+            <input type="file" id="filePicker">
+
+            <div>
+
+                <button id="btnUpld" data-bind="click: updateimage" style="display: none">Save</button>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    
+</div>
+   
+    </div>
+    
+
+ <div data-bind="visible: EditView">
+     <div class="oj-panel" id="editPageTitleBackground">
+         <h2 id="editProfile">Edit Profile</h2>
+     </div>
+<div id="navlistdemo" class="oj-panel navigationlistBackground">
+    <div class="navlistcontainer oj-panel backgroundfirst">
+      <div  aria-label="Choose a navigation item" data-bind="ojComponent:{
+                          component: 'ojNavigationList',
+                          drillMode: 'none',
+                            display:iconDisplay,
+                          selection: selectedLevel,
+                          navigationLevel: navigationLevel,
+                          edge: 'top'}" class="oj-navigationlist-stack-icon-label">
+          
+          
+          
+          
+          
+        <ul>
+            <li id="home2" data-bind="click: home2">
+              <a href="#" >
+                  <span id="basicDetailsIconCss" class="oj-navigationlist-item-icon
+                               demo-info-icon-24  demo-icon-font-24">
+                  </span>
+                  Basic Details
+              </a>
+            </li>
+            <li id="nxt1" data-bind="click: gettingstarted2">
+              <a href="#">
+                  <span id="educationDetailsCssIcon" class="oj-navigationlist-item-icon
+                               demo-education-icon-24 demo-icon-font-24">
+                  </span>
+                  Education Details
+              </a>
+            </li>
+            <li data-bind="click:cookbook2">
+              <a href="#">
+                  <span id="contactDetailsCssIcon" class="oj-navigationlist-item-icon
+                               demo-chat-icon-24 demo-icon-font-24">
+                  </span>
+                Contact Details
+              </a>
+            </li>
+            <li data-bind="click: stylelab2" >
+              <a href="#">
+                  <span id="familyDetailsCssIcon"  class="oj-navigationlist-item-icon
+                          demo-home-icon-24  demo-icon-font-24">
+                  </span>
+                 Family Details
+              </a>
+            </li>
+            <li data-bind="click:library2" >
+                <a href="#" >
+                    <span id="personalDetailsCssIcon"  class="oj-navigationlist-item-icon
+                        demo-person-icon-24 demo-icon-font-24">
+                    </span>
+                     Personal Details
+                </a>
+            </li>
+             <li data-bind="click:library3" >
+                <a href="#" >
+                    <span id="fireStyleCssIcon" class="oj-navigationlist-item-icon
+                        demo-catalog-icon-24 demo-icon-font-24">
+                    </span>
+                    Religion and Hobbies Info
+                </a>
+            </li>
+        </ul>
+      </div>
+  </div>
+    
+ 
+</div>
+     
+    
+ 
+<div data-bind="visible: DivVisible">
+    <div id="form-container" class="DivPartsNik oj-panel  demo-box " >
+      <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >                      
+                    <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+                    </div>
+          <div class="oj-flex-item " >   
+            <div class="oj-form-layout">
+    <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline"> 
+                    <div class="oj-flex">    
+                     <div class="oj-flex-item ">
+  <label for="profile" >Create Profile For</label>
+                     </div>
+     <div class="oj-flex-item ">
+         <input id="profile" list="profileselectdata" 
+         data-bind="ojComponent: {component: 'ojSelect',
+                     placeholder: '- Profile For -',value: selectedprofilefor }"/>
+               <datalist id="profileselectdata" data-bind="foreach: profileselectdata">
+
+    <option data-bind="value: profileFor, text: profileFor"></option>
+
+  </datalist>
+
+     </div>
+        </div>
+                           <div class="oj-flex"> 
+              <div class="oj-flex-item ">
+  <label for="gend" >Gender</label>
+                     </div>
+     <div class="oj-flex-item ">
+               <input id="gend" list="genderselect" 
+         data-bind="ojComponent: {component: 'ojSelect',
+                               placeholder: '- Select Gender -',
+                                 value: selectedGender}"/>
+     <datalist id="genderselect" data-bind="foreach: genderselect">
+   <option data-bind="value: gender, text: gender"></option>
+
+  </datalist>
+
+
+     </div>  
+           </div>
+        
+        
+        
+                  <div class="oj-flex">    
+                     <div class="oj-flex-item ">
+    <label for="fname">First Name</label>
+                     </div>
+     <div class="oj-flex-item ">
+           <input  id="fname" aria-label="text" 
+                   data-bind="ojComponent: {component: 'ojInputText',
+                              placeholder:'enter first name',value: fname,
+                          validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'numbers are not allowed enter only text'}}]}" >
+
+     </div>
+        </div>
+                  <div class="oj-flex">    
+                     <div class="oj-flex-item ">
+        <label for="lname">Last Name</label>
+                     </div>
+     <div class="oj-flex-item ">
+            <input  id="lname" aria-label="this is the input3 label text" 
+                data-bind="ojComponent: {component: 'ojInputText',
+                              placeholder:'enter last name',value: lastname,
+                          validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'numbers are not allowed enter only text'}}]}">
+
+     </div>
+        </div>
+                        <div class="oj-flex"> 
+              <div class="oj-flex-item ">
+  <label for="ageinput" >Age</label>
+                     </div>
+  
+     <div class="oj-flex-item ">
+      <input id="ageinput" list="Ageselectdata" 
+         data-bind="ojComponent: {component: 'ojSelect',
+                                    placeholder: '- Select Age -',value: selectedAge}"/>
+               <datalist id="Ageselectdata" data-bind="foreach: Ageselectdata">
+ 
+   <option data-bind="value: age, text: age"></option>
+
+  </datalist>
+
+     </div>  
+                        </div>
+    
+    
+    </div></div>
+             </div>
+          
+          
+          
+          
+            <div class="oj-flex-item">  
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-2 " >
+                   
+                    
+                     <div class="oj-flex"> 
+
+                         <button  type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Commit To Change',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                   
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                  </div>
+                
+            </div>
+      </div>
+      
+    </div>
+   
+</div>
+
+<div data-bind="visible: DivVisible1">
+  <div id="form-container" class="DivPartsNik oj-panel  demo-box" >
+      <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >                      
+	 <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+                    </div> 		
+          <div class="oj-flex-item">   
+					<div class="oj-form  oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+       
+                                             <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="highestEducationinput" >HigherEducation</label>
+        </div>
+        
+                                                 <div class="oj-flex-item">
+                                     <input id="highestEducationinput" list="educationData" 
+                                       data-bind="ojComponent: {component: 'ojSelect',
+                                    placeholder: '- Select Your Qualification -',value: HigherEducation}"/>
+                                <datalist id="educationData" data-bind="foreach: educationData">
+
+                                    <option data-bind="value: education, text: education"></option>
+
+                                </datalist>
+                
+                            </div>
+      </div>
+   
+            <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="college" >College</label>
+        </div>
+        <div class="oj-flex-item">
+                      <input id="college" 
+                 data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your college name',
+                                          value: enteredCollege,
+                                      validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'please eneter your college name'}}]}">
+        </div>
+      </div>
+   
+        
+        
+        
+                                <div class="oj-flex"> 
+              <div class="oj-flex-item ">
+  <label for="workingtypeinput" >Working Type</label>
+                     </div>
+  
+     <div class="oj-flex-item ">
+      <input id="workingtypeinput" list="workingtypesel" 
+         data-bind="ojComponent: {component: 'ojSelect',
+                                    placeholder: '- Select workingtype -',value: enteredWorkingtype}"/>
+               <datalist id="workingtypesel" data-bind="foreach: workingtypesel">
+ 
+   <option data-bind="value: working_type, text: working_type"></option>
+
+  </datalist>
+
+     </div>  
+                        </div>
+        
+           <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="workingwithinput">Working With</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="workingwithinput" 
+                 data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your designation',
+                                          value: enteredWorkingWith,
+                                      validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your details '}}]}">
+        </div>
+      </div>  
+        
+        
+        
+        
+        <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="workingAs" >Working AS</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="workingAs" 
+                 data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your designation',
+                                          value: enteredWorkingAs,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your your details'}}]}">
+        </div>
+      </div>      
+          <div class="oj-flex"> 
+              <div class="oj-flex-item ">
+  <label for="annincomeinput" >Annual Income</label>
+                     </div>
+  
+     <div class="oj-flex-item ">
+      <input id="annincomeinput" list="incomesel" 
+         data-bind="ojComponent: {component: 'ojSelect',
+                                    placeholder: '- select your income -',value: entredIncome}"/>
+               <datalist id="incomesel" data-bind="foreach: incomesel">
+ 
+   <option data-bind="value: id, text: annual_income"></option>
+
+  </datalist>
+
+     </div>  
+                        </div>
+        
+        
+        
+        
+      <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="workingLocation" >Working Location</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="workingLocation" 
+                 data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your working location',
+                                          value: enterdWorkingLocaton,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your details '}}]}">
+        </div>
+      </div>
+                                        
+                                        </div>
+                           </div>
+      
+          
+ <div class="oj-flex-item">  
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-2 " >
+                   
+                                          
+                     <div class="oj-flex"> 
+
+                         <button  type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Commit To Change',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+           
+
+
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                  </div>
+                
+            </div>
+			  </div>
+        
+    
+       
+      </div>
+       </div>
+<div data-bind="visible: DivVisible2">
+   <div id="form-container" class="DivPartsNik oj-panel  demo-box" >
+      <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >                      
+			  
+           <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+                    </div> 
+          <div class="oj-flex-item">   
+					<div class="oj-form  oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+      
+          
+            <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="mobile-num" >mobileno</label>
+        </div>
+        <div class="oj-flex-item">
+           
+            <input id= "mobile-num"  type="number" minLength="10" maxlength="10" name="mobile" title="10 digit mobile number"
+                   data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter mobile no', value: mobiletext,validators: [{
+                           type: 'regExp', 
+                           options: {
+              pattern: '[0-9]{10,14}$', 
+              messageDetail: 'You must enter 10 digit mobile number'}}],
+                                          value: mobiletext, required: true}">
+        </div>
+      </div>
+                    
+                                            
+               <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="home-num" >Home Phone</label>
+        </div>
+        <div class="oj-flex-item">
+            
+            
+          
+            <input id= "home-num"  type="number" minLength="12" maxlength="12" name="homePhone" title="landline number"
+                   data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter Home no', value: homeNumber,validators: [{
+                           type: 'regExp', 
+                           options: {
+              pattern: '[0-9]{9,14}$', 
+              messageDetail: 'You must enter 10 digit mobile number'}}],
+                                          value: homeNumber, required: true}">
+        </div>
+      </div> 
+                                            
+                                            
+                                            
+                                            
+                                            
+            <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="twitterID" >twittwerid</label>
+        </div>
+        <div class="oj-flex-item">
+         
+          
+          
+            <input id="twitterID" 
+                                       data-bind="ojComponent: {component: 'ojInputText', 
+                                          placeholder:'Enter Your TwitterId',validators: [{
+                           type: 'regExp', 
+                           options: {
+              pattern: '[A-Za-z0-9]+@[A-Za-z0-9.]{8,}', 
+              hint: 'enter your valid twitterid.'}}], 
+                                          value: twittertext}">
+       
+        </div>
+      </div>    <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="fbId" >fbid</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="fbId" 
+                 data-bind="ojComponent: {component: 'ojInputText', 
+                                          value: fbidtext, placeholder: 'enter your facebook id',validators: [{
+                           type: 'regExp', 
+                           options: {
+              pattern: '[A-Za-z0-9]+@[A-Za-z0-9.]{8,}', 
+              hint: 'enter your valid twitterid.'}}]}">
+        </div>
+      </div>    <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="linkedId">linkdinid</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="linkedId" 
+                 data-bind="ojComponent: {component: 'ojInputText', 
+                                          value: linkdintext, placeholder: 'enter your linkedin id',validators: [{
+                           type: 'regExp', 
+                           options: {
+              pattern: '[A-Za-z0-9]+@[A-Za-z0-9.]{8,}', 
+              hint: 'enter your valid twitterid.'}}]}">
+        </div>
+      </div>
+      <div class="oj-flex">  
+        <div class="oj-flex-item">
+          <label for="plus">googleplusid</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="plus" 
+                 data-bind="ojComponent: {component: 'ojInputText', 
+                                          value: googleplusidtext, placeholder: 'enter your google ',validators: [{
+                           type: 'regExp', 
+                           options: {
+              pattern: '[A-Za-z0-9]+@[A-Za-z0-9.]{8,}', 
+              hint: 'enter your valid twitterid.'}}]}">
+        </div>
+      </div>
+       
+                                        </div>
+                           </div>
+      
+      
+      
+      
+      
+      	
+			     <div class="oj-flex-item">  
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-2 " >
+                   
+                                          
+                     <div class="oj-flex"> 
+
+                         <button  type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Commit To Change',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                    
+
+
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                  </div>
+                
+            </div>
+        
+        
+    </div></div> 
+   
+</div>
+<div data-bind="visible: DivVisible3">
+  <div id="form-container" class="DivPartsNik oj-panel  demo-box" >
+      <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >                      
+	 <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+                    </div> 		
+          <div class="oj-flex-item">   
+					<div class="oj-form  oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline"> 
+<div class="oj-flex">
+      
+        <div class="oj-flex-item ">
+            <label for="fathergetdata">Father Status</label></div>
+        
+            <div class="oj-flex-item ">
+         <input id="fathergetdata" list="fatherstatusdata"
+          data-bind="ojComponent: {component: 'ojSelect', placeholder: 'select your father status',value: father_status,
+                                   rootAttributes: {style:'max-width:18em'}}"/>
+   <datalist id="fatherstatusdata" data-bind="foreach: fatherstatusdata ">
+   
+    <option data-bind="value: fatherstatus, text:fatherstatus"></option>
+   
+   </datalist>
+   </div>
+        </div>
+ 
+ 
+        <div class="oj-flex">
+       
+        <div class="oj-flex-item" >
+            <label for="mothergetdata" >Mother Status</label></div>
+        
+            <div class="oj-flex-item">
+          <input id="mothergetdata" list="motherstatusdata"
+          data-bind="ojComponent: {component: 'ojSelect',value: mother_status, placeholder: 'select your mother status',
+                                   rootAttributes: {style:'max-width:18em'}}"/>
+                     <datalist id="motherstatusdata" data-bind="foreach: motherstatusdata ">
+
+    <option data-bind="value:status, text:status"></option>
+ 
+   </datalist>
+    
+        </div></div>
+        
+       <div class="oj-flex">
+       
+        <div class="oj-flex-item">
+            <label for="nativePlace" >Address</label></div>
+           <div class="oj-flex-item">
+  <textarea id="nativePlace" 
+         type="text"  rows="3" 
+         data-bind="ojComponent: {component: 'ojTextArea', placeholder: 'enter your native place',
+value: native_place,rootAttributes:{style:'max-width:18em'}}"></textarea>
+    
+       
+    </div>
+        </div>
+        
+         <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="originCountry" style="padding-left: 50px">Origin Country</label>
+            </div>
+        <div class="oj-flex-item">
+          <select id="originCountry" placeholder="select Origin Country"data-bind="foreach: countryData,value: OriginCountryIn"  style="width: 250px;height: 30px;">
+                <option data-bind="value: country, text: country"></option>
+            </select>            
+        </div>
+      </div>
+                                            
+                                                     
+        <div class="oj-flex"> 
+            <div class="oj-flex-item">
+                <label for="originState" style="padding-left: 50px" >Origin State</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="originState"  data-bind="foreach: ostateData,value: OriginStateIn"  style="width: 250px;height: 30px;">
+                    <option data-bind="value: state, text: state"></option>
+                </select>
+            </div>
+        </div>
+        
+    
+ 
+   <div class="oj-flex"> 
+        <div class="oj-flex-item">
+            <label for="siblingsgetdata" style="padding-left: 80px">siblings</label>
+        </div>
+        <div class="oj-flex-item">
+          <select id="siblingsgetdata" data-bind="foreach: siblingssel,value: siblings" style="width: 250px;height: 30px;">
+                  <option data-bind="value: siblings,text: siblings"></option>
+          </select>
+        </div>
+      </div>
+    </div>
+       </div>
+          
+        
+     <div class="oj-flex-item">  
+					     <div class="oj-form  oj-sm-odd-cols-12 oj-md-odd-cols-4">
+                   
+                     <div class="oj-flex"> 
+
+                         <button  type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Commit To Change',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                   
+
+
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                     </div>
+			  </div>
+ 
+
+       
+   </div>
+        </div>
+</div>
+<div data-bind="visible: DivVisible4">
+        <div id="form-container" class="DivPartsNik oj-panel  demo-box" >
+      <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >                      
+            <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+                    </div> 
+          <div class="oj-flex-item">  
+               
+               <div class="oj-form-layout">
+    <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline"> 
+      <div class="oj-flex">  
+        <div class="oj-flex-item">
+       <label for="laguageData" style="padding-left: 100px">Mother Tongue</label>
+        </div>
+        <div class="oj-flex-item">
+<select id="laguageData" data-bind="foreach: laguageData, value: mothertongue" style="width: 250px;height: 30px;">
+   <option data-bind="value:language, text:language"></option>
+  </select>
+ 
+          
+        </div>
+      </div>
+      <div class="oj-flex"> 
+        <div class="oj-flex-item">
+         <label for="dob" style="padding-left: 100px">Date of Birth</label>
+        </div>
+        <div class="oj-flex-item">
+          <input id="dob"  data-bind="ojComponent: {
+            component: 'ojInputDate', value:dob}">
+        </div>
+      </div>
+        
+        
+      <div class="oj-flex"> 
+        <div class="oj-flex-item">
+          <label for="maritalData" style="padding-left: 100px">marital Status</label>
+        </div>
+        <div class="oj-flex-item">
+
+            <select id="maritalData" data-bind="foreach: maritalData,value: maritalstatus" style="width: 250px;height: 30px;">
+   <option data-bind="value:mstatus, text:mstatus"></option>
+  </select>
+        </div>
+      </div>
+        
+        
+         <div class="oj-flex"> 
+        <div class="oj-flex-item">
+         <label for="WEighData" style="padding-left: 100px">weight in kg</label>
+        </div>
+        <div class="oj-flex-item">
+
+          <select id="WEighData" data-bind="foreach: WEighData,value: weight" style="width: 250px;height: 30px;">
+   <option data-bind="value:weight, text:weight"></option>
+  </select>
+        </div>
+      </div>
+        
+        
+         <div class="oj-flex"> 
+        <div class="oj-flex-item">
+           <label for="BodyData" style="padding-left: 100px">body type</label>
+        </div>
+        <div class="oj-flex-item">
+
+          <select id="BodyData" data-bind="foreach: BodyData,value: body_type"  style="width: 250px;height: 30px;">
+   <option data-bind="value:bodytype, text:bodytype"></option>
+  </select>
+        </div>
+      </div>
+        
+          <div class="oj-flex"> 
+        <div class="oj-flex-item">
+          <label for="HeightData" style="padding-left: 100px" >Height</label> 
+        </div>
+        <div class="oj-flex-item">
+
+          <select id="HeightData" data-bind="foreach: HeightData,value: height" style="width: 250px;height: 30px;">
+   <option data-bind="value:height, text:height"></option>
+  </select>
+        </div>
+      </div>
+          <div class="oj-flex"> 
+        <div class="oj-flex-item">
+         <label for="SkinToneData" style="padding-left: 100px">Skintone</label>
+        </div>
+        <div class="oj-flex-item">
+
+          <select id="SkinToneData" data-bind="foreach: SkinToneData,value: skintone"   style="width: 250px;height: 30px;">
+                  <option data-bind="value:skintone,text:skintone"></option>
+          </select>
+        </div>
+      </div>  <div class="oj-flex"> 
+        <div class="oj-flex-item">
+         <label for="DietData" style="padding-left: 100px">Diet</label>
+        </div>
+        <div class="oj-flex-item">
+          <select id="DietData" data-bind="foreach: DietData,value: diet"   style="width: 250px;height: 30px;">
+                  <option data-bind="value:diet,text:diet"></option>
+          </select>
+        </div>
+      </div>
+      <div class="oj-flex"> 
+        <div class="oj-flex-item">
+           <label for="DrinkData" style="padding-left: 100px" >Drink</label>
+        </div>
+        <div class="oj-flex-item">
+          <select id="DrinkData" data-bind="foreach: DrinkData,value: drink" style="width: 250px;height: 30px;">
+                  <option data-bind="value:drink,text:drink"></option>
+          </select>
+        </div>
+      </div>
+        <div class="oj-flex"> 
+        <div class="oj-flex-item">
+          <label for="SmokeData" style="padding-left: 100px">Smoke</label>
+        </div>
+       <div class="oj-flex-item">
+
+          <select id="SmokeData" data-bind="foreach: SmokeData,value: smoke" style="width: 250px;height: 30px;">
+                  <option data-bind="value:smoke,text:smoke"></option>
+          </select>
+        </div>
+      </div>
+
+    </div>    
+  </div>
+          </div> 
+               
+                   <div class="oj-flex-item">  
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-2 " >
+                   
+                                         
+                     <div class="oj-flex"> 
+
+                         <button  type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Commit To Change',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                   
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                  </div>
+                
+            </div>
+  
+      </div>
+       </div>
+   
+</div>
+<div data-bind="visible: DivVisible5">
+     <div id="form-container" class="DivPartsNik oj-panel  demo-box" >
+      <div class="oj-flex oj-sm-only-flex-direction-column oj-md-only-flex-direction-column oj-lg-flex-items-1 oj-form-layout" >                      
+	
+          <div class="oj-flex-item oj-sm-12 oj-md-3">
+
+                    </div> 
+          
+          <div class="oj-flex-item">   
+					   <div class="oj-form-layout" >
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-5 oj-md-labels-inline">  
+                    
+            <!-- Religion Start -->
+            
+            <div class="oj-flex"> 
+                <div class="oj-flex-item">
+                    <label for="Religioninput">Religion</label>
+                </div>
+                <div class="oj-flex-item">
+                 <input id="Religioninput" list="religionselect" 
+         data-bind="ojComponent: {component: 'ojSelect',
+                             placeholder: '- Select Religion -',
+                                  value: selectedReligion}"/>
+               <datalist id="religionselect" data-bind="foreach: religionselect">
+
+   <option data-bind="value:religion, text: religion"></option>
+
+  </datalist>
+
+                </div>
+            </div>
+            
+            <!-- Religion End -->
+            
+            <!--Community start -->
+            <div class="oj-flex"> 
+        <div class="oj-flex-item" id="open" style="display: block">
+            <label for="communitydata" >Community</label>
+        </div>
+        <div class="oj-flex-item" id="open2" style="display: block">
+        <input id="communitydata" list="communitysel"
+         data-bind="ojComponent: {component: 'ojSelect',value: selectedCommunity, placeholder: 'select your community',
+                                  rootAttributes: {style:'max-width:18em'}}"/>
+                    <datalist id="communitysel" data-bind="foreach: communitysel">
+
+                        
+       <option data-bind="value:community, text:community"></option>
+       
+       </datalist>
+        </div>
+      </div>        
+             <!--Community End -->
+             
+             <!-- Sub Community start-->
+             <div class="oj-flex" id="openNow"> 
+                <div class="oj-flex-item">
+                    <label for="text-input" style="padding-left: 100px">SubCommunity</label>
+                </div>
+                <div class="oj-flex-item">
+                <input id="text-input" 
+                        type="text"
+                        class="oj-form-control oj-inputtext-nocomp"
+                        placeholder="enter subcommunity" 
+                        data-bind="value: selectedSubCommunity,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'enter your details'}}]"/>
+                </div>
+            </div>
+            
+             <!-- Sub Community End-->
+             
+             <!-- Gothra start -->
+             <div class="oj-flex"> 
+        <div class="oj-flex-item">
+            <label for="gothradata">Gothra</label>
+        </div>
+        <div class="oj-flex-item">
+      <input id="gothradata" list="gothrasel"
+         data-bind="ojComponent: {component: 'ojSelect',value: selectedGothra, placeholder: 'select your Gothra',
+                                  rootAttributes: {style:'max-width:18em'}}"/>
+               <datalist id="gothrasel" data-bind="foreach: gothrasel ">
+
+   <option data-bind="value:gothra, text: gothra"></option>
+
+  </datalist>
+        </div>
+             </div>
+             <!-- Gothra End -->
+             <!-- Zodiac Sign Start-->
+
+            <div class="oj-flex"> 
+                <div class="oj-flex-item">
+                    <label for="zodiacdata" >Zodiac Sign</label>
+                </div>
+                <div class="oj-flex-item">
+                 
+<input id="zodiacdata" list="zodiacData" 
+        data-bind="ojComponent: {component: 'ojSelect',
+                    placeholder: '- Zodaic Sign -',value: selectedZodiacSign,
+                                 rootAttributes: {style:'max-width:18em'}}"/>
+               <datalist id="zodiacData" data-bind="foreach: zodiacData">
+                   <option data-bind="value: zsign, text: zsign">hello</option>
+               </datalist>
+                </div>
+            </div>
+
+           
+             
+             
+             
+             
+             
+        <div class="oj-flex">
+      
+        <div class="oj-flex-item">
+            <label for="hobbygetdata">Hobbies</label></div>
+    <div class="oj-flex-item">
+  <input id="hobbygetdata" 
+         type="text"
+         data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your Hobbies',
+                                  value: hobbies}"/>
+    
+       
+    </div></div>
+        
+        <div class="oj-flex">
+      
+        <div class="oj-flex-item">
+            <label for="interestgetdata">Interests</label></div>
+    <div class="oj-flex-item">
+  <input id="interestgetdata" 
+         type="text"
+         data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your interests',
+                                  value: interests,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your first name '}}]}"/>
+    
+       
+    </div></div>
+        
+        
+
+<div class="oj-flex">
+      
+        <div class="oj-flex-item">
+            <label for="FavMusic">favourite Music</label></div>
+    <div class="oj-flex-item">
+  <input id="FavMusic" 
+         type="text"
+         data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your favourite Music',
+                                  value: favourite_music},validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your first name '}}]"/>
+    
+       
+    </div></div>
+
+<div class="oj-flex">
+      
+        <div class="oj-flex-item">
+            <label for="favMovies" >favourite Movies</label></div>
+    <div class="oj-flex-item">
+  <input id="favMovies" 
+         type="text"
+         data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your favourite Movies',
+                                  value: favourite_movies,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your first name '}}]}"/>
+    
+       
+    </div></div>
+
+<div class="oj-flex">
+       
+        <div class="oj-flex-item">
+            <label for="favBooks" >favourite Books</label></div>
+    <div class="oj-flex-item">
+  <input id="favBooks" 
+         type="text"
+         data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your favourite Books',
+                                  value: favourite_books,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your first name '}}]}"/>
+    
+       
+    </div></div>
+
+<div class="oj-flex">
+      
+        <div class="oj-flex-item">
+            <label for="favSports" >favourite sports</label></div>
+    <div class="oj-flex-item">
+  <input id="favSports" 
+         type="text"
+         data-bind="ojComponent: {component: 'ojInputText', placeholder: 'enter your favourite sports',
+                                  value: favourite_sports,validators: [{
+                         type: 'regExp', 
+                         options: {
+                           pattern: '[a-zA-Z ]*', 
+                           messageDetail: 'Enter your first name '}}]}"/>
+    
+       
+    </div></div>
+ 
+
+
+   
+
+      
+             
+             
+              
+        </div>
+    </div>
+                           </div>
+            <div class="oj-flex-item">   
+                        <div class="oj-form  oj-sm-odd-cols-12 oj-md-odd-cols-4">
+
+                      
+                     <div class="oj-flex"> 
+
+                         <button  type="button"  
+                       data-bind="click:saveAndCloseData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Commit To Change',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                   
+
+
+                         <button style="vertical-align: top" type="button"  
+                       data-bind="click: CancelData,
+                         ojComponent: {
+                           component: 'ojButton',
+                          
+                           label: 'Cancel',
+                           icons:{end:'oj-fwk-icon-next oj-fwk-icon'}}">
+                    </button>
+                         
+                         
+                 </div>
+                     </div>
+            </div>
+      </div>
+      </div>  
+</div>
+</div>
+    
+</div>
+<div class="oj-flex" id="two" >
+              <button class="oj-button-confirm editProfileButton"
+                      data-bind="visible: buttonVisibleSm,click: Editfunction,ojComponent: {
+                      component:'ojButton', label: '&nbsp; &nbsp;  Edit Your Profile &nbsp;&nbsp;',
+                      icons: {start:'demo-edit-icon-24 demo-icon-font-24'},
+                       chroming: 'full'
+                  }">
+          </button>
+<!--             <button data-bind="click: Editfunction,ojComponent: {component: 'ojButton',label: '&nbsp; &nbsp; TO EDIT PROFILE &nbsp;&nbsp;'}"></button>-->
+        </div>
+
