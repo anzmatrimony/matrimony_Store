@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="notificationid-httpListenerConfig" host="0.0.0.0" port="3077" doc:name="HTTP Listener Configuration" />
+    <apikit:config name="notificationid-config" raml="notificationid.raml" consoleEnabled="false" doc:name="Router" />
+    <http:request-config name="HTTP_Request_Configuration" host="192.168.0.116" port="9200" basePath="anz_user/notificationspost" doc:name="HTTP Request Configuration" />
+    <http:request-config name="HTTP_Request_Configuration1" host="192.168.0.116" port="9200" basePath="anz_user/privacySettings" doc:name="HTTP Request Configuration"/>
+    <validation:config name="Validation_Configuration" doc:name="Validation Configuration"/>
+    <flow name="notificationid-main">
+        <http:listener config-ref="notificationid-httpListenerConfig" path="/api/*" doc:name="HTTP">
+            <http:response-builder>
+
+            </http:response-builder>
+            <http:error-response-builder>
+                <http:header headerName="Access-Control-Allow-Origin" value="*"/>
+                <http:header headerName="Access-Control-Allow-Headers" value="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"/>
+            </http:error-response-builder>
+        </http:listener>
+        <apikit:router config-ref="notificationid-config" doc:name="APIkit Router" />
+        <exception-strategy ref="notificationid-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy" />
+    </flow>
+    <flow name="notificationid-console">
+        <http:listener config-ref="notificationid-httpListenerConfig" path="/console/*" doc:name="HTTP">
+            <http:response-builder />
+        </http:listener>
+        <apikit:console config-ref="notificationid-config" doc:name="APIkit Console" />
+    </flow>
+    
+    <flow name="fbflow">
+          <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="fbupdate" value="#[flowVars.payload.fbId.userRef]" doc:name="fbupdate"/>
+
+        <set-variable variableName="checkfb" value="#[flowVars.payload.fbId.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkfb"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkfb">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.fbupdate.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;#[flowVars.var.header.guid]&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;#[flowVars.var.header.requestedFrom]&quot;,             &quot;geoLocation&quot;:&quot;#[flowVars.var.header.geoLocation]&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="mobileflow">
+        <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="mobileNo" value="#[flowVars.payload.mobileNo.userRef]" doc:name="mobileNo"/>
+
+        <set-variable variableName="checkmobile" value="#[flowVars.payload.mobileNo.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkmobile"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkmobile">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+                
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.mobileNo.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="twitterflow">
+      <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="twitterid" value="#[flowVars.payload.twitterid.userRef]" doc:name="twitterid"/>
+
+        <set-variable variableName="checktwitterid" value="#[flowVars.payload.twitterid.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checktwitterid"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checktwitterid">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.twitterid.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="incomeflow">
+     <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="incomePanm" value="#[flowVars.payload.incomePanm.userRef]" doc:name="incomePanm"/>
+
+        <set-variable variableName="checkincome" value="#[flowVars.payload.incomePanm.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkincome"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkincome">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.incomePanm.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="linkedinflow">
+       <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="linkedinid" value="#[flowVars.payload.linkedinid.userRef]" doc:name="linkedinid"/>
+
+        <set-variable variableName="checklink" value="#[flowVars.payload.linkedinid.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checklink"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checklink">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.linkedinid.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="dndflow">
+     <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="dnd" value="#[flowVars.payload.dnd.userRef]" doc:name="dnd"/>
+
+        <set-variable variableName="checkdnd" value="#[flowVars.payload.dnd.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkdnd"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkdnd">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.dnd.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="shortlistflow">
+       <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="shortlist" value="#[flowVars.payload.shortlist.userRef]" doc:name="shortlist"/>
+
+        <set-variable variableName="checkshortlist" value="#[flowVars.payload.shortlist.userRef.contains(flowVars.var.notificationFrom)]" doc:name="check"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkshortlist">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.shortlist.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="visibelity">
+        <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="visibletySettings" value="#[flowVars.payload.visibletySettings.userRef]" doc:name="visibletySettings"/>
+
+        <set-variable variableName="checkvisiblety" value="#[flowVars.payload.visibletySettings.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkvisiblety"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkvisiblety">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.visibletySettings.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="webflow">
+      <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="webnotification" value="#[flowVars.payload.webnotification.userRef]" doc:name="webnotification"/>
+
+        <set-variable variableName="checkweb" value="#[flowVars.payload.webnotification.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkweb"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkweb">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFromUser]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.webnotification.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="profileflow">
+      <logger level="INFO" doc:name="From"/>
+                <set-variable variableName="profilePrivacy" value="#[flowVars.payload.profilePrivacy.userRef]" doc:name="profilePrivacy"/>
+
+        <set-variable variableName="checkprofile" value="#[flowVars.payload.profilePrivacy.userRef.contains(flowVars.var.notificationFrom)]" doc:name="checkprofile"/>
+        <choice doc:name="ChoiceTrue">
+            <when expression="flowVars.checkprofile">
+                <logger message="#[&quot;user already existed&quot;]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{&quot;message&quot;: &quot;existed user&quot;}" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="#[flowVars.var.notificationFrom]" doc:name="Set Payload"/>
+                <set-variable variableName="calling" value="#[flowVars.profilePrivacy.add(payload)]" doc:name="Variable"/>
+                <set-payload value="#[flowVars.payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="POST" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+                    </http:request-builder>
+                </http:request>
+                <set-payload value="{            &quot;header&quot;:              {             &quot;guid&quot;:&quot;&quot;,             &quot;requestedOn&quot;:&quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;,             &quot;requestedFrom&quot; :&quot;&quot;,             &quot;geoLocation&quot;:&quot;&quot;,             &quot;status&quot;:&quot;success&quot;,             &quot;statusCode&quot;:&quot;0&quot;,              &quot;notificationFromUser&quot; : &quot;&quot;,             &quot;notificationToUser&quot; : &quot;&quot;                        },               &quot;body&quot;:{                                                                           &quot;message&quot; : &quot;approved successful&quot;                                      }                                     }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        <logger level="INFO" doc:name="End"/>
+    </flow>
+    <flow name="post:/approvingNotification:notificationid-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+
+        <choice doc:name="Choice">
+            <when expression="#[sessionVars.condition!='1']">
+               <set-variable variableName="var" value="#[payload]" doc:name="Variable"/>
+        <http:request config-ref="HTTP_Request_Configuration1" path="/{userRef}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.var.notificationTo]"/>
+
+
+            </http:request-builder>
+        </http:request>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-variable variableName="payload" value="#[payload._source]" doc:name="payload"/>
+        <set-variable variableName="nData" value="#[flowVars.var.notificationData]" doc:name="nData"/>
+                <logger level="INFO" doc:name="heloo"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.var.notificationData=='fbId']">
+                <flow-ref name="fbflow" doc:name="fbflow"/>
+              
+            </when>
+            <when expression="#[flowVars.var.notificationData=='mobileNo']">
+                <flow-ref name="mobileflow" doc:name="mobileflow"/>
+                
+            </when>
+            <when expression="#[flowVars.var.notificationData=='twitterid']">
+                <flow-ref name="twitterflow" doc:name="twitterflow"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='linkedinid']">
+                <flow-ref name="linkedinflow" doc:name="linkedinflow"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='visibletySettings']">
+                <flow-ref name="visibelity" doc:name="visibelity"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='webnotification']">
+                <flow-ref name="webflow" doc:name="webflow"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='shortlist']">
+                <flow-ref name="shortlistflow" doc:name="shortlistflow"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='profilePrivacy']">
+                <flow-ref name="profileflow" doc:name="profileflow"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='incomePanm']">
+                <flow-ref name="incomeflow" doc:name="incomeflow"/>
+               
+            </when>
+            <when expression="#[flowVars.var.notificationData=='dnd']">
+                <flow-ref name="dndflow" doc:name="dndflow"/>
+              
+            </when>
+            <otherwise>
+                <logger message="#[&quot;no requested notificationData is sent&quot;]" level="INFO" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+            </when>
+            <otherwise>
+                <logger level="INFO" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+       
+    </flow>
+
+    <flow name="delete:/deletenotification:notificationid-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <set-variable variableName=" notification_Id" value="#[message.inboundProperties.'http.query.params'.notification_Id]" doc:name="Variable" />
+        <http:request config-ref="HTTP_Request_Configuration" path="/{notification_Id}" method="DELETE" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="notification_Id" value="#[flowVars.' notification_Id']" />
+            </http:request-builder>
+        </http:request>
+        <set-payload value="{ &quot;header&quot; : {   &quot;guid&quot; : &quot;&quot;,   &quot;responseon&quot; : &quot;&quot;,   &quot;responsefrom&quot; : &quot;&quot;,   &quot;userid&quot; : &quot;&quot;,    &quot; notification_Id&quot; : #[flowVars.notification_Id]   },   &quot;message&quot; :&quot;delated Successfull&quot;   }" doc:name="Set Payload" />
+    </flow>
+    <flow name="get:/getSentNotifications:notificationid-config">
+     <set-variable variableName="notificationId" value="#[message.inboundProperties.'http.query.params']" doc:name="Variable" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.notificationId.userRef=='From']">
+                <logger message="from" level="INFO" doc:name="From"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;sent&quot; }},{&quot;match&quot; : { &quot;notificationFrom&quot; : &quot;#[flowVars.notificationId.notificationFrom]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <logger message="To" level="INFO" doc:name="To"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;sent&quot; }},{&quot;match&quot; : { &quot;notificationTo&quot; : &quot;#[flowVars.notificationId.notificationTo]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+
+            </otherwise>
+        </choice>
+        <http:request config-ref="HTTP_Request_Configuration" path="/_search" method="POST" doc:name="HTTP" />
+        <set-variable variableName="bodyData" value="#[[]]" doc:name="Variable" />
+        <enricher source="#[(_source in payload.hits.hits)]" target="#[flowVars.bodyData]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        </enricher>
+        <set-payload value="{   &quot;guid&quot;: &quot;#[flowVars.notificationId.guid]&quot;,   &quot;responsedatetime&quot;: &quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;, &quot;notificationFrom&quot;: &quot;#[flowVars.notificationId.notificationFrom]&quot;,   &quot;geoLocation&quot;: &quot;#[flowVars.notificationId.geoLocation]&quot; ,&quot;notificationId&quot;:&quot;#[flowVars.notificationId.notificationId]&quot;,&quot;notificationTo&quot;:&quot;#[flowVars.notificationId.notificationTo]&quot; } " doc:name="Set Payload" />
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.bodyData !=[]]">
+                <set-variable variableName="payloadData" value="#[payload]" doc:name="Variable" />
+                <expression-transformer expression="#[[{'header':flowVars.payloadData},{'body':flowVars.bodyData}]]" doc:name="Expression" />
+                <json:object-to-json-transformer doc:name="Object to JSON" />
+            </when>
+            <otherwise>
+                <set-payload value="{&quot;no sent members&quot;}" doc:name="Set Payload" />
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="get:/getPendingNotifications:notificationid-config">
+        <set-variable variableName="notificationId" value="#[message.inboundProperties.'http.query.params']" doc:name="Variable" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.notificationId.userRef=='From']">
+                <logger message="from" level="INFO" doc:name="From"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;waiting&quot; }},{&quot;match&quot; : { &quot;notificationFrom&quot; : &quot;#[flowVars.notificationId.notificationFrom]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <logger message="To" level="INFO" doc:name="To"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;waiting&quot; }},{&quot;match&quot; : { &quot;notificationTo&quot; : &quot;#[flowVars.notificationId.notificationTo]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+
+        <http:request config-ref="HTTP_Request_Configuration" path="/_search" method="POST" doc:name="HTTP" />
+        <set-variable variableName="bodyData" value="#[[]]" doc:name="Variable" />
+        <enricher source="#[(_source in payload.hits.hits)]" target="#[flowVars.bodyData]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        </enricher>
+        <set-payload value="{   &quot;guid&quot;: &quot;#[flowVars.notificationId.guid]&quot;,   &quot;responsedatetime&quot;: &quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;, &quot;notificationFrom&quot;: &quot;#[flowVars.notificationId.notificationFrom]&quot;,   &quot;geoLocation&quot;: &quot;#[flowVars.notificationId.geoLocation]&quot; ,&quot;notification_Id&quot;:&quot;#[flowVars.notificationId.notificationId]&quot;,&quot;notificationTo&quot;:&quot;#[flowVars.notificationId.notificationTo]&quot; } " doc:name="Set Payload" />
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.bodyData !=[]]">
+                <set-variable variableName="payloadData" value="#[payload]" doc:name="Variable" />
+                <expression-transformer expression="#[[{'header':flowVars.payloadData},{'body':flowVars.bodyData}]]" doc:name="Expression" />
+
+                <logger message="#[payload]" level="INFO" doc:name="Logger" />
+                <json:object-to-json-transformer doc:name="Object to JSON" />
+            </when>
+            <otherwise>
+                <set-payload value="{&quot;no pendind invitations&quot;}" doc:name="Set Payload" />
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="get:/getAcceptedNotificatons:notificationid-config">
+     <set-variable variableName="notificationId" value="#[message.inboundProperties.'http.query.params']" doc:name="Variable" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.notificationId.userRef=='From']">
+                <logger message="from" level="INFO" doc:name="From"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;Accepted&quot; }},{&quot;match&quot; : { &quot;notificationFrom&quot; : &quot;#[flowVars.notificationId.notificationFrom]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <logger message="To" level="INFO" doc:name="To"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;Accepted&quot; }},{&quot;match&quot; : { &quot;notificationTo&quot; : &quot;#[flowVars.notificationId.notificationTo]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+
+            </otherwise>
+        </choice>
+        <http:request config-ref="HTTP_Request_Configuration" path="/_search" method="POST" doc:name="HTTP" />
+        <set-variable variableName="bodyData" value="#[[]]" doc:name="Variable" />
+        <enricher source="#[(_source in payload.hits.hits)]" target="#[flowVars.bodyData]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        </enricher>
+        <set-payload value="{   &quot;guid&quot;: &quot;#[flowVars.notificationId.guid]&quot;,   &quot;responsedatetime&quot;: &quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;, &quot;notificationFrom&quot;: &quot;#[flowVars.notificationId.notificationFrom]&quot;,   &quot;geoLocation&quot;: &quot;#[flowVars.notificationId.geoLocation]&quot; ,&quot;notificationId&quot;:&quot;#[flowVars.notificationId.notificationId]&quot;,&quot;notificationTo&quot;:&quot;#[flowVars.notificationId.notificationTo]&quot; } " doc:name="Set Payload" />
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.bodyData !=[]]">
+                <set-variable variableName="payloadData" value="#[payload]" doc:name="Variable" />
+                <expression-transformer expression="#[[{'header':flowVars.payloadData},{'body':flowVars.bodyData}]]" doc:name="Expression" />
+                <json:object-to-json-transformer doc:name="Object to JSON" />
+            </when>
+            <otherwise>
+                <set-payload value="{&quot;no Accepted members&quot;}" doc:name="Set Payload" />
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="get:/getRejectedNotifications:notificationid-config">
+     <set-variable variableName="notificationId" value="#[message.inboundProperties.'http.query.params']" doc:name="Variable" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.notificationId.userRef=='From']">
+                <logger message="from" level="INFO" doc:name="From"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;Rejected&quot; }},{&quot;match&quot; : { &quot;notificationFrom&quot; : &quot;#[flowVars.notificationId.notificationFrom]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <logger message="To" level="INFO" doc:name="To"/>
+                <set-payload value="{ &quot;query&quot; : {   &quot;bool&quot; : {  &quot;must&quot; : [   {&quot;match&quot; : { &quot;status&quot; : &quot;Rejected&quot; }},{&quot;match&quot; : { &quot;notificationTo&quot; : &quot;#[flowVars.notificationId.notificationTo]&quot; }}        ]       }      } , &quot;size&quot; : 100} " doc:name="Set Payload"/>
+
+            </otherwise>
+        </choice>
+        <http:request config-ref="HTTP_Request_Configuration" path="/_search" method="POST" doc:name="HTTP" />
+        <set-variable variableName="bodyData" value="#[[]]" doc:name="Variable" />
+        <enricher source="#[(_source in payload.hits.hits)]" target="#[flowVars.bodyData]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        </enricher>
+        <set-payload value="{   &quot;guid&quot;: &quot;#[flowVars.notificationId.guid]&quot;,   &quot;responsedatetime&quot;: &quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;, &quot;notificationFrom&quot;: &quot;#[flowVars.notificationId.notificationFrom]&quot;,   &quot;geoLocation&quot;: &quot;#[flowVars.notificationId.geoLocation]&quot; ,&quot;notificationId&quot;:&quot;#[flowVars.notificationId.notificationId]&quot;,&quot;notificationTo&quot;:&quot;#[flowVars.notificationId.notificationTo]&quot; } " doc:name="Set Payload" />
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object" />
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.bodyData !=[]]">
+                <set-variable variableName="payloadData" value="#[payload]" doc:name="Variable" />
+                <expression-transformer expression="#[[{'header':flowVars.payloadData},{'body':flowVars.bodyData}]]" doc:name="Expression" />
+                <json:object-to-json-transformer doc:name="Object to JSON" />
+            </when>
+            <otherwise>
+                <set-payload value="{&quot;no rejected members&quot;}" doc:name="Set Payload" />
+            </otherwise>
+        </choice>
+    </flow>
+
+   
+    <flow name="get:/getNotification:notificationid-config">
+        <set-variable variableName="body" value="#[message.inboundProperties.'http.query.params']" doc:name="Variable"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="/{userRef}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="userRef" value="#[flowVars.body.userRef]"/>
+            </http:request-builder>
+        </http:request>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+         <set-variable variableName="bodyData" value="#[[]]" doc:name="Variable"/>
+        <enricher source="#[payload._source.body]" target="#[flowVars.bodyData]" doc:name="Message Enricher">
+            <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        </enricher>
+        <set-payload value="{   &quot;guid&quot;: &quot;&quot;,   &quot;responsedatetime&quot;: &quot;#[server.dateTime.format('MM/dd/yyyy,HH:mm:ss')]&quot;, &quot;notificationFrom&quot;: &quot;&quot;,   &quot;geoLocation&quot;: &quot;&quot; ,&quot;notificationId&quot;:&quot;&quot;,&quot;notificationTo&quot;:&quot;&quot; } " doc:name="Set Payload"/>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <choice doc:name="Choice">
+            <when expression="#[flowVars.bodyData !=[]]">
+                <set-variable variableName="payloadData" value="#[payload]" doc:name="Variable"/>
+                <expression-transformer expression="#[[{'header':flowVars.payloadData},{'body':flowVars.bodyData}]]" doc:name="Expression"/>
+
+                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+            </when>
+            <otherwise>
+                <set-payload value="data not available" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+        
+    </flow>
+    <flow name="post:/createnotification:notificationid-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-variable variableName="notificationId" value="#[payload.notificationId]" doc:name="Variable"/>
+        <set-variable variableName="var" value="#[message.inboundProperties.'http.query.params']" doc:name="Variable"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="/{notificationId}" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="notificationId" value="#[flowVars.notificationId]"/>
+            </http:request-builder>
+        </http:request>
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <logger message="post successful" level="INFO" doc:name="Logger"/>
+        <set-payload value="[{   &quot;header&quot;: {    &quot;guid&quot;: &quot;#[flowVars.var.guid]&quot;,    &quot;responsedatetime&quot;: &quot; #[server.dateTime]&quot;,    &quot;userid&quot;: &quot;#[flowVars.var.userId]&quot;,    &quot;respondsOn&quot;: &quot;#[flowVars.var.requestedOn]&quot;,    &quot;responsesFrom&quot;: &quot;#[flowVars.var.requestedFrom]&quot;,    &quot;geoLocation&quot;: &quot;#[flowVars.var.geoLocation]&quot;   }    },     {   &quot;message&quot;: &quot;create Successfull&quot;  } ]" doc:name="Set Payload"/>
+    </flow>
+
+    <flow name="post:/createNotification:notificationid-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-variable variableName="payload" value="#[payload]" doc:name="payload"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="/{userRef}" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="userRef" value="#[flowVars.payload.body.notificationToUser]"/>
+            </http:request-builder>
+        </http:request>
+        <set-payload value="{
+             &quot;header&quot;:
+               {
+              &quot;guid&quot;:&quot;&quot;,
+              &quot;requestedOn&quot;:&quot;&quot;,
+              &quot;requestedFrom&quot; :&quot;&quot;,
+              &quot;geoLocation&quot;:&quot;&quot;,
+              &quot;status&quot;:&quot;success&quot;,
+             &quot;statusCode&quot;:&quot;0&quot;,
+               &quot;notificationFromUser&quot; : &quot;&quot;,
+              &quot;notificationToUser&quot; : &quot;&quot;
+
+               },
+                &quot;body&quot;:{
+                
+                 &quot;message&quot; :&quot;post notification Successfull&quot;
+               }}" doc:name="Set Payload"/>
+
+    </flow>
+     <apikit:mapping-exception-strategy name="notificationid-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property" />
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property" />
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property" />
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property" />
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property" />
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload" />
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+    <flow name="notificationidFlow">
+        <http:listener config-ref="notificationid-httpListenerConfig" path="/createnotification" allowedMethods="options" doc:name="HTTP">
+            <http:response-builder>
+                <http:header headerName="Access-Control-Allow-Origin" value="*"/>
+                <http:header headerName="Access-Control-Allow-Headers" value="Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With"/>
+            </http:response-builder>
+        </http:listener>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+
+</mule>

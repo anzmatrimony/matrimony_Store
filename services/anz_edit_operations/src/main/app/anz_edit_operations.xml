@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:context="http://www.springframework.org/schema/context" xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd">
+    <http:listener-config name="anz_edit_operations-httpListenerConfig" host="0.0.0.0" port="3003" doc:name="HTTP Listener Configuration"/>
+    <db:mysql-config name="MySQL_Configuration" host="192.168.0.116" port="3306" user="root" password="Massil@123" database="anz_matrimony" doc:name="MySQL Configuration"/>
+     <http:request-config name="HTTP_Request_Configuration" host="192.168.0.116" port="9200"  doc:name="HTTP Request Configuration"/>
+    <apikit:config name="anz_edit_operations-config" raml="anz_edit_operations.raml" consoleEnabled="false" doc:name="Router"/>
+    <validation:config name="Validation_Configuration" doc:name="Validation Configuration"/>
+    <flow name="anz_edit_operations-main">
+        <http:listener config-ref="anz_edit_operations-httpListenerConfig" path="/api/*" doc:name="HTTP">
+            <http:response-builder>
+                <http:header headerName="Access-Control-Allow-Origin" value="*"/>
+            </http:response-builder>
+        </http:listener>
+        <apikit:router config-ref="anz_edit_operations-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="anz_edit_operations-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="anz_edit_operations-console">
+        <http:listener config-ref="anz_edit_operations-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="anz_edit_operations-config" doc:name="APIkit Console"/>
+    </flow>
+    <flow name="post:/getDetails:anz_edit_operations-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-variable variableName="payloadBody" value="#[payload.body]" doc:name="Variable"/>
+        <set-variable variableName="headerGet" value="#[payload.header]" doc:name="headerGet"/>
+        <flow-ref name="anz_edit_operationsFlow" doc:name="anz_edit_operationsFlow"/>
+        <choice doc:name="Choice">
+            <when expression="flowVars.validationGetChecker!=null">
+                <logger level="INFO" doc:name="Logger"/>
+            </when>
+            <otherwise>
+                <set-variable variableName="userRef" value="#[payload.body.userRef]" doc:name="Variable"/>
+                <http:request config-ref="HTTP_Request_Configuration" path="anzuser/userInfo/{userRef}" method="GET" doc:name="HTTP">
+                    <http:request-builder>
+                        <http:uri-param paramName="userRef" value="#[flowVars.userRef]"/>
+                    </http:request-builder>
+                </http:request>
+                <json:json-to-object-transformer returnClass="java.util.LinkedHashMap" doc:name="JSON to Object"/>
+                <set-variable variableName="body" value="#[payload._source]" doc:name="body"/>
+                <expression-transformer expression="#[[{'header':flowVars.headerGet},{'body':flowVars.body}]]" doc:name="Expression"/>
+                <set-payload value="#[payload]" doc:name="Set Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+            </otherwise>
+        </choice>
+
+    </flow>
+    <flow name="anz_edit_operationsFlow">
+        <validation:all config-ref="Validation_Configuration" doc:name="Validation">
+            <validation:validations>
+                <validation:is-not-empty value="#[payload.header.requestedFrom]" message="requestedFrom should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.guid]" message="guid should not be empty"/>
+                <validation:is-not-empty value="#[payload.body.userRef]" message="userRef should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.geoLocation]" message="geoLocation should not be empty"/>
+                <validation:is-not-empty value="#[payload.header]" message="header should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.requestedOn]" message="requestedOn should not be empty"/>
+
+            </validation:validations>
+        </validation:all>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-property propertyName="http.status" value="400" doc:name="Property"/>
+            <set-payload value="{&quot;header&quot;:{
+&quot;guid&quot;:&quot;#[payload.header.guid]&quot;,
+&quot;geoLocation&quot;:&quot;#[payload.header.geoLocation]&quot;,
+&quot;requestedOn&quot;:&quot;#[payload.header.requestedOn]&quot;,
+&quot;requestedFrom&quot;:&quot;#[payload.header.requestedFrom]&quot;
+},
+&quot;body&quot;:{
+&quot;status&quot;:&quot;error&quot;,
+&quot;statusCode&quot;:&quot;-1&quot;
+&quot;message&quot;:&quot;#['error'+exception]&quot;
+}
+}" doc:name="Set Payload"/>
+            <set-variable variableName="validationGetChecker" value="#[payload]" doc:name="validationGetChecker"/>
+        </catch-exception-strategy>
+    </flow>
+    <flow name="post:/postEditDetails:anz_edit_operations-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <set-session-variable variableName="payload" value="#[payload.get('body')]" doc:name="payload"/>
+
+        <flow-ref name="postValidation" doc:name="postValidation"/>
+        <set-variable variableName="headerPost" value="#[payload.header]" doc:name="headerPost"/>
+
+        <choice doc:name="Choice">
+            <when expression="flowVars.checker!=null">
+                <logger level="INFO" doc:name="Logger"/>
+            </when>
+            <otherwise>
+                <set-session-variable variableName="completedata" value="#[sessionVars.payload]" doc:name="completedata"/>
+                <set-variable variableName="storageArray" value="#[[]]" doc:name="storageArray"/>
+
+                <foreach collection="#[sessionVars.completedata]" doc:name="For Each">
+                    <set-variable variableName="payload" value="#[payload.body]" doc:name="payload"/>
+                    <choice doc:name="Choice">
+                        <when expression="#[payload.equals(&quot;&quot;)!='true']">
+                            <set-variable variableName="payloadSize" value="#[flowVars.storageArray.add(payload)]" doc:name="Variable"/>
+                        </when>
+                        <otherwise>
+                            <logger level="INFO" doc:name="Logger"/>
+                        </otherwise>
+                    </choice>
+                </foreach>
+                <set-variable variableName="basicProfilepercent" value=" #[flowVars.storageArray.size()/44*90]" doc:name="basicProfilepercent"/>
+
+                <db:update config-ref="MySQL_Configuration" doc:name="Database">
+                    <db:parameterized-query><![CDATA[UPDATE anz_matrimony.anz_userbasicdata
+SET profileFor=#[sessionVars.completedata.profileFor], 
+firstName=#[sessionVars.completedata.firstName],
+ lastName=#[sessionVars.completedata.lastName],
+age=#[sessionVars.completedata.age],profileCompleteness=#[flowVars.basicProfilepercent],religion=#[sessionVars.completedata.religion],modifiedOn=#[sessionVars.completedata.modifiedOn],modifiedBy=#[sessionVars.completedata.modifiedBy],gender=#[sessionVars.completedata.gender]
+ WHERE userRef=#[sessionVars.completedata.userRef];]]></db:parameterized-query>
+                </db:update>
+                <db:update config-ref="MySQL_Configuration" doc:name="Database">
+                    <db:parameterized-query><![CDATA[UPDATE anz_matrimony.anz_userprofiledata 
+SET hobbies=#[sessionVars.completedata.hobbies],
+  interests=#[sessionVars.completedata.interests],
+ favouriteMusic=#[sessionVars.completedata.favouriteMusic],
+ favouriteBooks=#[sessionVars.completedata.favouriteBooks],
+ favouriteMovies=#[sessionVars.completedata.favouriteMovies],
+ favouriteSports=#[sessionVars.completedata.favouriteSports],
+ dob=#[sessionVars.completedata.DateofBirth], 
+height=#[sessionVars.completedata.Height], 
+weight=#[sessionVars.completedata.BodyWegiht], 
+skinTone=#[sessionVars.completedata.SkinType], 
+bodyType=#[sessionVars.completedata.BodyType],
+ motherTounge=#[sessionVars.completedata.MotherTongue],
+ diet=#[sessionVars.completedata.diet], 
+drink=#[sessionVars.completedata.drink],
+ smoke=#[sessionVars.completedata.Smoke], 
+maritalStatus=#[sessionVars.completedata.MaritalStatus],
+nativePlace=#[sessionVars.completedata.nativePlace],
+  fatherStatus=#[sessionVars.completedata.fatherStatus],
+ motherStatus=#[sessionVars.completedata.motherStatus],
+ sibblings=#[sessionVars.completedata.sibblings],
+religion=#[sessionVars.completedata.religion],
+ community=#[sessionVars.completedata.community], 
+ subCommunity=#[sessionVars.completedata.subCommunity],
+ gothra=#[sessionVars.completedata.gothra], 
+zodiacSign=#[sessionVars.completedata.zodiacSign],
+
+highestEducation=#[sessionVars.completedata.highestEducation],
+college=#[sessionVars.completedata.college],
+
+workingWith=#[sessionVars.completedata.workingWith],
+workingAs=#[sessionVars.completedata.workingAs], 
+annualIncome=#[sessionVars.completedata.annualIncome], 
+workingLocation=#[sessionVars.completedata.workingLocation],
+
+mobileNumber=#[sessionVars.completedata.mobileNumber],
+ facebookId=#[sessionVars.completedata.facebookId],
+linkedinId=#[sessionVars.completedata.linkedinId],
+googleplusId=#[sessionVars.completedata.googleplusId],
+twitterId=#[sessionVars.completedata.twitterId],
+homePhone=#[sessionVars.completedata.homePhone]
+
+
+WHERE userRef=#[sessionVars.completedata.userRef];]]></db:parameterized-query>
+
+                </db:update>
+                <logger level="INFO" doc:name="Logger" message="#[payload]"/>
+                <choice doc:name="Choice">
+                    <when expression="payload==1">
+                        <set-variable variableName="userRef" value="#[flowVars.headerPost.userRef]" doc:name="userRef"/>
+        <set-payload value="#[sessionVars.completedata]" doc:name="Set Payload"/>
+                        <set-variable variableName="setpayload" value="#[payload.put('profileCompleteness',flowVars.basicProfilepercent)]" doc:name="setpayload"/>
+                        <set-payload value="#[payload]" doc:name="Set Payload"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="anzuser/userInfo/{userRef}" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                                <http:uri-param paramName="userRef" value="#[flowVars.userRef]"/>
+
+
+            </http:request-builder>
+        </http:request>
+                        <json:json-to-object-transformer doc:name="JSON to Object"/>
+                        <set-payload value="{  &quot;header&quot;:{          &quot;guid&quot;:&quot;#[flowVars.headerPost.guid]&quot;,           &quot;requestedOn&quot;:&quot;#[flowVars.headerPost.requestedOn]&quot;,           &quot;requestedFrom&quot;:&quot;#[flowVars.headerPost.requestedFrom]&quot;,            &quot;geoLocation&quot;:&quot;#[flowVars.headerPost.geoLocation]&quot;,            &quot;userRef&quot; :&quot;#[flowVars.headerPost.userRef]&quot;            },           &quot;body&quot;:{           &quot;message&quot;:&quot;profile is updated&quot;                 }   }" doc:name="Set Payload"/>
+                    </when>
+                    <otherwise>
+                        <logger level="INFO" doc:name="Logger"/>
+                    </otherwise>
+                </choice>
+            </otherwise>
+        </choice>
+
+    </flow>
+    <flow name="postValidation">
+        <validation:all config-ref="Validation_Configuration" doc:name="Validation">
+            <validation:validations>
+                <validation:is-not-empty value="#[payload.header.guid]" message="guid should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.userRef]" message="userRef should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.geoLocation]" message="geoLocation should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.requestedFrom]" message="requestedFrom should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.requestedOn]" message="requestedOn should not be empty"/>
+
+            </validation:validations>
+        </validation:all>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-property propertyName="http.status" value="400" doc:name="400"/>
+            <set-payload value="{&quot;header&quot;:{ &quot;guid&quot;:&quot;#[payload.header.guid]&quot;, &quot;geoLocation&quot;:&quot;#[payload.header.geoLocation]&quot;, &quot;requestedOn&quot;:&quot;#[payload.header.requestedOn]&quot;, &quot;requestedFrom&quot;:&quot;#[payload.header.requestedFrom]&quot; }, &quot;body&quot;:{ &quot;status&quot;:&quot;error&quot;, &quot;statusCode&quot;:&quot;-1&quot; &quot;message&quot;:&quot;#['error'+exception]&quot; } }" doc:name="Set Payload"/>
+            <set-variable variableName="checker" value="#[payload]" doc:name="checker"/>
+        </catch-exception-strategy>
+    </flow>
+    <apikit:mapping-exception-strategy name="anz_edit_operations-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>

@@ -1,0 +1,43 @@
+#%RAML 0.8
+title: anz_userAccountDetails
+version: 1.0
+/accountDetails:
+  post:
+    body: 
+      application/json:
+        example: |
+          {
+          "header":{
+          "guid":"12345-5234-2345-6543",
+          "geoLocation":"HYD",
+          "requestFrom":"HYd",
+          "requestOn":"798/98/752"
+          },
+          "body":{
+          "emailId":"user@123"
+          }
+          }
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: |
+              {
+              "header":{
+              "guid":"12345-5234-2345-6543",
+              "geoLocation":"HYD",
+              "requestFrom":"HYd",
+              "requestOn":"798/98/752"
+              },
+              "body":{
+              "userRef":"user@123",
+              "gender":"Male",
+              "religion":"hindu",
+              "age":"20"
+              }
+              }
+              
+              
+              
+              
+              

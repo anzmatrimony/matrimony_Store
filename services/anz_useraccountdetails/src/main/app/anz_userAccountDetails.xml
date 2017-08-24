@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    <http:listener-config name="anz_userAccountDetails-httpListenerConfig" host="0.0.0.0" port="3666" doc:name="HTTP Listener Configuration"/>
+    <apikit:config name="anz_userAccountDetails-config" raml="anz_userAccountDetails.raml" consoleEnabled="false" doc:name="Router"/>
+       <db:mysql-config name="MySQL_Configuration" host="192.168.0.116" port="3306" user="root" password="Massil@123" database="anz_matrimony" doc:name="MySQL Configuration"/>
+    <flow name="anz_userAccountDetails-main">
+        <http:listener config-ref="anz_userAccountDetails-httpListenerConfig" path="/api/*" doc:name="HTTP">
+            <http:response-builder>
+                <http:header headerName="access-control-allow-origin" value="*"/>
+            </http:response-builder>
+        </http:listener>
+        <apikit:router config-ref="anz_userAccountDetails-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="anz_userAccountDetails-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="anz_userAccountDetails-console">
+        <http:listener config-ref="anz_userAccountDetails-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="anz_userAccountDetails-config" doc:name="APIkit Console"/>
+    </flow>
+    <flow name="post:/accountDetails:anz_userAccountDetails-config">
+      <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+       <set-variable variableName="header" value="#[payload.header]" doc:name="Variable"/>
+       <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+       <db:select config-ref="MySQL_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[SELECT userRef,age,gender,religion FROM anz_matrimony.anz_userbasicdata where emailId=#[payload.body.emailId];]]></db:parameterized-query>
+
+
+       </db:select>
+       <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <set-payload value="#[payload[0]]" doc:name="Set Payload"/>
+       <set-payload value="{&quot;header&quot;:{&quot;guid&quot;:&quot;#[flowVars.header.guid]&quot;,&quot;responsefrom&quot;:&quot;db&quot;,&quot;requestedOn&quot;:&quot;#[flowVars.header.requestedOn]&quot;,&quot;geoLocation&quot;:&quot;#[flowVars.header.geoLocation]&quot;},&quot;body&quot;:{&quot;userRef&quot;:&quot;#[payload.userRef]&quot;,&quot;gender&quot;:&quot;#[payload.gender]&quot;,&quot;age&quot;:&quot;#[payload.age]&quot;,&quot;religion&quot;:&quot;#[payload.religion]&quot;}}" doc:name="Set Payload" mimeType="application/json"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    <apikit:mapping-exception-strategy name="anz_userAccountDetails-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>

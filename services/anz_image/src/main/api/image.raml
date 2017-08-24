@@ -1,0 +1,40 @@
+#%RAML 0.8
+title: anz_image
+version: 1.0
+/Create:
+ post:
+   body: 
+     application/json:
+         example:  |
+            {
+              "header": {
+                "guid": "a2306dfa-b8e5-4d1e-ba36-249a8fa10f0c",
+                "geoLocation": "America",
+                "requestFrom": "user@123",
+                "requestedOn": "17/06/2017",
+                "useRef":"user@123"
+              },
+              "body": {
+                "image": "image1",
+                "imageName":"profile"
+              }
+              }
+   responses: 
+     201:
+       body: 
+         application/json:
+           example: |
+               {
+                "header": {
+                  "guid": "a2306dfa-b8e5-4d1e-ba36-249a8fa10f0c",
+                  "geoLocation": "America",
+                  "requestFrom": "ANZ",
+                  "requestedOn": "17/06/2017]",
+                  "statusCode": "0",
+                  "status": "success"
+                },
+                "body": {
+                  "message": "image inserted  sucessfully"
+                  }
+                  }
+    

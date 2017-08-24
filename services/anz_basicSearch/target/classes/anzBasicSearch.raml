@@ -1,0 +1,71 @@
+#%RAML 0.8
+title: anz_profile_basic_search
+version: 1.0
+protocols: [HTTP]
+/basicSearch:
+  post:
+     body:
+       application/json:
+         example: |
+               {"header":{"guid":"",
+                "requestOn":"",
+                "requestFrom":"",
+                "userRef":"",
+                "geoLocation":""
+                },
+                "body":{
+                "gender":"Male",
+                "religion":"Hindu",
+                "ageFrom":"",
+                "ageTo":"",
+                "rangeFrom":"",
+                "rangTo":""
+                }
+                }
+     responses:
+       200:
+         body:
+           application/json:
+             example: |
+               {
+               "header":{
+                   "guid":"",
+                  "requestOn":"",
+                  "requestFrom":"",
+                  "userRef":"",
+                  "geoLocation":"",
+                  "status":"success",
+                    "statusCode:"0"
+                  
+                  },
+                  "body":[
+                    {
+                   "first_name" : "123456",
+                  "last_name" : "123456",
+                  "gender" : "123456",
+                  "dob" : "123456",
+                  "religion" : "123456"
+                  },
+                  {
+                   "first_name" : "123456",
+                  "last_name" : "123456",
+                  "gender" : "123456",
+                  "dob" : "123456",
+                  "religion" : "123456"
+                  },
+                  {
+                   "first_name" : "123456",
+                  "last_name" : "123456",
+                  "gender" : "123456",
+                  "dob" : "123456",
+                  "religion" : "123456"
+                  },
+                  {
+                   "first_name" : "123456",
+                  "last_name" : "123456",
+                  "gender" : "123456",
+                  "dob" : "123456",
+                  "religion" : "123456"
+                  }
+                  ]
+                  }

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:context="http://www.springframework.org/schema/context" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:validation="http://www.mulesoft.org/schema/mule/validation"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd">
+    <http:listener-config name="anzBasicSearch-httpListenerConfig" host="0.0.0.0" port="${http.Main}" doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="${elk.host}" port="${elk.port}" basePath="${elk.BasePath}" doc:name="HTTP Request Configuration"/>
+    <apikit:config name="anzBasicSearch-config" raml="anzBasicSearch.raml" consoleEnabled="false" doc:name="Router"/>
+    <validation:config name="Validation_Configuration" doc:name="Validation Configuration"/>
+    <context:property-placeholder location="anz-dev.properties"/>
+    <validation:exception-factory name="Validation_Exception_Factory" doc:name="Validation Exception Factory"/>
+    <flow name="anzBasicSearch-main">
+        <http:listener config-ref="anzBasicSearch-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
+        <apikit:router config-ref="anzBasicSearch-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="anzBasicSearch-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="anzBasicSearch-console">
+        <http:listener config-ref="anzBasicSearch-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="anzBasicSearch-config" doc:name="APIkit Console"/>
+    </flow>
+
+    <apikit:mapping-exception-strategy name="anzBasicSearch-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{
+&quot;status&quot;:&quot;failed&quot;,
+&quot;statusCode&quot;:&quot;404&quot;,
+ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{
+&quot;status&quot;:&quot;failed&quot;,
+&quot;statusCode&quot;:&quot;405&quot;,
+ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{
+&quot;status&quot;:&quot;failed&quot;,
+&quot;statusCode&quot;:&quot;415&quot;,
+ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ 
+&quot;status&quot;:&quot;failed&quot;,
+&quot;statusCode&quot;:&quot;406&quot;,
+&quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="#[error +exception]" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+    <flow name="anzBasicSearchFlow">
+        <validation:all config-ref="Validation_Configuration" doc:name="payload validation">
+            <validation:validations>
+                <validation:is-not-empty value="#[payload.header.guid]" message="{&quot;message&quot;:&quot;guid is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.header.requestOn]" message="{&quot;message&quot;:&quot;requestOn is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.header.requestFrom]" message="{&quot;message&quot;:&quot;requestFrom is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.header.userRef]" message="{&quot;message&quot;:&quot;userRef is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.body.gender]" message="{&quot;message&quot;:&quot;Gender is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.header.geoLocation]" message="{&quot;message&quot;:&quot;geoLocation is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.body.rangeFrom]" message="{&quot;message&quot;:&quot;rangeFrom is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.body.ageFrom]" message="{&quot;message&quot;:&quot;ageFrom is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.body]" message="{&quot;message&quot;:&quot;body should not empty&quot;}"/>
+                <validation:is-not-empty value="#[payload.body.ageTo]" message="{&quot;message&quot;:&quot;ageTo is required&quot;}"/>
+                <validation:is-not-empty value="#[payload.header]" message="{&quot;message&quot;:&quot;header should not be empty&quot;}"/>
+                <validation:is-not-empty value="#[payload.body.religion]" message="{&quot;message&quot;:&quot;religion in required&quot;}"/>
+                <validation:is-not-empty value="#[payload.body.rangeTo]" message="{&quot;message&quot;:&quot;rangeTo is required&quot;}"/>
+                <validation:is-not-null value="#[payload.body.rangeTo]" message="{&quot;message&quot;:&quot;rangeTo should not be null&quot;}"/>
+                <validation:is-not-null value="#[payload.body.religion]" message="{&quot;message&quot;:&quot;religion should not be null&quot;}"/>
+                <validation:is-not-null value="#[payload.body.ageFrom]" message="{&quot;message&quot;:&quot;ageFrom should not be null&quot;}"/>
+                <validation:is-not-null value="#[payload.body.ageTo]" message="{&quot;message&quot;:&quot;ageTo should not be null&quot;}"/>
+                <validation:is-not-null value="#[payload.body.rangeFrom]" message="{&quot;message&quot;:&quot;rangeFrom should not be null&quot;}"/>
+                <validation:is-not-null value="#[payload.body.gender]" message="{&quot;message&quot;:&quot;gender should not be null&quot;}"/>
+            </validation:validations>
+        </validation:all>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-property propertyName="http.status" value="400" doc:name="Property"/>
+            <set-payload value="#['error:'+exception]" doc:name="Set Payload"/>
+            <set-session-variable variableName="choice" value="#[payload]" doc:name="Session Variable"/>
+        </catch-exception-strategy>
+    </flow>
+    <flow name="post:/basicSearch:anzBasicSearch-config">
+        <json:json-to-object-transformer returnClass="java.lang.Object" doc:name="JSON to Object"/>
+        <flow-ref name="anzBasicSearchFlow" doc:name="anzBasicSearchFlow"/>
+        <choice doc:name="Choice">
+            <when expression="sessionVars.choice!=null">
+                <logger level="INFO" doc:name="Logger"/>
+            </when>
+            <otherwise >
+                <set-variable variableName="params" value="#[payload]" doc:name="params"/>
+                <set-payload value="{
+	&quot;query&quot;: {
+		&quot;bool&quot;: {
+			&quot;must&quot;: [{
+				&quot;match&quot;: {
+					&quot;gender&quot;: &quot;#[payload.body.gender]&quot;
+				}
+			}, {
+				&quot;match&quot;: {
+					&quot;religion&quot;: &quot;#[payload.body.religion]&quot;
+				}
+			}],
+			&quot;filter&quot;: {
+				&quot;range&quot;: {
+					&quot;age&quot;: {
+						&quot;gte&quot;:&quot;#[payload.body.ageFrom]&quot;,
+						&quot;lte&quot;: &quot;#[payload.body.ageTo]&quot;
+					}
+				}
+			}
+		}
+	},
+	&quot;from&quot;: 0,
+	&quot;size&quot;: 50
+
+}" doc:name="query for elasticSearch"/>
+                <set-session-variable variableName="httpmethod" value="#[message.inboundProperties['http.method']]" doc:name="httpmethod"/>
+                <http:request config-ref="HTTP_Request_Configuration" path="/_search" method="POST" doc:name="ElasticSearch"/>
+                <set-variable variableName="sources" value="#[[]]" doc:name="sources"/>
+                <enricher source="#[(_source in payload.hits.hits)]" target="#[flowVars.sources]" doc:name="Message Enricher">
+                    <json:json-to-object-transformer returnClass="java.util.HashMap" doc:name="JSON to Object"/>
+                </enricher>
+                <set-payload value="#[flowVars.sources]" doc:name="Result Payload"/>
+                <json:object-to-json-transformer doc:name="Object to JSON"/>
+                <set-payload value="{&quot;header&quot;:{  &quot;guid&quot;: &quot; #[flowVars.params.header.guid]&quot;,  &quot;userRef&quot;: &quot;#[flowVars.params.header.userRef]&quot;,  &quot;responsedatetime&quot;: &quot;#[server.dateTime.withTimeZone('GMT+5:30').format('MM/dd/yyyy,HH:mm:ss')]&quot;,  &quot;responsefrom&quot;: &quot; ElasticSearch&quot;,  &quot;geoLocation&quot;: &quot;#[flowVars.params.header.geoLocation]&quot;,&quot;status&quot;:&quot;success&quot;,&quot;statusCode&quot;:&quot;0&quot;}, &quot;body&quot;:#[payload] }" doc:name="Result"/>
+            </otherwise>
+        </choice>
+    </flow>
+
+</mule>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns:context="http://www.springframework.org/schema/context" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd">
+    <http:listener-config name="image-httpListenerConfig" host="0.0.0.0" port="${http}" doc:name="HTTP Listener Configuration"/>
+    <apikit:config name="image-config" raml="image.raml" consoleEnabled="false" doc:name="Router"/>
+    <file:connector name="File"  autoDelete="false" streaming="true" validateConnections="true" doc:name="File" />
+    <context:property-placeholder location="matri-ANZ.properties"/>
+    <validation:config name="Validation_Configuration" doc:name="Validation Configuration"/>
+       <flow name="image-main">
+        <http:listener config-ref="image-httpListenerConfig" path="/api/*" doc:name="HTTP"/>
+        <apikit:router config-ref="image-config" doc:name="APIkit Router"/>
+        <exception-strategy ref="image-apiKitGlobalExceptionMapping" doc:name="Reference Exception Strategy"/>
+    </flow>
+    <flow name="image-console">
+        <http:listener config-ref="image-httpListenerConfig" path="/console/*" doc:name="HTTP"/>
+        <apikit:console config-ref="image-config" doc:name="APIkit Console"/>
+    </flow>
+    <flow name="post:/Create:image-config">
+        <json:json-to-object-transformer returnClass="java.util.HashMap" doc:name="JSON to Object"/>
+        <set-variable variableName="header" value="#[payload.header]" doc:name="Variable"/>
+        <flow-ref name="validationFlow" doc:name="validationFlow"/>
+        <choice doc:name="Choice">
+            <when expression="flowVars.validationChecker!=null">
+                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+            </when>
+            <otherwise>
+                <set-variable variableName="imageName" value="#[payload.body.imageName]" doc:name="imageName"/>
+                <set-variable variableName="image" value="#[(org.apache.commons.codec.binary.Base64.decodeBase64(payload.body.image))]" doc:name="Variable"/>
+                <logger message="#[flowVars.image]" level="INFO" doc:name="Logger"/>
+                <set-payload value="#[flowVars.image]" doc:name="Set Payload"/>
+                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+                <file:outbound-endpoint path="${File}" outputPattern="#[flowVars.imageName].jpg" connector-ref="File" responseTimeout="10000" doc:name="File"/>
+                <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+                <set-payload value="{  &quot;header&quot;: {    &quot;guid&quot;: &quot;#[flowVars.header.guid]&quot;,    &quot;geoLocation&quot;: &quot;#[flowVars.header.geoLocation]&quot;,    &quot;requestFrom&quot;: &quot;#[flowVars.header.requestFrom]&quot;,    &quot;requestedOn&quot;: &quot;#[flowVars.header.requestedOn]&quot;,    &quot;statusCode&quot;: &quot;0&quot;,    &quot;status&quot;: &quot;success&quot;  },  &quot;body&quot;: {    &quot;message&quot;: &quot;image inserted  sucessfully&quot;    }    }" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <flow name="validationFlow">
+        <validation:all config-ref="Validation_Configuration" doc:name="Validation">
+            <validation:validations>
+                <validation:is-not-empty value="#[payload.body]" message="body should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.requestedOn]" message="requestedOn should not be null"/>
+                <validation:is-not-empty value="#[payload.body.image]" message="image should not be null"/>
+                <validation:is-not-empty value="#[payload.body.imageName]" message="imageName should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.requestFrom]" message="requestFrom should not be null"/>
+                <validation:is-not-empty value="#[payload.header.geoLocation]" message="geoLocation should not be null"/>
+                <validation:is-not-empty value="#[payload.header]" message="header should not be empty"/>
+                <validation:is-not-empty value="#[payload.header.guid]" message="guid should not be null"/>
+                <validation:is-not-empty value="#[payload.header.userRef]" message="userRef should not be null"/>
+            </validation:validations>
+        </validation:all>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-property propertyName="http.status" value="400" doc:name="Property"/>
+            <set-payload value="{  &quot;header&quot;: {    &quot;guid&quot;: &quot;#[flowVars.header.guid]&quot;,    &quot;geoLocation&quot;: &quot;#[flowVars.header.geoLocation]&quot;,    &quot;requestFrom&quot;: &quot;#[flowVars.header.requestFrom]&quot;,    &quot;requestedOn&quot;: &quot;#[flowVars.header.requestedOn]&quot;,    &quot;statusCode&quot;: &quot;-1&quot;,   &quot;status&quot;: &quot;error&quot;  },  &quot;body&quot;: {  &quot;message&quot;: &quot;#['error'+exception]&quot;  }    }" doc:name="Set Payload"/>
+            <set-variable variableName="validationChecker" value="#[payload]" doc:name="Variable"/>
+        </catch-exception-strategy>
+    </flow>
+    <apikit:mapping-exception-strategy name="image-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" doc:name="Property"/>
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" doc:name="Set Payload"/>
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>

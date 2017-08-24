@@ -1,0 +1,141 @@
+#%RAML 0.8
+title: anz_edit_operations
+version: 1.0
+/getDetails:
+ post:
+   body: 
+     application/json:
+       example: |
+               {  "header":{
+                        "guid":"",
+                         "requestedOn":"",
+                         "requestedFrom":"",
+                          "geoLocation":""
+                         },
+                         "body":{
+                         "userRef" :"" 
+                               }   }    
+   responses: 
+     200:
+       body: 
+         application/json:
+           example: |
+             {
+              "header":{
+                    "guid":"",
+                    "responseOn":"",
+                    "responseFrom" :"",
+                    "geoLocation" : ""
+                },
+                "body":{
+                     "userRef" :"user@123" ,
+                    "status":"success",
+                    "statusCode":"0",
+                  "Date of Birth":" 13-01-1996",
+                  "firstname":"userFname",
+                  "lastname":"userLname",
+                  "Mother Tongue":"Telugu",
+                  "Marital Status":"Single",
+                  "Height":"5.6",
+                  "Body Type":"fit",
+                  "Body Wegiht":"70 kg",
+                  "Skin Type":"fair",
+                  "Diet":"Veg",
+                  "Drink":"NO",
+                  "Smoke":"Yes",
+                  "religion ":"hindu",
+                  "community" : "vysya",
+                  "sub_community" : "vysya",
+                  "gothra" : "balisettla",
+                  "zodiac_sign" : "gemini",
+                  "college " : "jntu",
+                  "working_with" : "Massil",
+                  "working_as" : "Developer",
+                  "annual_income" : "20000",
+                  "working_location" : "Hyderabad",
+                  "father_status" : "business man",
+                  "mother_status" : "home maker",
+                  "native_place" : "hyderabag",
+                  "siblings" : "no",
+                  "hobbies" : "Reading Books",
+                  "interests" : "Politics",
+                  "favourite Music" : "Melody",
+                  "favourite Movie" : "Bahubali2",
+                  "favourite sports" : "Cricket",
+                  "favourite Books" : "Wings of fire",
+                   "mobile_number":"999999999",
+                   "facebook_id":"gxyz@gmail.com",
+                  "linkedin_id":"gxyz@gmail.com",
+                  "twitter_id":"gxyz@gmail.com",
+                  "googleplus_id":"gxyz@gmail.com"
+               }
+               }
+/postEditDetails:
+  post:
+    body: 
+      application/json:
+        example: |
+               {
+                "header":{
+                      "guid":"",
+                      "responseOn":"",
+                      "responseFrom" :"",
+                      "geoLocation" : "",
+                      "userRef" :"user@123" 
+                  },
+                  "body":{
+                    "Date of Birth":" 13-01-1996",
+                    "firstname":"userFname",
+                    "lastname":"userLname",
+                    "Mother Tongue":"Telugu",
+                    "Marital Status":"Single",
+                    "Height":"5.6",
+                    "Body Type":"fit",
+                    "Body Wegiht":"70 kg",
+                    "Skin Type":"fair",
+                    "Diet":"Veg",
+                    "Drink":"NO",
+                    "Smoke":"Yes",
+                    "religion ":"hindu",
+                    "community" : "vysya",
+                    "sub_community" : "vysya",
+                    "gothra" : "balisettla",
+                    "zodiac_sign" : "gemini",
+                    "college " : "jntu",
+                    "working_with" : "Massil",
+                    "working_as" : "Developer",
+                    "annual_income" : "20000",
+                    "working_location" : "Hyderabad",
+                    "father_status" : "business man",
+                    "mother_status" : "home maker",
+                    "native_place" : "hyderabag",
+                    "siblings" : "no",
+                    "hobbies" : "Reading Books",
+                    "interests" : "Politics",
+                    "favourite Music" : "Melody",
+                    "favourite Movie" : "Bahubali2",
+                    "favourite sports" : "Cricket",
+                    "favourite Books" : "Wings of fire",
+                     "mobile_number":"9849052520",
+                     "facebook_id":"gxyz@gmail.com",
+                    "linkedin_id":"gxyz@gmail.com",
+                    "twitter_id":"gxyz@gmail.com",
+                    "googleplus_id":"gxyz@gmail.com"
+                 }
+                 }
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: |
+               {  "header":{
+                        "guid":"",
+                         "requestedOn":"",
+                         "requestedFrom":"",
+                          "geoLocation":"",
+                          "userRef" :"" 
+                         },
+                         "body":{
+                         "message":"profile is updated"
+                               }   }  
+       
